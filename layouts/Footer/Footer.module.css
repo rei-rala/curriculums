@@ -1,0 +1,24 @@
+.footer {
+  position: sticky;
+
+  display: grid;
+  place-items: center;
+  bottom: 0;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.footerInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: auto;
+  max-width: var(--max-width);
+  background-color: red !important;
+}
+
+.footer,
+.footerInner {
+  width: 100%;
+}

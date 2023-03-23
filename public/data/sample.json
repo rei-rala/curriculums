@@ -1,0 +1,116 @@
+[
+	{
+		"id": "abc123",
+		"personal": {
+			"name": "Testito",
+			"surname": "bolainas",
+			"linkedin": "",
+			"phone": "123123123",
+			"location": "su casa"
+		},
+		"about": "Busco aprobar",
+		"strengths": [
+			{
+				"title": "Ansioso",
+				"description": "Intento adelantar trabajo"
+			}
+		],
+		"certifications": [
+			{
+				"institution": "UADE",
+				"title": "Ingenieria en Sistemas",
+				"year": 2025
+			}
+		],
+		"contact": {
+			"alias": "asd",
+			"email": "asd",
+			"phone": "asd"
+		},
+		"experience": [
+			{
+				"from": "2020/03/22",
+				"to": "2023/03/22",
+				"employer": "UADE",
+				"position": "Gil laburante Sr."
+			}
+		],
+		"languages": [
+			{
+				"name": "Spanish",
+				"level": "Native"
+			},
+			{
+				"name": "English",
+				"level": "C2"
+			}
+		],
+		"skills": [
+			{
+				"kind": "Hard",
+				"title": "Matematico"
+			},
+			{
+				"kind": "Soft",
+				"title": "Malo"
+			}
+		]
+	},
+	{
+		"id": "abc124",
+		"personal": {
+			"name": "Testingg",
+			"surname": "Bolainas2",
+			"linkedin": "",
+			"phone": "123123123",
+			"location": "su casa"
+		},
+		"about": "Busco aprobar",
+		"strengths": [
+			{
+				"title": "Ansioso",
+				"description": "Intento adelantar trabajo"
+			}
+		],
+		"certifications": [
+			{
+				"institution": "UADE",
+				"title": "Ingenieria en Sistemas",
+				"year": 2025
+			}
+		],
+		"contact": {
+			"alias": "asd",
+			"email": "asd",
+			"phone": "asd"
+		},
+		"experience": [
+			{
+				"from": "2020/03/22",
+				"to": "2023/03/22",
+				"employer": "UADE",
+				"position": "Gil laburante Sr."
+			}
+		],
+		"languages": [
+			{
+				"name": "Spanish",
+				"level": "Native"
+			},
+			{
+				"name": "English",
+				"level": "C2"
+			}
+		],
+		"skills": [
+			{
+				"kind": "Hard",
+				"title": "Matematico"
+			},
+			{
+				"kind": "Soft",
+				"title": "Mucho mas malo"
+			}
+		]
+	}
+]

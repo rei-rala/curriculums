@@ -1,0 +1,12 @@
+.contentWrapper {
+    display: grid;
+    place-items: center;
+    width: 100%;
+  }
+  
+  .contentInner {
+    width: 100%;
+    max-width: var(--max-width);
+    background-color: bisque;
+    color: black;
+  }
