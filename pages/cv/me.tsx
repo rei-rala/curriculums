@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import Personal from "../../Components/curriculum/Personal/Personal";
-import { IProfile } from "../../types";
+import Personal from "@/components/curriculum/Personal/Personal";
 
 const MyCvPage: DefaultFC = () => {
   let myId = "abc123";
-  const [profile, setProfile] = useState<IProfile>();
+  const [profile, setProfile] = useState<Profile>();
 
   useEffect(() => {
     fetch("/data/sample.json")
       .then((r) => r.json())
-      .then((r: IProfile[]) => r.find((p) => p.id === myId))
+      .then((r: Profile[]) => r.find((p) => p.id === myId))
       .then((p) => {
         if (p) setProfile(p);
       });

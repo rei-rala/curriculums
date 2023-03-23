@@ -1,7 +1,6 @@
 import React from "react";
-import { IProfile } from "../../../types";
 
-const Personal: ExtendedFC<{ personal: IProfile }> = (props) => {
+const Personal: ExtendedFC<{ personal: Profile }> = (props) => {
   const { name, surname, about } = props.personal;
 
   return (

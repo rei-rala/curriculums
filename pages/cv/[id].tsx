@@ -1,4 +1,4 @@
-import Personal from "@/Components/curriculum/Personal/Personal";
+import Personal from "@/components/curriculum/Personal/Personal";
 import axios from "axios";
 import Link from "next/link";
 import React, { useState } from "react";
