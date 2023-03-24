@@ -1,0 +1,19 @@
+.navigationWrapper {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+.navigationInner {
+  width: 100%;
+  background-color: bisque;
+  text-transform: uppercase;
+
+  width: var(--content-max-width);
+  max-width: var(--max-width);
+}
+
+.navigationInner :not(a) {
+  cursor: default;
+}

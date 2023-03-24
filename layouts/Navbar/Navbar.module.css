@@ -6,6 +6,7 @@
   place-items: center;
   width: 100%;
   margin-bottom: 0.5rem;
+  z-index: 11;
 }
 
 .navbar {
@@ -16,7 +17,10 @@
   
   height: 3rem;
   width: 100%;
+  
+  width: var(--content-max-width);
   max-width: var(--max-width);
+
   background-color: red;
 }
 

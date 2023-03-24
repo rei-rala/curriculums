@@ -1,14 +1,13 @@
 import React from "react";
 
-const Personal: ExtendedFC<{ personal: Profile }> = (props) => {
-  const { name, surname, about } = props.personal;
+const Personal: ExtendedFC<{ personal: Personal }> = ({ personal }) => {
+  const { name, surname, about } = personal;
 
   return (
     <div>
       <h1>
         {name} {surname}
       </h1>
-      <hr />
       <div>{about}</div>
     </div>
   );

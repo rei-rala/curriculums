@@ -1,52 +1,72 @@
-import Personal from "@/components/curriculum/Personal/Personal";
-import axios from "axios";
-import Link from "next/link";
 import React, { useState } from "react";
+import Link from "next/link";
+
+import Personal from "@/components/curriculum/Personal/Personal";
+import axios, { AxiosRequestConfig } from "axios";
+import Head from "next/head";
 
 export async function getServerSideProps(ctx: any) {
   const id = ctx.query.id ?? null;
+  let profile = null;
 
-  const options = {
-    method: "get",
-    url: "/api/profile",
-    data: { id },
-  };
+  if (id) {
+    const options: AxiosRequestConfig = {
+      method: "get",
+      baseURL: "http://localhost:3000/api",
+      url: `profiles/id/${id}`,
+    };
 
-  let data =
-    (await axios("http://localhost:3000/api/profile", options)).data ?? null;
+    try {
+      profile = (await axios<{profile: Profile}>(options)).data?.profile;
+    } catch (e) {
+      console.log(`error => ` + e)
+    }
+  }
+
 
   return {
     props: {
-      profileFound: data.profile || null,
+      profile
     },
   };
 }
 
-const CvPage: React.FC<{ profileFound: Profile }> = ({ profileFound }) => {
-  const [profile, setProfile] = useState<Profile | null>(profileFound);
+const CvPage: CurriculumPage = ({ profile }) => {
 
   if (!profile)
     return (
       <>
+        <Head>
+          <title>CV no encontrado | Curriculums</title>
+        </Head>
         <h2>No se encontro perfil, perejil</h2>
         <Link href="/cv">Volver</Link>
       </>
     );
 
+  const {
+    id,
+    personal,
+    strengths,
+    contact,
+    languages,
+    certifications,
+    experience,
+    skills,
+  } = profile
+
   return (
     <>
-      <i>{profile.id}</i>
-      <Personal personal={profile.personal} />
-
-      <div>
-        <h3>About</h3>
-        {profile.about}
-      </div>
+      <Head>
+        <title>{`CV de ${contact?.alias || personal?.name || id} | Curriculums`}</title>
+      </Head>
+      <Personal personal={personal} />
+      <hr />
 
       <div>
         <h3>Strengths</h3>
         <ul>
-          {profile.strengths.map((s) => (
+          {strengths.map((s) => (
             <li key={s.title}>
               <p>
                 <b>{s.title}:</b> {s.description}
@@ -59,7 +79,7 @@ const CvPage: React.FC<{ profileFound: Profile }> = ({ profileFound }) => {
       <div>
         <h3>Certifications</h3>
         <ul>
-          {profile.certifications.map((c, i) => (
+          {certifications.map((c, i) => (
             <li key={c.institution + c.year + i}>
               <p>{c.title}</p>
               <p>
@@ -70,28 +90,13 @@ const CvPage: React.FC<{ profileFound: Profile }> = ({ profileFound }) => {
         </ul>
       </div>
 
-      <div>
-        <h3>Experience</h3>
-        <ul>
-          {profile.experience
-            .sort((a, b) => (a.from > b.to ? -1 : 1))
-            .map((e, i) => (
-              <li key={e.employer + i + e.from + e.to}>
-                <b>{e.position}</b> <i>{e.employer}</i>
-                <div>
-                  {new Date(e.from).toLocaleDateString()} -{" "}
-                  {new Date(e.to).toLocaleDateString()}
-                </div>
-              </li>
-            ))}
-        </ul>
-      </div>
+
 
       <div>
         <h3>Languages</h3>
 
         <ul>
-          {profile.languages.map((l) => (
+          {languages.map((l) => (
             <li key={l.name}>
               <p>
                 <b>{l.name}</b>: {l.level}
@@ -103,9 +108,8 @@ const CvPage: React.FC<{ profileFound: Profile }> = ({ profileFound }) => {
 
       <div>
         <h3>Skills</h3>
-
         <ul>
-          {profile.skills
+          {skills
             .sort((a, b) => (a.kind > b.kind ? 1 : -1))
             .map((s) => (
               <li key={s.kind + s.title}>

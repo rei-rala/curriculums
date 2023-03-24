@@ -5,7 +5,7 @@
   }
   
   .contentInner {
-    width: 100%;
+    width: var(--content-max-width);
     max-width: var(--max-width);
     background-color: bisque;
     color: black;

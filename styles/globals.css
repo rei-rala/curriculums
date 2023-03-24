@@ -1,5 +1,6 @@
 :root {
-  --max-width: 800px;
+  --max-width: 1500px;
+  --content-max-width: 90%;
   --body-h-pading: 3rem;
 }
 
