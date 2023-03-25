@@ -8,8 +8,14 @@ export function getProtocol() {
 }
 
 export function getHostFromRequest(request: IncomingMessage) {
-  let protocol = getProtocol()
-  let host = request.headers.host
-   
-  return protocol + host
+  let protocol = getProtocol();
+  let host = request.headers.host;
+
+  return protocol + host;
+}
+
+export function getUrlFromClient() {
+  if (IS_SERVER) return "";
+
+  return window.location.origin;
 }

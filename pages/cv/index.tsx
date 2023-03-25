@@ -1,69 +1,63 @@
-import React from "react";
-import { Avatar, Box, Button, Card, CardActions, CardContent, CardHeader, IconButton } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import axios, { AxiosRequestConfig } from "axios";
-import { GetServerSidePropsContext } from "next";
+import { getUrlFromClient } from "@/utils";
+import { Box, SxProps } from "@mui/material";
+import ProfileCard from "@/components/ProfileCard/ProfileCard";
+import Link from "next/link";
 
-import { getHostFromRequest } from "@/utils";
+const boxSx: SxProps = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  gap: 2,
+  padding: 1,
+}
 
-export async function getServerSideProps(ctx: GetServerSidePropsContext) {
-  const host = getHostFromRequest(ctx.req)
-  let profiles: ProfilePartial[];
+
+async function getProfiles(): Promise<IProfilePartial[]> {
+  let url = getUrlFromClient()
 
   const options: AxiosRequestConfig = {
     method: "get",
-    baseURL: `${host}/api`,
+    baseURL: `${url}/api`,
     url: 'profiles/random',
   };
 
   try {
-    profiles = (await axios<ProfilePartial[]>(options)).data;
+    return (await axios<IProfilePartial[]>(options)).data
   } catch {
-    profiles = [];
+    return []
   }
-  return {
-    props: {
-      profiles,
-    },
-  };
 }
 
-const CvHomePage: ExtendedFC<{ profiles: ProfilePartial[] }> = ({ profiles }) => {
 
-  return <section>
-    <Box
-      sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: 2,
-      }}
-    >
+const CvHomePage = () => {
+  const [loading, setLoading] = useState(true);
+  const [profiles, setProfiles] = useState<IProfilePartial[]>([]);
+
+  useEffect(() => {
+    // Forzando un delay de 1 segundo para simular una carga mas alta
+    setTimeout(() => {
+      getProfiles()
+        .then(setProfiles)
+        .finally(() => setLoading(false))
+    }, 1000);
+  }, [])
+
+  return (
+    <Box sx={boxSx}>
       {
-        profiles.map((profile) => (
-          <Card
-            key={profile.id}
-            sx={{
-              maxWidth: 200,
-              minWidth: 200,
-            }}
-          >
-            <CardHeader
-              title={profile.alias}
-              avatar={
-                profile.photo
-                  ? <Avatar alt={`Foto de ${profile.alias}`} src="/static/images/avatar/1.jpg" />
-                  : <Avatar alt={profile.alias}>{profile.alias.charAt(0).toUpperCase() ?? "?"}</Avatar>
-              }
-            >
-            </CardHeader>
-            <CardActions>
-              <Button size="medium">Visitar perfil</Button>
-            </CardActions>
-          </Card>
-        ))
+        loading
+          ? Array(5).fill(null).map((_, i) => <ProfileCard key={`profileSkeleton-${i}`} />)
+          : profiles.length > 0
+            ? profiles.map((profile) => <ProfileCard key={profile.id} profile={profile} />)
+            : <> {/* TODO: create page */}
+              No hay perfiles creados aun, podrias <Link href={'/cv/create'}>crear uno</Link>
+            </>
 
       }
-    </Box>
-  </section>;
-};
+    </Box >
+  );
+}
 
 export default CvHomePage;

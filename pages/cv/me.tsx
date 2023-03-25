@@ -3,12 +3,12 @@ import Personal from "@/components/curriculum/Personal/Personal";
 
 const MyCvPage: DefaultFC = () => {
   let myHardcodedId = "abc123";
-  const [profile, setProfile] = useState<Profile>();
+  const [profile, setProfile] = useState<IProfile>();
 
   useEffect(() => {
     fetch("/data/sample.json")
       .then((r) => r.json())
-      .then((r: Profile[]) => r.find((p) => p.id === myHardcodedId))
+      .then((r: IProfile[]) => r.find((p) => p.id === myHardcodedId))
       .then((p) => {
         if (p) setProfile(p);
       });

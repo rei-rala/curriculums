@@ -1,42 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 import Personal from "@/components/curriculum/Personal/Personal";
 import axios, { AxiosRequestConfig } from "axios";
 import Head from "next/head";
-import { GetServerSidePropsContext } from "next";
 
-import { getHostFromRequest } from "@/utils";
+import { getUrlFromClient } from "@/utils";
+import { useRouter } from "next/router";
+import { Fade, LinearProgress } from "@mui/material";
 
-export async function getServerSideProps(ctx: GetServerSidePropsContext) {
-  const host = getHostFromRequest(ctx.req)
+async function getProfile(id: string): Promise<IProfile | null> {
+  let url = getUrlFromClient()
 
-  const id = ctx.query.id ?? null;
-  let profile = null;
-
-  if (id) {
-    const options: AxiosRequestConfig = {
-      method: "get",
-      baseURL: `${host}/api`,
-      url: `profiles/id/${id}`,
-    };
-
-    try {
-      profile = (await axios<{ profile: Profile }>(options)).data?.profile;
-    } catch (e) {
-      console.log(`error => ` + e)
-    }
-  }
-
-
-  return {
-    props: {
-      profile
-    },
+  const options: AxiosRequestConfig = {
+    method: "get",
+    baseURL: `${url}/api`,
+    url: `profiles/id/${id}`,
   };
+
+  try {
+    let { data } = await axios<{ profile: IProfile }>(options)
+    return data.profile
+  } catch {
+    return null
+  }
 }
 
-const CvPage: CurriculumPage = ({ profile }) => {
+
+const CvPage: DefaultFC = () => {
+  const router = useRouter()
+  const id = router.query.id as string
+
+  const [loading, setLoading] = useState(true);
+  const [profile, setProfile] = useState<IProfile | null>(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (id) {
+        getProfile(id)
+          .then(setProfile)
+          .finally(() => setLoading(false))
+      }
+    }, 1000)
+  }, [id])
+
+  if (loading)
+    return <LinearProgress />
 
   if (!profile)
     return (
@@ -50,7 +59,6 @@ const CvPage: CurriculumPage = ({ profile }) => {
     );
 
   const {
-    id,
     personal,
     strengths,
     contact,
@@ -65,66 +73,75 @@ const CvPage: CurriculumPage = ({ profile }) => {
       <Head>
         <title>{`CV de ${contact?.alias || personal?.name || id} | Curriculums`}</title>
       </Head>
-      <Personal personal={personal} />
-      <hr />
-
-      <div>
-        <h3>Strengths</h3>
-        <ul>
-          {strengths.map((s) => (
-            <li key={s.title}>
-              <p>
-                <b>{s.title}:</b> {s.description}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div>
-        <h3>Certifications</h3>
-        <ul>
-          {certifications.map((c, i) => (
-            <li key={c.institution + c.year + i}>
-              <p>{c.title}</p>
-              <p>
-                {c.institution} - {c.year}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </div>
 
 
+      {/* TODO */}
+      <Fade in>
+        <div>
+          <Personal personal={personal} />
+          <hr />
 
-      <div>
-        <h3>Languages</h3>
+          <div>
+            <h3>Strengths</h3>
+            <ul>
+              {strengths.map((s) => (
+                <li key={s.title}>
+                  <p>
+                    <b>{s.title}:</b> {s.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <ul>
-          {languages.map((l) => (
-            <li key={l.name}>
-              <p>
-                <b>{l.name}</b>: {l.level}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </div>
+          <div>
+            <h3>Certifications</h3>
+            <ul>
+              {certifications.map((c, i) => (
+                <li key={c.institution + c.year + i}>
+                  <p>{c.title}</p>
+                  <p>
+                    {c.institution} - {c.year}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-      <div>
-        <h3>Skills</h3>
-        <ul>
-          {skills
-            .sort((a, b) => (a.kind > b.kind ? 1 : -1))
-            .map((s) => (
-              <li key={s.kind + s.title}>
-                <p>
-                  <b>{s.kind}</b>: {s.title}
-                </p>
-              </li>
-            ))}
-        </ul>
-      </div>
+
+
+          <div>
+            <h3>Languages</h3>
+
+            <ul>
+              {languages.map((l) => (
+                <li key={l.name}>
+                  <p>
+                    <b>{l.name}</b>: {l.level}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3>Skills</h3>
+            <ul>
+              {skills
+                .sort((a, b) => (a.kind > b.kind ? 1 : -1))
+                .map((s) => (
+                  <li key={s.kind + s.title}>
+                    <p>
+                      <b>{s.kind}</b>: {s.title}
+                    </p>
+                  </li>
+                ))}
+            </ul>
+          </div>
+        </div>
+      </Fade>
+
+
     </>
   );
 };

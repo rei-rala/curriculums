@@ -5,11 +5,10 @@ import { promises as fs } from "fs";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<{ profile: Profile | null }>
+  res: NextApiResponse<{ profile: IProfile | null }>
 ) {
   const { id } = req.query;
-  let profile: Profile | null;
-  
+  let profile: IProfile | null;
   
   try {
     if (id) {
@@ -17,7 +16,7 @@ export default async function handler(
       const fileContents = await fs.readFile(jsonDirectory + "/sample.json", "utf8");
       const json = JSON.parse(fileContents);
 
-      profile = json.find((p: Profile) => p.id === id);
+      profile = json.find((p: IProfile) => p.id === id);
 
       if (!profile) {
         throw new Error("No profile found");

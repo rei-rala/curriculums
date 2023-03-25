@@ -71,7 +71,4 @@ declare global {
     photo?: string;
     alias: string;
   }
-
-  type Profile = IProfile;
-  type ProfilePartial = IProfilePartial;
 }
