@@ -5,7 +5,7 @@ import { promises as fs } from "fs";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<{ profiles: ProfilePartial[]}>
+  res: NextApiResponse<{ profiles: IProfilePartial[]}>
 ) {
   let profiles;
 
