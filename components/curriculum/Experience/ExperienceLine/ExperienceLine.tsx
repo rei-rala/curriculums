@@ -6,7 +6,7 @@ const ExperienceLineComponent: ExtendedFC<{ experience: Experience }> = ({ exper
   let [fromStr, toStr] = [from.toLocaleDateString(), to.toLocaleTimeString()];
 
   return (
-    <li key={employer + position + i}>
+    <li>
       <p>{position}</p>
       <p><i>{employer}</i></p>
       <p>{fromStr} - {toStr}</p>
