@@ -1,15 +1,18 @@
+import React from "react";
 import { Avatar, Box, Button, Card, CardActions, CardContent, CardHeader, IconButton } from "@mui/material";
 import axios, { AxiosRequestConfig } from "axios";
-import React from "react";
+import { GetServerSidePropsContext } from "next";
 
+import { getHostFromRequest } from "@/utils";
 
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  const host = getHostFromRequest(ctx.req)
   let profiles: ProfilePartial[];
 
   const options: AxiosRequestConfig = {
     method: "get",
-    baseURL: "http://localhost:3000/api/profiles",
-    url: 'random',
+    baseURL: `${host}/api`,
+    url: 'profiles/random',
   };
 
   try {

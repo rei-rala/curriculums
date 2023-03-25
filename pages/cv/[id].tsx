@@ -4,20 +4,25 @@ import Link from "next/link";
 import Personal from "@/components/curriculum/Personal/Personal";
 import axios, { AxiosRequestConfig } from "axios";
 import Head from "next/head";
+import { GetServerSidePropsContext } from "next";
 
-export async function getServerSideProps(ctx: any) {
+import { getHostFromRequest } from "@/utils";
+
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  const host = getHostFromRequest(ctx.req)
+
   const id = ctx.query.id ?? null;
   let profile = null;
 
   if (id) {
     const options: AxiosRequestConfig = {
       method: "get",
-      baseURL: "http://localhost:3000/api",
+      baseURL: `${host}/api`,
       url: `profiles/id/${id}`,
     };
 
     try {
-      profile = (await axios<{profile: Profile}>(options)).data?.profile;
+      profile = (await axios<{ profile: Profile }>(options)).data?.profile;
     } catch (e) {
       console.log(`error => ` + e)
     }

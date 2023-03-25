@@ -2,17 +2,17 @@ import React, { useEffect, useState } from "react";
 import Personal from "@/components/curriculum/Personal/Personal";
 
 const MyCvPage: DefaultFC = () => {
-  let myId = "abc123";
+  let myHardcodedId = "abc123";
   const [profile, setProfile] = useState<Profile>();
 
   useEffect(() => {
     fetch("/data/sample.json")
       .then((r) => r.json())
-      .then((r: Profile[]) => r.find((p) => p.id === myId))
+      .then((r: Profile[]) => r.find((p) => p.id === myHardcodedId))
       .then((p) => {
         if (p) setProfile(p);
       });
-  }, [myId]);
+  }, [myHardcodedId]);
 
   if (!profile) return null;
 
