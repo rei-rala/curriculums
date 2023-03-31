@@ -1,13 +1,15 @@
 .footer {
-  position: sticky;
+  position: fixed;
+  bottom: 0;
 
   display: grid;
   place-items: center;
-  bottom: 0;
   margin-top: 0.5rem;
   
   width: 100%;
   z-index: 10;
+
+  transition: bottom 1s ease;
 }
 
 .footerInner {
@@ -19,4 +21,10 @@
   
   width: var(--content-max-width);
   max-width: var(--max-width);
+  
+  border-radius: 10px 10px 0 0;
+}
+
+.hidden {
+  bottom: -100%;
 }

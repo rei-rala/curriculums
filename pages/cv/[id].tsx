@@ -1,16 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
+import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
+
+import axios, { AxiosRequestConfig } from "axios";
+
+import { Fade, LinearProgress } from "@mui/material";
+import { getUrlFromClient } from "@/utils";
 
 import Personal from "@/components/curriculum/Personal/Personal";
-import axios, { AxiosRequestConfig } from "axios";
-import Head from "next/head";
-
-import { getUrlFromClient } from "@/utils";
-import { useRouter } from "next/router";
-import { Fade, LinearProgress } from "@mui/material";
 
 async function getProfile(id: string): Promise<IProfile | null> {
-  let url = getUrlFromClient()
+  let url = getUrlFromClient();
 
   const options: AxiosRequestConfig = {
     method: "get",
@@ -19,17 +20,16 @@ async function getProfile(id: string): Promise<IProfile | null> {
   };
 
   try {
-    let { data } = await axios<{ profile: IProfile }>(options)
-    return data.profile
+    let { data } = await axios<{ profile: IProfile }>(options);
+    return data.profile;
   } catch {
-    return null
+    return null;
   }
 }
 
-
 const CvPage: DefaultFC = () => {
-  const router = useRouter()
-  const id = router.query.id as string
+  const router = useRouter();
+  const id = router.query.id as string;
 
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState<IProfile | null>(null);
@@ -39,13 +39,12 @@ const CvPage: DefaultFC = () => {
       if (id) {
         getProfile(id)
           .then(setProfile)
-          .finally(() => setLoading(false))
+          .finally(() => setLoading(false));
       }
-    }, 1000)
-  }, [id])
+    }, 1000);
+  }, [id]);
 
-  if (loading)
-    return <LinearProgress />
+  if (loading) return <LinearProgress />;
 
   if (!profile)
     return (
@@ -66,14 +65,13 @@ const CvPage: DefaultFC = () => {
     certifications,
     experience,
     skills,
-  } = profile
+  } = profile;
 
   return (
     <>
       <Head>
-        <title>{`CV de ${contact?.alias || personal?.name || id} | Curriculums`}</title>
+        <title>{`${ contact?.alias || personal?.name || id } | Curriculums`}</title>
       </Head>
-
 
       {/* TODO */}
       <Fade in>
@@ -108,8 +106,6 @@ const CvPage: DefaultFC = () => {
             </ul>
           </div>
 
-
-
           <div>
             <h3>Languages</h3>
 
@@ -140,8 +136,6 @@ const CvPage: DefaultFC = () => {
           </div>
         </div>
       </Fade>
-
-
     </>
   );
 };

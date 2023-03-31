@@ -10,27 +10,39 @@
 }
 
 .navbar {
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+  gap: 2rem;
+
   height: 3rem;
-  width: 100%;
-  
   width: var(--content-max-width);
   max-width: var(--max-width);
 
   background-color: red;
+  border-radius: 0 0 10px 10px;
+
+  overflow: hidden;
+}
+
+.navbar :is(div, nav, ul, li) {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar > :is(div, nav) {
+  padding: 1rem;
 }
 
 .navbar ul {
   display: flex;
   list-style-type: none;
   gap: 1rem;
+}
 
-  margin: 0;
-  padding: 0;
+.navbar li {
+  display: grid;
+  place-items: center;
 }
 
 .navbar a {

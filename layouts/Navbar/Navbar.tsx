@@ -1,3 +1,4 @@
+import { PartialProfileAvatar } from "@/components/ProfileAvatar/ProfileAvatar";
 import Link from "next/link";
 import React from "react";
 
@@ -11,10 +12,12 @@ type NavLinkType = {
 const navLinks: NavLinkType[] = [
   { to: "/", text: "Home" },
   { to: "/cv", text: "Curriculums" },
-  { to: "/users", text: "Users" },
 ];
 
 const Navbar: DefaultFC = () => {
+
+  const loggedUser = null;
+
   return (
     <header className={styles.header}>
       <div className={styles.navbar}>
@@ -27,6 +30,11 @@ const Navbar: DefaultFC = () => {
                 <Link href={nl.to}>{nl.text}</Link>
               </li>
             ))}
+
+            <Link href={`/cv/me`}>
+              <PartialProfileAvatar profile={loggedUser} width={50} height={50} />
+            </Link>
+
           </ul>
         </nav>
       </div>

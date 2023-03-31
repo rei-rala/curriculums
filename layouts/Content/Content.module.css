@@ -1,12 +1,21 @@
 .contentWrapper {
-    display: grid;
-    place-items: center;
-    width: 100%;
-  }
-  
-  .contentInner {
-    width: var(--content-max-width);
-    max-width: var(--max-width);
-    background-color: bisque;
-    color: black;
-  }
+  display: grid;
+  place-items: center;
+  width: 100%;
+
+  margin-bottom: 2rem;
+}
+
+.contentInner {
+  width: var(--content-max-width);
+  max-width: var(--max-width);
+  background-color: bisque;
+  color: black;
+
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.contentInner > * {
+  padding: 0.5rem;
+}

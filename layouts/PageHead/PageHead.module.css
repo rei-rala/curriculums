@@ -1,4 +1,6 @@
 .navigationWrapper {
+  position: sticky;
+
   display: grid;
   place-items: center;
   width: 100%;
@@ -6,12 +8,26 @@
 }
 
 .navigationInner {
+  display: flex;
+
   width: 100%;
   background-color: bisque;
   text-transform: uppercase;
 
   width: var(--content-max-width);
   max-width: var(--max-width);
+
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.navigationInner li > div {
+  display: flex;
+  flex-direction: row;
+}
+
+.navigationInner > * {
+  padding: 0.5rem;
 }
 
 .navigationInner :not(a) {

@@ -1,7 +1,7 @@
 import React from "react";
 
 declare global {
-  type CurriculumPage = React.FC<{ profile: Profile }>;
+  type CurriculumPage = React.FC<{ profile: IProfile }>;
   type DefaultFC = React.FC<React.Props>;
   type ExtendedFC<T> = React.FC<T>;
 

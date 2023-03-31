@@ -35,10 +35,6 @@ p {
   padding: 0;
 }
 
-body {
-  overflow-y: scroll;
-}
-
 button {
   cursor: pointer;
 }

@@ -1,43 +1,41 @@
-import { Breadcrumbs, Typography } from "@mui/material";
+import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { useMemo } from "react";
+
+import { TransitionGroup } from "react-transition-group";
+import { Breadcrumbs, Fade, Typography } from "@mui/material";
 
 import styles from "./PageHead.module.css";
 
-
-function pathGetterByPath(routerAsPath: string) {
+function pathGetterByURL(routerAsPath: string) {
   return ["home", ...routerAsPath.split("/").filter((path) => path !== "")];
 }
 
-const PageHead: DefaultFC = () => {
-  const router = useRouter()
-  let { asPath } = router
-
-  const breadcrumbsPaths = useMemo(() => pathGetterByPath(asPath), [asPath])
+const PageHead: ExtendedFC<{ routerAsPath: string }> = ({ routerAsPath }) => {
+  const breadcrumbsPaths = pathGetterByURL(routerAsPath);
 
   return (
     <div className={styles.navigationWrapper}>
       <Breadcrumbs aria-label="breadcrumb" className={styles.navigationInner}>
-        {
-          breadcrumbsPaths.map((path, index) => {
-            
+        <TransitionGroup>
+          {breadcrumbsPaths.map((path, index) => {
             let partialUrl = breadcrumbsPaths.slice(1, index + 1).join("/"),
-                itemKey = `bcNav-${index}`,
-                isLastItem = index === breadcrumbsPaths.length - 1;
+              itemKey = `bcNav-${path}`,
+              isLastItem = index === breadcrumbsPaths.length - 1;
 
-            return isLastItem
-              ? (
-                <Typography key={itemKey}>
-                  <b>{path}</b>
+            return (
+              <Fade key={itemKey}>
+                {/* TODO: Fix gap */}
+                <Typography sx={{ mr: 1 }}>
+                  {
+                    isLastItem
+                      ? <b>{path}</b>
+                      : <Link href={`/${index ? partialUrl : ""}`}>{path}</Link>
+                  }
                 </Typography>
-              ) : (
-                <Link key={itemKey} href={`/${index ? partialUrl : ""}`}>
-                  {path}
-                </Link>
-              )
-          })
-        }
+              </Fade>
+            );
+          })}
+        </TransitionGroup>
       </Breadcrumbs>
     </div>
   );

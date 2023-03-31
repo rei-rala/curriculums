@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios, { AxiosRequestConfig } from "axios";
 import { getUrlFromClient } from "@/utils";
-import { Box, SxProps } from "@mui/material";
+import { Box, Fade, SxProps } from "@mui/material";
 import ProfileCard from "@/components/ProfileCard/ProfileCard";
 import Link from "next/link";
 
@@ -45,18 +45,19 @@ const CvHomePage = () => {
   }, [])
 
   return (
-    <Box sx={boxSx}>
-      {
-        loading
+    <Fade in>
+      <Box sx={boxSx}>
+        {
+          loading
           ? Array(5).fill(null).map((_, i) => <ProfileCard key={`profileSkeleton-${i}`} />)
           : profiles.length > 0
             ? profiles.map((profile) => <ProfileCard key={profile.id} profile={profile} />)
             : <> {/* TODO: create page */}
-              No hay perfiles creados aun, podrias <Link href={'/cv/create'}>crear uno</Link>
-            </>
-
-      }
-    </Box >
+                  No hay perfiles creados aun, podrias <Link href={'/cv/create'}>crear uno</Link>
+              </>
+        }
+      </Box >
+    </Fade>
   );
 }
 
