@@ -3,7 +3,7 @@
   place-items: center;
   width: 100%;
 
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .contentInner {
@@ -17,5 +17,5 @@
 }
 
 .contentInner > * {
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
 }

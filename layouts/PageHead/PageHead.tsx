@@ -26,6 +26,7 @@ const PageHead: ExtendedFC<{ routerAsPath: string }> = ({ routerAsPath }) => {
               <Fade key={itemKey}>
                 {/* TODO: Fix gap */}
                 <Typography sx={{ mr: 1 }}>
+                  /&nbsp;
                   {
                     isLastItem
                       ? <b>{path}</b>

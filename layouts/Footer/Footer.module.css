@@ -25,6 +25,6 @@
   border-radius: 10px 10px 0 0;
 }
 
-.hidden {
-  bottom: -100%;
+.footer > * {
+  padding: 0.25rem 0;
 }
