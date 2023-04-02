@@ -3,46 +3,29 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import axios, { AxiosRequestConfig } from "axios";
 
 import { Fade, LinearProgress } from "@mui/material";
-import { getUrlFromClient } from "@/utils";
 
 import Personal from "@/components/curriculum/Personal/Personal";
+import { getProfileByAlias } from "@/services/profiles.services";
 
-async function getProfile(id: string): Promise<IProfile | null> {
-  let url = getUrlFromClient();
-
-  const options: AxiosRequestConfig = {
-    method: "get",
-    baseURL: `${url}/api`,
-    url: `profiles/id/${id}`,
-  };
-
-  try {
-    let { data } = await axios<{ profile: IProfile }>(options);
-    return data.profile;
-  } catch {
-    return null;
-  }
-}
 
 const CvPage: DefaultFC = () => {
   const router = useRouter();
-  const id = router.query.id as string;
+  const alias: string = router.query.alias as string;
 
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState<IProfile | null>(null);
 
   useEffect(() => {
     setTimeout(() => {
-      if (id) {
-        getProfile(id)
+      if (alias) {
+        getProfileByAlias(alias)
           .then(setProfile)
           .finally(() => setLoading(false));
       }
     }, 1000);
-  }, [id]);
+  }, [alias]);
 
   if (loading) return <LinearProgress />;
 
@@ -70,7 +53,7 @@ const CvPage: DefaultFC = () => {
   return (
     <>
       <Head>
-        <title>{`${ contact?.alias || personal?.name || id } | Curriculums`}</title>
+        <title>{`${ contact?.alias || personal?.name || alias } | Curriculums`}</title>
       </Head>
 
       {/* TODO */}

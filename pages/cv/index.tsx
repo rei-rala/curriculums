@@ -24,7 +24,8 @@ async function getProfiles(): Promise<IProfilePartial[]> {
   };
 
   try {
-    return (await axios<IProfilePartial[]>(options)).data
+    let { profiles } = (await axios<{profiles: IProfilePartial[]}>(options)).data
+    return profiles
   } catch {
     return []
   }
@@ -53,7 +54,7 @@ const CvHomePage = () => {
           : profiles.length > 0
             ? profiles.map((profile) => <ProfileCard key={profile.id} profile={profile} />)
             : <> {/* TODO: create page */}
-                  No hay perfiles creados aun, podrias <Link href={'/cv/create'}>crear uno</Link>
+                  No hay perfiles creados aun, podrias <Link href={'/cv/crear'}>crear uno</Link>
               </>
         }
       </Box >

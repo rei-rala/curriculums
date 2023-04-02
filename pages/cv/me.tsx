@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from "react";
 import Personal from "@/components/curriculum/Personal/Personal";
+import { getProfileByAlias } from "@/services/profiles.services";
+import { LinearProgress } from "@mui/material";
 
 const MyCvPage: DefaultFC = () => {
-  let myHardcodedId = "abc123";
+  let myHardcodedAlias = "asd";
+  const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState<IProfile>();
 
   useEffect(() => {
-    fetch("/data/sample.json")
-      .then((r) => r.json())
-      .then((r: IProfile[]) => r.find((p) => p.id === myHardcodedId))
+    getProfileByAlias(myHardcodedAlias)
       .then((p) => {
         if (p) setProfile(p);
-      });
-  }, [myHardcodedId]);
+      })
+      .finally(() => setLoading(false))
+  }, [myHardcodedAlias]);
+
+
+  if (loading) return <LinearProgress />;
 
   if (!profile) return null;
 

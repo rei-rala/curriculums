@@ -7,7 +7,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<{ profiles: IProfilePartial[]}>
 ) {
-  let profiles;
+  let profiles: IProfilePartial[];
 
   try {
     const jsonDirectory = path.join(process.cwd(), "public", "data");
@@ -17,6 +17,8 @@ export default async function handler(
     profiles = json.map((p: IProfile) => {
       return {
         id: p.id,
+        name: p.personal.name,
+        surname: p.personal.surname,
         alias: p.contact.alias,
         photo: p.personal.photo,
       };
@@ -27,5 +29,5 @@ export default async function handler(
     profiles = [];
   }
 
-  res.status(200).json(profiles);
+  res.status(200).json({ profiles });
 }

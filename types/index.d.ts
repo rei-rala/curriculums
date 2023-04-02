@@ -68,7 +68,14 @@ declare global {
 
   interface IProfilePartial {
     id: string;
+    name: string;
+    surname: string;
     photo?: string;
     alias: string;
+  }
+
+  interface IApiError {
+    message: string;
+    statusCode: number;
   }
 }

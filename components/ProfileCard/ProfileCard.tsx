@@ -44,12 +44,12 @@ const ProfileCard: React.FC<{ profile?: IProfilePartial }> = ({ profile }) => {
   return (
     <Card sx={cardSx}>
       <CardHeader
-        title={profile.alias}
+        title={`${profile.name} ${profile.surname}`}
         avatar={<PartialProfileAvatar profile={profile} />}
       />
       <CardActions sx={cardActionSx}>
         <Button role={"link"}>
-          <Link href={`/cv/${profile.id}`}>Visitar perfil</Link>
+          <Link href={`/cv/${profile.alias}`}>Visitar perfil</Link>
         </Button>
       </CardActions>
     </Card>
