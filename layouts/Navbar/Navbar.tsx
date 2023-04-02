@@ -32,7 +32,7 @@ const Navbar: DefaultFC = () => {
             ))}
 
             <Link href={`/cv/me`}>
-              <PartialProfileAvatar profile={loggedUser} width={50} height={50} />
+              <PartialProfileAvatar profile={loggedUser} width={15} height={15} />
             </Link>
 
           </ul>

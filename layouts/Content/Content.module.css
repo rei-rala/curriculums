@@ -7,8 +7,8 @@
 }
 
 .contentInner {
-  width: var(--content-max-width);
-  max-width: var(--max-width);
+  width: 100%;
+  max-width: var(--content-max-width);
   background-color: bisque;
   color: black;
 
@@ -16,6 +16,15 @@
   overflow: hidden;
 }
 
+
 .contentInner > * {
-  padding: 0.5rem 1rem;
+  margin: 0 1rem ;
+}
+
+.contentInner > :first-child {
+  margin-top: 1rem;
+}
+
+.contentInner > :last-child {
+  margin-bottom: 1rem;
 }

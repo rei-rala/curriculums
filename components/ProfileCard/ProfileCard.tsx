@@ -15,9 +15,9 @@ import { PartialProfileAvatar } from "../ProfileAvatar/ProfileAvatar";
 const cardSx: SxProps = {
   width: 1,
   maxWidth: {
-    sm: 1 / 1.5,
-    md: 1 / 3,
-    lg: 1 / 4,
+    sm: 1,
+    md: 1 / 2.5,
+    lg: 1 / 4.5
   },
   borderRadius: 2,
 };

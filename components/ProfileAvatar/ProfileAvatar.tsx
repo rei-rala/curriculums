@@ -6,10 +6,7 @@ const ProfileAvatar = (props: any) => {
 
   if (!profile) return <Avatar {...props} />;
 
-  let {
-    contact: { alias },
-    personal: { photo },
-  } = profile;
+  let { contact: { alias }, personal: { photo } } = profile;
 
   return photo ? (
     <Avatar {...props} src={photo} alt={`Foto de ${profile.contact.alias}`} />
