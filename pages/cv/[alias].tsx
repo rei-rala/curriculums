@@ -3,12 +3,10 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-
-import { Fade, LinearProgress } from "@mui/material";
-
 import Personal from "@/components/curriculum/Personal/Personal";
 import { getProfileByAlias } from "@/services/profiles.services";
 
+import { Spinner } from "react-bootstrap";
 
 const CvPage: DefaultFC = () => {
   const router = useRouter();
@@ -27,7 +25,7 @@ const CvPage: DefaultFC = () => {
     }, 1000);
   }, [alias]);
 
-  if (loading) return <LinearProgress />;
+  if (loading) return <Spinner />;
 
   if (!profile)
     return (
@@ -56,8 +54,6 @@ const CvPage: DefaultFC = () => {
         <title>{`${ contact?.alias || personal?.name || alias } | Curriculums`}</title>
       </Head>
 
-      {/* TODO */}
-      <Fade in>
         <div>
           <Personal personal={personal} />
           <hr />
@@ -118,7 +114,6 @@ const CvPage: DefaultFC = () => {
             </ul>
           </div>
         </div>
-      </Fade>
     </>
   );
 };

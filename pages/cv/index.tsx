@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios, { AxiosRequestConfig } from "axios";
 import { getUrlFromClient } from "@/utils";
-import { Box, Fade, SxProps } from "@mui/material";
+
 import ProfileCard from "@/components/ProfileCard/ProfileCard";
 import Link from "next/link";
-
-const boxSx: SxProps = {
-  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'center',
-  gap: 2,
-  padding: 1,
-}
 
 
 async function getProfiles(): Promise<IProfilePartial[]> {
@@ -46,8 +38,7 @@ const CvHomePage = () => {
   }, [])
 
   return (
-    <Fade in>
-      <Box sx={boxSx}>
+      <>
         {
           loading
           ? Array(5).fill(null).map((_, i) => <ProfileCard key={`profileSkeleton-${i}`} />)
@@ -57,8 +48,7 @@ const CvHomePage = () => {
                   No hay perfiles creados aun, podrias <Link href={'/cv/crear'}>crear uno</Link>
               </>
         }
-      </Box >
-    </Fade>
+      </ >
   );
 }
 

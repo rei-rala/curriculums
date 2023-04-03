@@ -1,35 +1,45 @@
-import { Avatar } from "@mui/material";
 import React from "react";
+
+const BaseAvatar = (props: any) => {
+  return <div
+    className="rounded-circle border d-flex justify-content-center align-items-center"
+    style={{width:"100px", height:"100px"}}
+    {...props}
+    >
+      <i className="fas fa-user-alt fa-3x text-info"></i>
+</div>
+}
+
 
 const ProfileAvatar = (props: any) => {
   let { profile } = props;
 
-  if (!profile) return <Avatar {...props} />;
+  if (!profile) return <BaseAvatar {...props} />;
 
   let { contact: { alias }, personal: { photo } } = profile;
 
   return photo ? (
-    <Avatar {...props} src={photo} alt={`Foto de ${profile.contact.alias}`} />
+    <BaseAvatar {...props} src={photo} alt={`Foto de ${profile.contact.alias}`} />
   ) : (
-    <Avatar {...props} alt={alias}>
+    <BaseAvatar {...props} alt={alias}>
       {alias.charAt(0).toUpperCase() ?? "?"}
-    </Avatar>
+    </BaseAvatar>
   );
 };
 
 const PartialProfileAvatar = (props: any) => {
   let profile: IProfilePartial | undefined = props.profile;
 
-  if (!profile) return <Avatar {...props} />;
+  if (!profile) return <BaseAvatar {...props} />;
 
   let { photo, alias } = profile;
 
   return photo ? (
-    <Avatar {...props} src={photo} alt={`Foto de ${alias}`} />
+    <BaseAvatar {...props} src={photo} alt={`Foto de ${alias}`} />
   ) : (
-    <Avatar {...props} alt={alias} {...props}>
+    <BaseAvatar {...props} alt={alias} {...props}>
       {alias.charAt(0).toUpperCase() ?? "?"}
-    </Avatar>
+    </BaseAvatar>
   );
 };
 

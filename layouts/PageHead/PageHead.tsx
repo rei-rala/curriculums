@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 
 import { TransitionGroup } from "react-transition-group";
-import { Breadcrumbs, Fade, Typography } from "@mui/material";
 
 import styles from "./PageHead.module.css";
 
@@ -15,7 +14,7 @@ const PageHead: ExtendedFC<{ routerAsPath: string }> = ({ routerAsPath }) => {
 
   return (
     <div className={styles.navigationWrapper}>
-      <Breadcrumbs aria-label="breadcrumb" className={styles.navigationInner}>
+      <nav aria-label="breadcrumb" className={styles.navigationInner}>
         <TransitionGroup>
           {breadcrumbsPaths.map((path, index) => {
             let partialUrl = breadcrumbsPaths.slice(1, index + 1).join("/"),
@@ -23,21 +22,19 @@ const PageHead: ExtendedFC<{ routerAsPath: string }> = ({ routerAsPath }) => {
               isLastItem = index === breadcrumbsPaths.length - 1;
 
             return (
-              <Fade key={itemKey}>
+              <p key={itemKey} style={{marginRight: "5px"}}>
                 {/* TODO: Fix gap */}
-                <Typography sx={{ mr: 1 }}>
-                  /&nbsp;
-                  {
-                    isLastItem
-                      ? <b>{path}</b>
-                      : <Link href={`/${index ? partialUrl : ""}`}>{path}</Link>
-                  }
-                </Typography>
-              </Fade>
+                /&nbsp;
+                {
+                  isLastItem
+                    ? <b>{path}</b>
+                    : <Link href={`/${index ? partialUrl : ""}`}>{path}</Link>
+                }
+              </p>
             );
           })}
         </TransitionGroup>
-      </Breadcrumbs>
+      </nav>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Personal from "@/components/curriculum/Personal/Personal";
 import { getProfileByAlias } from "@/services/profiles.services";
-import { LinearProgress } from "@mui/material";
+import Spinner from "react-bootstrap/esm/Spinner";
 
 const MyCvPage: DefaultFC = () => {
   let myHardcodedAlias = "asd";
@@ -17,7 +17,7 @@ const MyCvPage: DefaultFC = () => {
   }, [myHardcodedAlias]);
 
 
-  if (loading) return <LinearProgress />;
+  if (loading) return <Spinner />;
 
   if (!profile) return null;
 
