@@ -1,9 +1,4 @@
-.footer {
-  position: fixed;
-  bottom: 0;
-
-  display: grid;
-  place-items: center;
+.footerContainer {
   margin-top: 0.5rem;
   
   width: 100%;
@@ -19,12 +14,7 @@
   
   background-color: red !important;
   
-  width: var(--content-max-width);
-  max-width: var(--max-width);
+  width: 100%;
   
   border-radius: 10px 10px 0 0;
-}
-
-.footer > * {
-  padding: 0.25rem 0;
 }

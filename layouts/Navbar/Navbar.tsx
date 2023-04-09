@@ -1,44 +1,59 @@
-import { PartialProfileAvatar } from "@/components/ProfileAvatar/ProfileAvatar";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import styles from "./Navbar.module.css";
+import { ProfileAvatar } from "@/components/ProfileAvatar/ProfileAvatar";
+import NavbarMenu from "./NavbarMenu/NavbarMenu";
 
-type NavLinkType = {
+export type NavLinkType = {
   to: string;
   text: string;
 };
 
-const navLinks: NavLinkType[] = [
-  { to: "/", text: "Home" },
-  { to: "/cv", text: "Curriculums" },
-];
+const baseLink: NavLinkType[] = [{ to: "/cv", text: "Perfiles" }];
 
 const Navbar: DefaultFC = () => {
+  const [loggedUser, setLoggedUser] = useState<IProfile | null>(null);
+  const [isNavbarMenuOpen, setNavbarMenuOpen] = useState(false);
 
-  const loggedUser = null;
+  const navLinks = useMemo(() => {
+    let nvLinks = baseLink;
+
+    if (loggedUser) {
+      nvLinks.unshift({ to: "/cv/me", text: "Mi curriculum" });
+      nvLinks.push({ to: "/logout", text: "Cerrar sesión" });
+      return nvLinks;
+    }
+    return [{ to: "/login", text: "Iniciar sesión" }, ...nvLinks];
+  }, [loggedUser]);
+
+  function toggleNavbarMenu() {
+    setNavbarMenuOpen(!isNavbarMenuOpen);
+  }
 
   return (
-    <header className={styles.header}>
-      <div className={styles.navbar}>
-        <div>Loguito</div>
+    <nav className={"container navbar " + styles.navbar}>
+      <div className="container-fluid">
+        <Link className="navbar-brand" href="/">
+          Loguito
+        </Link>
 
-        <nav>
-          <ul>
-            {navLinks.map((nl) => (
-              <li key={`navlink-${nl.text}`}>
-                <Link href={nl.to}>{nl.text}</Link>
-              </li>
-            ))}
-
-            <Link href={`/cv/me`}>
-              <PartialProfileAvatar profile={loggedUser} width={15} height={15} />
-            </Link>
-
-          </ul>
-        </nav>
+        <div className={"d-flex flex-column " + styles.dropdownBtn}>
+          <span
+            className="d-flex align-items-center"
+            role="button"
+            onClick={toggleNavbarMenu}
+          >
+            <ProfileAvatar profile={loggedUser} width={30} height={30} />
+          </span>
+          <NavbarMenu
+            links={navLinks}
+            open={isNavbarMenuOpen}
+            setOpen={setNavbarMenuOpen}
+          />
+        </div>
       </div>
-    </header>
+    </nav>
   );
 };
 

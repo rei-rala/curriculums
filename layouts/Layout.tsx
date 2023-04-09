@@ -7,7 +7,6 @@ import Content from "./Content/Content";
 import Footer from "./Footer/Footer";
 
 import { useRouter } from "next/router";
-import { TransitionGroup } from "react-transition-group";
 
 const Layout: DefaultFC = ({ children, className }) => {
   const router = useRouter();
@@ -18,12 +17,10 @@ const Layout: DefaultFC = ({ children, className }) => {
         <title>Curriculums</title>
       </Head>
       <div className={className}>
-        <TransitionGroup>
-          <Navbar />
-          <PageHead routerAsPath={router.asPath} />
-          <Content>{children}</Content>
-          <Footer />
-        </TransitionGroup>
+        <Navbar />
+        <PageHead routerAsPath={router.asPath} />
+        <Content>{children}</Content>
+        <Footer />
       </div>
     </>
   );

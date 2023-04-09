@@ -1,39 +1,47 @@
 import React from "react";
 import Link from "next/link";
 
-import { PartialProfileAvatar } from "../ProfileAvatar/ProfileAvatar";
-import { Card } from "react-bootstrap";
-
+import { ProfileAvatar } from "../ProfileAvatar/ProfileAvatar";
 
 const ProfileCard: React.FC<{ profile?: IProfilePartial }> = ({ profile }) => {
   if (!profile)
     return (
-      <Card>
-        <Card.Header>
-          <h1>Cargando</h1>
-        </Card.Header>
+      <div className="card">
+        <div>
+          <ProfileAvatar height={25} width={25} />
+          <h2>Cargando</h2>
+        </div>
 
-        <PartialProfileAvatar />
-          
-
-        <Card.Text>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id ipsum eum repellat at, hic officiis sint mollitia inventore non est qui quas minus error cumque commodi provident corrupti. Ipsam, veniam!
-        </Card.Text>
-        <Card.Link href="#">Card Link</Card.Link>
-      </Card >
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto amet
+          dolore quaerat ullam dicta quasi totam sit temporibus eum possimus.
+        </div>
+        <footer>Ver perfil</footer>
+      </div>
     );
 
   return (
-    <Card>
-      <Card.Header>
-        {`${profile.name} ${profile.surname}`}
-      </Card.Header>
+    <div className="col-md-4 overflow-hidden">
+      <div className="row d-flex align-items-center justify-content-center">
+        <ProfileAvatar
+          className="col-2"
+          height={25}
+          width={25}
+          src={profile.photo}
+          alt={`Foto de ${profile.name}`}
+        />
+        <h2 className="col-10 text-center">{`${profile.name} ${profile.surname}`}</h2>
+      </div>
 
-      <Card.Img />
-        <PartialProfileAvatar profile={profile} />
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto amet
+        dolore quaerat ullam dicta quasi totam sit temporibus eum possimus.
+      </div>
 
-      <Card.Link href={`/cv/${profile.alias}`}>Ver perfil</Card.Link>
-    </Card>
+      <div>
+        <Link href={`/cv/${profile.alias}`}>Ver perfil</Link>
+      </div>
+    </div>
   );
 };
 

@@ -34,21 +34,21 @@ const CvHomePage = () => {
       getProfiles()
         .then(setProfiles)
         .finally(() => setLoading(false))
-    }, 1000);
+    }, 3000);
   }, [])
 
   return (
       <>
         {
           loading
-          ? Array(5).fill(null).map((_, i) => <ProfileCard key={`profileSkeleton-${i}`} />)
-          : profiles.length > 0
-            ? profiles.map((profile) => <ProfileCard key={profile.id} profile={profile} />)
-            : <> {/* TODO: create page */}
-                  No hay perfiles creados aun, podrias <Link href={'/cv/crear'}>crear uno</Link>
-              </>
+            ? Array(5).fill(null).map((_, i) => <ProfileCard key={`profileSkeleton-${i}`} />)
+            : Boolean(profiles.length)
+              ? profiles.map((profile) => <ProfileCard key={"pCard"+profile.id} profile={profile} />)
+              : <> {/* TODO: create page */}
+                    No hay perfiles creados aun, podrias <Link href={'/cv/crear'}>crear uno</Link>
+                </>
         }
-      </ >
+      </>
   );
 }
 

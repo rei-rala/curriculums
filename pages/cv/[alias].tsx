@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import Personal from "@/components/curriculum/Personal/Personal";
 import { getProfileByAlias } from "@/services/profiles.services";
 
-import { Spinner } from "react-bootstrap";
 
 const CvPage: DefaultFC = () => {
   const router = useRouter();
@@ -25,7 +24,7 @@ const CvPage: DefaultFC = () => {
     }, 1000);
   }, [alias]);
 
-  if (loading) return <Spinner />;
+  if (loading) return <>TODO: CARGANDO</>;
 
   if (!profile)
     return (

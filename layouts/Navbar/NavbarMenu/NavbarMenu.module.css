@@ -1,0 +1,6 @@
+.openMenu {
+  display: block !important;
+  position: absolute;
+  top: 2rem;
+  right: 0;
+}

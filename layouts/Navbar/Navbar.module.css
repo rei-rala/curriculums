@@ -1,50 +1,22 @@
-.header {
+.navbar {
   position: sticky;
   top: 0;
-
-  display: grid;
-  place-items: center;
-  width: 100%;
-  margin-bottom: 0.5rem;
   z-index: 11;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-
-  height: 3rem;
-  width: var(--content-max-width);
-  max-width: var(--max-width);
 
   background-color: red;
-  border-radius: 0 0 10px 10px;
-
-  overflow: hidden;
 }
 
-.navbar :is(div, nav, ul, li) {
-  margin: 0;
-  padding: 0;
-}
-
-.navbar > :is(div, nav) {
-  padding: 1rem;
-}
-
-.navbar ul {
-  display: flex;
-  list-style-type: none;
-  gap: 1rem;
-}
-
-.navbar li {
+.avatarContainer {
   display: grid;
   place-items: center;
 }
 
-.navbar a {
-  color: inherit;
+.dropdownBtn {
+  position: relative;
+}
+
+@media screen and (min-width: 576px) {
+  .navbar {
+    border-radius: 0 0 10px 10px;
+  }
 }

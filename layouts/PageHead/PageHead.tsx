@@ -1,7 +1,5 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Link from "next/link";
-
-import { TransitionGroup } from "react-transition-group";
 
 import styles from "./PageHead.module.css";
 
@@ -10,32 +8,34 @@ function pathGetterByURL(routerAsPath: string) {
 }
 
 const PageHead: ExtendedFC<{ routerAsPath: string }> = ({ routerAsPath }) => {
-  const breadcrumbsPaths = pathGetterByURL(routerAsPath);
+
+  const breadcrumbsPaths = useMemo(()=> pathGetterByURL(routerAsPath), [routerAsPath]) 
 
   return (
-    <div className={styles.navigationWrapper}>
-      <nav aria-label="breadcrumb" className={styles.navigationInner}>
-        <TransitionGroup>
-          {breadcrumbsPaths.map((path, index) => {
+    <nav aria-label="breadcrumb" className={"container " + styles.breadcrumbNav}>
+      <ol className="breadcrumb">
+        {
+          breadcrumbsPaths.map((path, index) => {
             let partialUrl = breadcrumbsPaths.slice(1, index + 1).join("/"),
-              itemKey = `bcNav-${path}`,
-              isLastItem = index === breadcrumbsPaths.length - 1;
+                itemKey = `bcNav-${path}`,
+                isLastItem = index === breadcrumbsPaths.length - 1;
 
             return (
-              <p key={itemKey} style={{marginRight: "5px"}}>
-                {/* TODO: Fix gap */}
-                /&nbsp;
+              <li
+                className={`breadcrumb-item ${isLastItem ? "active" : ""}`}
+                aria-current={isLastItem ? "page" : "step"}
+                key={itemKey}
+              >
                 {
                   isLastItem
-                    ? <b>{path}</b>
-                    : <Link href={`/${index ? partialUrl : ""}`}>{path}</Link>
+                    ? path
+                    :  <Link href={`/${partialUrl}`}> { path } </Link>
                 }
-              </p>
+              </li>
             );
-          })}
-        </TransitionGroup>
-      </nav>
-    </div>
+        })}
+      </ol>
+    </nav>
   );
 };
 

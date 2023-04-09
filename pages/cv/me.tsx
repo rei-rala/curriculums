@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Personal from "@/components/curriculum/Personal/Personal";
 import { getProfileByAlias } from "@/services/profiles.services";
-import Spinner from "react-bootstrap/esm/Spinner";
 
 const MyCvPage: DefaultFC = () => {
   let myHardcodedAlias = "asd";
@@ -16,8 +15,7 @@ const MyCvPage: DefaultFC = () => {
       .finally(() => setLoading(false))
   }, [myHardcodedAlias]);
 
-
-  if (loading) return <Spinner />;
+  if (loading) return <>TODO: CARGANDO</>;
 
   if (!profile) return null;
 

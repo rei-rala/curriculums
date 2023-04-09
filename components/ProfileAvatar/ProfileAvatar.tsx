@@ -1,46 +1,25 @@
 import React from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+
 const BaseAvatar = (props: any) => {
-  return <div
-    className="rounded-circle border d-flex justify-content-center align-items-center"
-    style={{width:"100px", height:"100px"}}
-    {...props}
+  return (
+    <div
+      className="rounded-circle shadow-4"
+      {...props}
     >
-      <i className="fas fa-user-alt fa-3x text-info"></i>
-</div>
-}
-
-
-const ProfileAvatar = (props: any) => {
-  let { profile } = props;
-
-  if (!profile) return <BaseAvatar {...props} />;
-
-  let { contact: { alias }, personal: { photo } } = profile;
-
-  return photo ? (
-    <BaseAvatar {...props} src={photo} alt={`Foto de ${profile.contact.alias}`} />
-  ) : (
-    <BaseAvatar {...props} alt={alias}>
-      {alias.charAt(0).toUpperCase() ?? "?"}
-    </BaseAvatar>
+      <FontAwesomeIcon
+        icon={faUser}
+        width={props.width || 20}
+        height={props.height || 20}
+      />
+    </div>
   );
 };
 
-const PartialProfileAvatar = (props: any) => {
-  let profile: IProfilePartial | undefined = props.profile;
-
-  if (!profile) return <BaseAvatar {...props} />;
-
-  let { photo, alias } = profile;
-
-  return photo ? (
-    <BaseAvatar {...props} src={photo} alt={`Foto de ${alias}`} />
-  ) : (
-    <BaseAvatar {...props} alt={alias} {...props}>
-      {alias.charAt(0).toUpperCase() ?? "?"}
-    </BaseAvatar>
-  );
+export const ProfileAvatar = (props: any) => {
+  return <BaseAvatar {...props} />;
 };
 
-export { ProfileAvatar, PartialProfileAvatar };
+export default ProfileAvatar;
