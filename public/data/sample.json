@@ -7,9 +7,9 @@
       "linkedin": "",
       "phone": "123123123",
       "location": "su casa",
-      "about": "Busco aprobar",
       "photo": null
     },
+    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros ante, finibus in egestas sit.",
     "strengths": [
       {
         "title": "Ansioso",
@@ -67,7 +67,7 @@
       "location": "su casa",
       "photo": null
     },
-    "about": "Busco aprobar",
+    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut feugiat augue. Donec sollicitudin tincidunt ornare. ",
     "strengths": [
       {
         "title": "Ansioso",

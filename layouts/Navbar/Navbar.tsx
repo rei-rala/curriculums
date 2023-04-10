@@ -32,26 +32,24 @@ const Navbar: DefaultFC = () => {
   }
 
   return (
-    <nav className={"container navbar " + styles.navbar}>
-      <div className="container-fluid">
-        <Link className="navbar-brand" href="/">
-          Loguito
-        </Link>
+    <nav className={"container " + styles.navbar}>
+      <Link className="navbar-brand my-auto" href="/">
+        Loguito
+      </Link>
 
-        <div className={"d-flex flex-column " + styles.dropdownBtn}>
-          <span
-            className="d-flex align-items-center"
-            role="button"
-            onClick={toggleNavbarMenu}
-          >
-            <ProfileAvatar profile={loggedUser} width={30} height={30} />
-          </span>
-          <NavbarMenu
-            links={navLinks}
-            open={isNavbarMenuOpen}
-            setOpen={setNavbarMenuOpen}
-          />
-        </div>
+      <div className={`${styles.dropdownBtn}`}>
+        <span
+          className="d-flex align-items-center fa-2x"
+          role="button"
+          onClick={toggleNavbarMenu}
+        >
+          <ProfileAvatar profile={loggedUser} />
+        </span>
+        <NavbarMenu
+          links={navLinks}
+          open={isNavbarMenuOpen}
+          setOpen={setNavbarMenuOpen}
+        />
       </div>
     </nav>
   );

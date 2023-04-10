@@ -20,6 +20,7 @@ export default async function handler(
         name: p.personal.name,
         surname: p.personal.surname,
         alias: p.contact.alias,
+        about: p.about,
         photo: p.personal.photo,
       };
     });

@@ -1,28 +1,15 @@
 .contentWrapper {
-  display: grid;
-  place-items: center;
-  width: 100%;
-
   margin-bottom: 2.5rem;
 }
 
 .contentInner {
   background-color: bisque;
   color: black;
-
-  border-radius: 10px;
-  overflow: hidden;
+  padding: 0.5rem;
 }
 
-
-.contentInner > * {
-  margin: 0 1rem ;
-}
-
-.contentInner > :first-child {
-  margin-top: 1rem;
-}
-
-.contentInner > :last-child {
-  margin-bottom: 1rem;
+@media screen and (min-width: 576px) {
+  .contentInner {
+    border-radius: 10px;
+  }
 }

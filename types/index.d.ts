@@ -70,6 +70,7 @@ declare global {
     id: string;
     name: string;
     surname: string;
+    about: string;
     photo?: string;
     alias: string;
   }

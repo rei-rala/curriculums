@@ -1,15 +1,6 @@
-:root {
-  --max-width: 1500px;
-  --content-max-width: 90%;
-  --body-h-pading: 3rem;
-}
-
 body {
-  position: relative;
   min-height: 100vh;
-  margin: 0 auto;
+  min-width: 100vw;
   overflow: hidden scroll;
-}
-
-@media screen and (min-width: 800px) {
+  background-color: #242424;
 }

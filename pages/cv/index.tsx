@@ -4,6 +4,7 @@ import { getUrlFromClient } from "@/utils";
 
 import ProfileCard from "@/components/ProfileCard/ProfileCard";
 import Link from "next/link";
+import ProfileCardSkeleton from "@/components/ProfileCard/ProfileCardSkeleton";
 
 
 async function getProfiles(): Promise<IProfilePartial[]> {
@@ -16,7 +17,7 @@ async function getProfiles(): Promise<IProfilePartial[]> {
   };
 
   try {
-    let { profiles } = (await axios<{profiles: IProfilePartial[]}>(options)).data
+    let { profiles } = (await axios<{ profiles: IProfilePartial[] }>(options)).data
     return profiles
   } catch {
     return []
@@ -38,17 +39,17 @@ const CvHomePage = () => {
   }, [])
 
   return (
-      <>
-        {
-          loading
-            ? Array(5).fill(null).map((_, i) => <ProfileCard key={`profileSkeleton-${i}`} />)
-            : Boolean(profiles.length)
-              ? profiles.map((profile) => <ProfileCard key={"pCard"+profile.id} profile={profile} />)
-              : <> {/* TODO: create page */}
-                    No hay perfiles creados aun, podrias <Link href={'/cv/crear'}>crear uno</Link>
-                </>
-        }
-      </>
+    < >
+      {
+        loading
+          ? Array(5).fill(null).map((_, i) => <ProfileCardSkeleton key={`profileSkeleton-${i}`} />)
+          : Boolean(profiles.length)
+            ? profiles.map((profile) => <ProfileCard key={"pCard" + profile.id} profile={profile} />)
+            : <> {/* TODO: create page */}
+              No hay perfiles creados aun, podrias <Link href={'/cv/crear'}>crear uno</Link>
+            </>
+      }
+    </>
   );
 }
 

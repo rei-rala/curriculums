@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 
 import Personal from "@/components/curriculum/Personal/Personal";
 import { getProfileByAlias } from "@/services/profiles.services";
+import Loading from "@/components/Loading/Loading";
 
 
 const CvPage: DefaultFC = () => {
@@ -24,7 +25,7 @@ const CvPage: DefaultFC = () => {
     }, 1000);
   }, [alias]);
 
-  if (loading) return <>TODO: CARGANDO</>;
+  if (loading) return <Loading />;
 
   if (!profile)
     return (

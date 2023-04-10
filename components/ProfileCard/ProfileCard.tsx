@@ -3,45 +3,45 @@ import Link from "next/link";
 
 import { ProfileAvatar } from "../ProfileAvatar/ProfileAvatar";
 
+import styles from "./ProfileCard.module.css";
+
 const ProfileCard: React.FC<{ profile?: IProfilePartial }> = ({ profile }) => {
   if (!profile)
-    return (
-      <div className="card">
-        <div>
-          <ProfileAvatar height={25} width={25} />
-          <h2>Cargando</h2>
-        </div>
-
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto amet
-          dolore quaerat ullam dicta quasi totam sit temporibus eum possimus.
-        </div>
-        <footer>Ver perfil</footer>
-      </div>
-    );
+    return null
 
   return (
-    <div className="col-md-4 overflow-hidden">
-      <div className="row d-flex align-items-center justify-content-center">
-        <ProfileAvatar
-          className="col-2"
-          height={25}
-          width={25}
-          src={profile.photo}
-          alt={`Foto de ${profile.name}`}
-        />
-        <h2 className="col-10 text-center">{`${profile.name} ${profile.surname}`}</h2>
+
+    <div className="card col-12 col-md-5 m-1">
+      <div className="card-body">
+
+        <div className="card-title text-center">
+          <h1>{profile.name}</h1>
+        </div>
+
+        <div>
+          <div className={`col-3 ratio ratio-1x1 ${styles.profileCardImg}`}>
+            <ProfileAvatar
+              className="fa-3x"
+              width={30}
+              height={30}
+              src={profile.photo}
+              alt={`Foto de ${profile.name}`}
+            />
+          </div>
+
+          <div className="col-9 card-text text-center">
+            <span>{profile.about}</span>
+          </div>
+
+        </div>
       </div>
 
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto amet
-        dolore quaerat ullam dicta quasi totam sit temporibus eum possimus.
-      </div>
-
-      <div>
-        <Link href={`/cv/${profile.alias}`}>Ver perfil</Link>
+      <div className="card-footer row">
+        <Link href={`/cv/${profile.alias}`} className="btn btn-primary col-6 m-auto">Visitar perfil</Link>
       </div>
     </div>
+
+
   );
 };
 

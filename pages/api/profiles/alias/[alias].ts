@@ -34,7 +34,7 @@ export default async function handler(
 
   } catch (e: any) {
     statusCode = e.statusCode || 500;
-    console.error(`Error in random:\n\t` + (e.message ?? e));
+    console.error(`Error ${statusCode} in random:\n\t` + (e.message ?? e));
   }
 
   res.status(statusCode).json({ profile });

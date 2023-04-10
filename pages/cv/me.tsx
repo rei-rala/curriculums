@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Personal from "@/components/curriculum/Personal/Personal";
 import { getProfileByAlias } from "@/services/profiles.services";
+import Loading from "@/components/Loading/Loading";
 
 const MyCvPage: DefaultFC = () => {
   let myHardcodedAlias = "asd";
@@ -8,14 +9,16 @@ const MyCvPage: DefaultFC = () => {
   const [profile, setProfile] = useState<IProfile>();
 
   useEffect(() => {
-    getProfileByAlias(myHardcodedAlias)
-      .then((p) => {
-        if (p) setProfile(p);
-      })
-      .finally(() => setLoading(false))
+    setTimeout(() => {
+      getProfileByAlias(myHardcodedAlias)
+        .then((p) => {
+          if (p) setProfile(p);
+        })
+        .finally(() => setLoading(false))
+    }, 10000)
   }, [myHardcodedAlias]);
 
-  if (loading) return <>TODO: CARGANDO</>;
+  if (loading) return <Loading />;
 
   if (!profile) return null;
 

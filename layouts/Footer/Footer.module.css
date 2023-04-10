@@ -1,20 +1,11 @@
 .footerContainer {
   margin-top: 0.5rem;
-  
-  width: 100%;
   z-index: 10;
 
   transition: bottom 1s ease;
 }
 
 .footerInner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
   background-color: red !important;
-  
-  width: 100%;
-  
   border-radius: 10px 10px 0 0;
 }
