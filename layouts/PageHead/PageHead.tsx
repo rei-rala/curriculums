@@ -12,8 +12,8 @@ const PageHead: ExtendedFC<{ routerAsPath: string }> = ({ routerAsPath }) => {
   const breadcrumbsPaths = useMemo(()=> pathGetterByURL(routerAsPath), [routerAsPath]) 
 
   return (
-    <nav aria-label="breadcrumb" className={"container " + styles.breadcrumbNav}>
-      <ol className="breadcrumb">
+    <nav aria-label="breadcrumb" className={`row d-flex align-items-center ${styles.breadcrumbNav}`}>
+      <ol className="breadcrumb px-3">
         {
           breadcrumbsPaths.map((path, index) => {
             let partialUrl = breadcrumbsPaths.slice(1, index + 1).join("/"),

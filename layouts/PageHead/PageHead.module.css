@@ -7,13 +7,12 @@
   cursor: default;
 }
 
-a.active {
-  opacity: 0.5;
+.breadcrumbNav ol {
+  margin: 0;
 }
 
 @media screen and (min-width: 576px) {
   .breadcrumbNav {
-    margin-top: 0.5rem;
     border-radius: 10px;
   }
 }

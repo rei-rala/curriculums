@@ -32,12 +32,14 @@ const Navbar: DefaultFC = () => {
   }
 
   return (
-    <nav className={"container " + styles.navbar}>
-      <Link className="navbar-brand my-auto" href="/">
+    <nav
+      className={`row d-flex justify-content-space-between ${styles.navbar}`}
+    >
+      <Link className="col-6 navbar-brand d-flex align-items-center" href="/">
         Loguito
       </Link>
 
-      <div className={`${styles.dropdownBtn}`}>
+      <div className={`col-6 d-flex justify-content-end align-items-center ${styles.dropdownBtn}`}>
         <span
           className="d-flex align-items-center fa-2x"
           role="button"

@@ -1,0 +1,6 @@
+/* Por que es necesario esto???
+  Cualquier porcentaje da el mismo resultado visual
+*/
+.icon {
+  height: 1%;
+}

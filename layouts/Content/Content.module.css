@@ -1,15 +1,11 @@
 .contentWrapper {
-  margin-bottom: 2.5rem;
-}
-
-.contentInner {
   background-color: bisque;
   color: black;
-  padding: 0.5rem;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 576px) {
-  .contentInner {
+  .contentWrapper {
     border-radius: 10px;
   }
 }

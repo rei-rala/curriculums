@@ -4,22 +4,32 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
+import styles from "./ProfileAvatar.module.css";
+
 const BaseAvatar = (props: any) => {
+  const { profile, width, height, altText, iconClass } = props;
+
   return (
     <div
-      className="rounded-circle shadow-4"
-      {...props}
+      data-toggle={altText ? "tooltip" : ""}
+      data-placement="top"
+      title={profile?.alias ? `${profile?.alias} no ha proporcionado foto` : ""}
     >
-      {
-        props.image
-          ? <Image src={props.image} alt={`Foto de ${props.alias}`} />
-          :
-          <FontAwesomeIcon
-            className={`ratio ratio-1x1 m-auto ${props.iconClass || ""}`}
-            icon={faUser}
-            width={props.width || 20}
-            height={props.height || 20}
-          />
+      {profile?.photo
+        ? <Image
+          width={width || 30}
+          height={height || 30}
+          src={profile.photo}
+          alt={`Foto de ${profile.alias}`}
+        />
+        : <FontAwesomeIcon
+          className={`ratio ratio-1x1 ${styles.icon} ${iconClass || ""}`}
+          icon={faUser}
+          width={width || 30}
+          height={height || 30}
+          data-toggle={altText ? "tooltip" : ""}
+          data-placement="top"
+        />
       }
     </div>
   );

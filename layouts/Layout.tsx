@@ -16,7 +16,7 @@ const Layout: DefaultFC = ({ children, className }) => {
       <Head>
         <title>Curriculums</title>
       </Head>
-      <div className={className}>
+      <div className={`container ${className ? className : ""}`}>
         <Navbar />
         <PageHead routerAsPath={router.asPath} />
         <Content>{children}</Content>

@@ -35,11 +35,11 @@ const CvHomePage = () => {
       getProfiles()
         .then(setProfiles)
         .finally(() => setLoading(false))
-    }, 3000);
+    }, 1000);
   }, [])
 
   return (
-    < >
+    <div className="row d-flex gap-2 justify-content-center mx-auto">
       {
         loading
           ? Array(5).fill(null).map((_, i) => <ProfileCardSkeleton key={`profileSkeleton-${i}`} />)
@@ -49,7 +49,7 @@ const CvHomePage = () => {
               No hay perfiles creados aun, podrias <Link href={'/cv/crear'}>crear uno</Link>
             </>
       }
-    </>
+    </div>
   );
 }
 
