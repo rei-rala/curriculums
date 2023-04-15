@@ -7,23 +7,24 @@ import Image from "next/image";
 import styles from "./ProfileAvatar.module.css";
 
 const BaseAvatar = (props: any) => {
-  const { profile, width, height, altText, iconClass } = props;
+  const { profile, width, height, altText, iconClass, fill } = props;
 
   return (
     <div className={styles.avatarContainer}>
       {profile?.photo
         ? <Image
-          width={width || 30}
-          height={height || 30}
+          fill={fill || false}
+          width={!fill && (width || 30)}
+          height={!fill && (height || 30)}
           src={profile.photo}
           alt={altText ? altText : `Foto de ${profile.alias}`}
         />
         : <FontAwesomeIcon
-          className={`ratio ratio-1x1 ${styles.altIcon} ${iconClass || ""}`}
-          icon={faUser}
-          width={width || 30}
-          height={height || 30}
-        />
+            className={`ratio ratio-1x1 ${styles.altIcon} ${iconClass || ""}`}
+            icon={faUser}
+            width={width || 30}
+            height={height || 30}
+          />
       }
     </div>
   );

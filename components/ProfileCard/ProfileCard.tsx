@@ -22,7 +22,7 @@ const ProfileCard: React.FC<IProfileCardProps> = ({ avatarProfile, header, subHe
         {
           !!avatarProfile &&
           <div className={`col-3 col-lg-5 col-xl-3 ${styles.profileCardImg}`}>
-            <ProfileAvatar width={100} height={100} profile={avatarProfile} />
+            <ProfileAvatar profile={avatarProfile} width={200} height={200} />
           </div>
         }
 
@@ -41,7 +41,7 @@ const ProfileCard: React.FC<IProfileCardProps> = ({ avatarProfile, header, subHe
       <div className="card-footer row">
         <Link
           href={footerLink || "#"}
-          className="btn btn-primary col-6 col-lg-12 m-auto"
+          className="btn btn-primary col-sm-6 col-md-8 col-lg-6 m-auto"
         >
           {footerText || "Visitar"}
         </Link>
