@@ -12,7 +12,7 @@ const BreadCrumbs: ExtendedFC<{ routerAsPath: string }> = ({ routerAsPath }) => 
   const breadcrumbsPaths = useMemo(()=> pathGetterByURL(routerAsPath), [routerAsPath]) 
 
   return (
-    <nav aria-label="breadcrumb" className={`row px-3 d-flex align-items-center ${styles.breadcrumbNav}`}>
+    <nav aria-label="breadcrumb" className={`row px-1 d-flex align-items-center ${styles.breadcrumbNav}`}>
       <ol className="breadcrumb px-2 py-1">
         {
           breadcrumbsPaths.map((path, index) => {

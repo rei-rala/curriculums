@@ -4,7 +4,7 @@
 
 body {
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: 100%;
   overflow: hidden scroll;
   background-color: #242424;
   font-weight: 300 !important;
@@ -17,6 +17,8 @@ a {
 a:hover {
   text-decoration: none;
 }
+
+
 
 @media screen and (min-width: 576px) {
   #__next > :first-child > :not(:first-child, :last-child) {

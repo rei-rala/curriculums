@@ -22,7 +22,7 @@ const CvHomePage = () => {
   }, [])
 
   return (
-    <div className="row d-flex gap-3 justify-content-center mx-auto">
+    <div className="row d-flex gap-3 justify-content-around mx-auto">
       {
         loading
           ? Array(5).fill(null).map((_, i) => <ProfileCardSkeleton key={`profileSkeleton-${i}`} />)

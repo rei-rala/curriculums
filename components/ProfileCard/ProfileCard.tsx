@@ -17,16 +17,16 @@ interface IProfileCardProps {
 // Solucion con clases bootstrap
 const ProfileCard: React.FC<IProfileCardProps> = ({ avatarProfile, header, subHeader, body, footerLink, footerText }) => {
   return (
-    <div className={`card text-center col-sm-12 col-md-5 col-lg-4 col-xl-5 border-0 ${styles.profileCard} ${styles.profileCardDefault}`} draggable>
+    <div className={`card text-center col-sm-12 col-md-5 col-xl-3 border-0 ${styles.profileCard} ${styles.profileCardDefault}`} draggable>
       <div className="card-header row d-flex justify-content-center align-items-center">
         {
           !!avatarProfile &&
-          <div className={`col-3 col-lg-5 col-xl-3 ${styles.profileCardImg}`}>
+          <div className={`col-3 ${styles.profileCardImg}`}>
             <ProfileAvatar profile={avatarProfile} width={200} height={200} />
           </div>
         }
 
-        <div className={`${avatarProfile ? "col-9 col-lg-7 col-xl-6" : "col"} ${styles.profileNameContainer}`}>
+        <div className={`${avatarProfile ? "col-9" : "col"} ${styles.profileNameContainer}`}>
           <div>
             <h4 className={styles.profileCardHeader}>{header}</h4>
             <span className="display-md-none">{subHeader}</span>
@@ -34,7 +34,7 @@ const ProfileCard: React.FC<IProfileCardProps> = ({ avatarProfile, header, subHe
         </div>
       </div>
 
-      <div className="card-body d-flex align-items-center">
+      <div className="card-body p-1 d-flex align-items-center">
         <span className="card-text">{body}</span>
       </div>
 

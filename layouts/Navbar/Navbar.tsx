@@ -4,7 +4,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./Navbar.module.css";
 import { ProfileAvatar } from "@/components/ProfileAvatar/ProfileAvatar";
 import NavbarMenu from "./NavbarMenu/NavbarMenu";
-import AppTooltip from "../AppTooltip/AppTooltip";
+import AppTooltip from "../../components/AppTooltip/AppTooltip";
 
 export type NavLinkType = {
   to: string;
@@ -48,7 +48,7 @@ const Navbar: DefaultFC = () => {
 
   return (
     <nav
-      className={`row  px-3 py-1 d-flex justify-content-space-between ${styles.navbar}`}
+      className={`row p-1 d-flex justify-content-space-between ${styles.navbar}`}
     >
       <Link className="col-6 navbar-brand d-flex align-items-center" href="/">
         Loguito
