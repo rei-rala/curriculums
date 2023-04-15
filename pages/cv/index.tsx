@@ -31,7 +31,7 @@ const CvHomePage = () => {
               avatarProfile={profile}
               header={`${profile.name} ${profile.surname}`}
               body={profile.about}
-              footerText="Ver perfil"
+              footerText="Visitar perfil"
               footerLink={`/cv/${profile.alias}`}
             />)
             : <> {/* TODO: create page */}

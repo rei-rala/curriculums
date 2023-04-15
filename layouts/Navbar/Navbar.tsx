@@ -1,20 +1,27 @@
 import Link from "next/link";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 import styles from "./Navbar.module.css";
 import { ProfileAvatar } from "@/components/ProfileAvatar/ProfileAvatar";
 import NavbarMenu from "./NavbarMenu/NavbarMenu";
+import AppTooltip from "../AppTooltip/AppTooltip";
 
 export type NavLinkType = {
   to: string;
   text: string;
 };
 
+
+
+
 const baseLink: NavLinkType[] = [{ to: "/cv", text: "Perfiles" }];
 
 const Navbar: DefaultFC = () => {
   const [loggedUser, setLoggedUser] = useState<IProfile | null>(null);
   const [isNavbarMenuOpen, setNavbarMenuOpen] = useState(false);
+
+  const avatarRef = useRef<HTMLElement | null>(null)
+  const [showAvatarTooltip, setShowAvatarTooltip] = useState(false);
 
   const navLinks = useMemo(() => {
     let nvLinks = baseLink;
@@ -29,6 +36,14 @@ const Navbar: DefaultFC = () => {
 
   function toggleNavbarMenu() {
     setNavbarMenuOpen(!isNavbarMenuOpen);
+    setShowAvatarTooltip(false);
+  }
+
+  function handleAvatarHover(event: React.SyntheticEvent) {
+    if (event.type === "mouseenter")
+      !isNavbarMenuOpen && setShowAvatarTooltip(true);
+    if (event.type === "mouseleave")
+      setShowAvatarTooltip(false);
   }
 
   return (
@@ -41,9 +56,12 @@ const Navbar: DefaultFC = () => {
 
       <div className={`col-6 d-flex justify-content-end align-items-center ${styles.dropdownBtn}`}>
         <span
+          ref={avatarRef}
+          onClick={toggleNavbarMenu}
+          onMouseEnter={handleAvatarHover}
+          onMouseLeave={handleAvatarHover}
           className="d-flex align-items-center fa-2x"
           role="button"
-          onClick={toggleNavbarMenu}
         >
           <ProfileAvatar profile={loggedUser} />
         </span>
@@ -53,7 +71,8 @@ const Navbar: DefaultFC = () => {
           setOpen={setNavbarMenuOpen}
         />
       </div>
-    </nav>
+      <AppTooltip text="Opciones" show={showAvatarTooltip} targetRef={avatarRef} placement="bottom" />
+    </nav >
   );
 };
 
