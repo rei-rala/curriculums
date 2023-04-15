@@ -17,6 +17,6 @@
 
 @media screen and (min-width: 576px) {
   .footerContainer {
-    border-radius: 10px 10px 0 0;
+    border-radius: var(--gral-bd-radius) var(--gral-bd-radius) 0 0;
   }
 }

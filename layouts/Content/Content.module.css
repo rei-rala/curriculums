@@ -6,6 +6,6 @@
 
 @media screen and (min-width: 576px) {
   .contentWrapper {
-    border-radius: 10px;
+    border-radius: var(--gral-bd-radius);
   }
 }

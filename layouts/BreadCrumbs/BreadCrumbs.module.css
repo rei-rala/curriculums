@@ -17,6 +17,6 @@
 
 @media screen and (min-width: 576px) {
   .breadcrumbNav {
-    border-radius: 10px;
+    border-radius: var(--gral-bd-radius);
   }
 }
