@@ -5,7 +5,7 @@ import styles from "./ProfileCard.module.css";
 // Solucion con clases bootstrap
 const ProfileCardSkeleton = () => {
   return (
-    <div className="card text-center col-sm-12 col-md-5 border-0">
+    <div className={`card text-center col-sm-12 col-md-5 col-xl-3 border-0 ${styles.profileCardDefault}`}>
       <div className="card-header row d-flex justify-content-center align-items-center">
         <div className={`col-3 placeholder-glow ${styles.profileCardImg}`}>
           <div className="placeholder"></div>

@@ -7,39 +7,41 @@ import styles from "./ProfileCard.module.css";
 
 interface IProfileCardProps {
   avatarProfile?: IProfile | IProfilePartial;
-  header?: string;
-  body?: string;
-  footerLink?: string;
-  footerText?: string;
+  header?: string | JSX.Element;
+  subHeader?: string | JSX.Element;
+  body?: string | JSX.Element;
+  footerLink?: string | URL;
+  footerText?: string | JSX.Element;
 }
 
 // Solucion con clases bootstrap
-const ProfileCard: React.FC<IProfileCardProps> = ({ avatarProfile, header, body, footerLink, footerText }) => {
+const ProfileCard: React.FC<IProfileCardProps> = ({ avatarProfile, header, subHeader, body, footerLink, footerText }) => {
   return (
-    <div className={`card text-center col-sm-12 col-md-5 border-0 ${styles.profileCard}`} draggable>
+    <div className={`card text-center col-sm-12 col-md-5 col-lg-4 col-xl-5 border-0 ${styles.profileCard} ${styles.profileCardDefault}`} draggable>
       <div className="card-header row d-flex justify-content-center align-items-center">
         {
           !!avatarProfile &&
-          <div className={`col-3 ${styles.profileCardImg}`}>
+          <div className={`col-3 col-lg-5 col-xl-3 ${styles.profileCardImg}`}>
             <ProfileAvatar width={100} height={100} profile={avatarProfile} />
           </div>
         }
 
-        <div className={`${avatarProfile ? "col-9" : "col"} ${styles.profileNameContainer}`}>
+        <div className={`${avatarProfile ? "col-9 col-lg-7 col-xl-6" : "col"} ${styles.profileNameContainer}`}>
           <div>
             <h4 className={styles.profileCardHeader}>{header}</h4>
+            <span className="display-md-none">{subHeader}</span>
           </div>
         </div>
       </div>
 
-      <div className="card-body">
+      <div className="card-body d-flex align-items-center">
         <span className="card-text">{body}</span>
       </div>
 
       <div className="card-footer row">
         <Link
           href={footerLink || "#"}
-          className="btn btn-primary col-6 m-auto"
+          className="btn btn-primary col-6 col-lg-12 m-auto"
         >
           {footerText || "Visitar"}
         </Link>

@@ -4,6 +4,7 @@ import ProfileCard from "@/components/ProfileCard/ProfileCard";
 import Link from "next/link";
 import ProfileCardSkeleton from "@/components/ProfileCard/ProfileCardSkeleton";
 import { getProfiles } from "@/services/profiles.services";
+import { Badge } from "react-bootstrap";
 
 
 
@@ -30,9 +31,10 @@ const CvHomePage = () => {
               key={"pCard" + profile.id}
               avatarProfile={profile}
               header={`${profile.name} ${profile.surname}`}
+              subHeader={<Badge pill bg="secondary"> {profile.alias.toUpperCase()}</Badge>}
               body={profile.about}
               footerText="Visitar perfil"
-              footerLink={`/cv/${profile.alias}`}
+              footerLink={`/cv/${profile.alias.toUpperCase()}`}
             />)
             : <> {/* TODO: create page */}
               No hay perfiles creados aun, podrias <Link href={'/cv/crear'}>crear uno</Link>

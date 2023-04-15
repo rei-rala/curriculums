@@ -1,12 +1,14 @@
-.profileCard {
-  gap: 0.5rem;
+.profileCardDefault {
   border-radius: 10px;
   transition: box-shadow, transform 0.25s ease-in-out;
   box-shadow: var(--box-shadow);
   -webkit-box-shadow: var(--box-shadow);
   -moz-box-shadow: var(--box-shadow);
-
   cursor: default;
+}
+
+.profileCard {
+  gap: 0.5rem;
 }
 
 .profileCard:hover {
@@ -24,12 +26,13 @@
 }
 
 .profileCardImg {
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   aspect-ratio: 1/1;
   padding: 0;
-  border-radius: 10px;
+  border-radius: 50%;
   overflow: hidden;
 }
 

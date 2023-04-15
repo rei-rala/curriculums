@@ -1,12 +1,11 @@
 .avatarContainer {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .avatarContainer img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -30%);
+  margin: auto;
 }
 
 .altIcon {

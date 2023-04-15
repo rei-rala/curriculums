@@ -48,7 +48,7 @@ const Navbar: DefaultFC = () => {
 
   return (
     <nav
-      className={`row  px-3 d-flex justify-content-space-between ${styles.navbar}`}
+      className={`row  px-3 py-1 d-flex justify-content-space-between ${styles.navbar}`}
     >
       <Link className="col-6 navbar-brand d-flex align-items-center" href="/">
         Loguito
