@@ -1,17 +1,33 @@
-.profileNameContainer {
-  overflow: hidden !important;
-  white-space: nowrap !important;
+.profileCard {
+  gap: 0.5rem;
+  border-radius: 10px;
+  transition: box-shadow, transform 0.25s ease-in-out;
+  box-shadow: var(--box-shadow);
+  -webkit-box-shadow: var(--box-shadow);
+  -moz-box-shadow: var(--box-shadow);
+
+  cursor: default;
 }
 
-.profileName {
-  text-overflow: ellipsis !important;
+.profileCard:hover {
+  transform: scale(1.01);
+}
+
+.profileNameContainer {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.profileCardHeader {
+  text-overflow: ellipsis;
+  font-weight: bold;
 }
 
 .profileCardImg {
   display: grid;
   place-items: center;
 
-  aspect-ratio: 1/1 !important;
+  aspect-ratio: 1/1;
   padding: 0;
   border-radius: 10px;
   overflow: hidden;

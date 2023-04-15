@@ -17,3 +17,20 @@ export async function getProfileByAlias(alias: string): Promise<IProfile | null>
     return null;
   }
 }
+
+export async function getProfiles(): Promise<IProfilePartial[]> {
+  let url = getUrlFromClient()
+
+  const options: AxiosRequestConfig = {
+    method: "get",
+    baseURL: `${url}/api`,
+    url: 'profiles/random',
+  };
+
+  try {
+    let { profiles } = (await axios<{ profiles: IProfilePartial[] }>(options)).data
+    return profiles
+  } catch {
+    return []
+  }
+}

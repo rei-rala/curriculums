@@ -10,25 +10,19 @@ const BaseAvatar = (props: any) => {
   const { profile, width, height, altText, iconClass } = props;
 
   return (
-    <div
-      data-toggle={altText ? "tooltip" : ""}
-      data-placement="top"
-      title={profile?.alias ? `${profile?.alias} no ha proporcionado foto` : ""}
-    >
+    <div className={styles.avatarContainer}>
       {profile?.photo
         ? <Image
           width={width || 30}
           height={height || 30}
           src={profile.photo}
-          alt={`Foto de ${profile.alias}`}
+          alt={altText ? altText : `Foto de ${profile.alias}`}
         />
         : <FontAwesomeIcon
-          className={`ratio ratio-1x1 ${styles.icon} ${iconClass || ""}`}
+          className={`ratio ratio-1x1 ${styles.altIcon} ${iconClass || ""}`}
           icon={faUser}
           width={width || 30}
           height={height || 30}
-          data-toggle={altText ? "tooltip" : ""}
-          data-placement="top"
         />
       }
     </div>

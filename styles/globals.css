@@ -1,6 +1,26 @@
+:root {
+  --box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
 body {
   min-height: 100vh;
   min-width: 100vw;
   overflow: hidden scroll;
   background-color: #242424;
+  font-weight: 300 !important;
+}
+
+a {
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 576px) {
+  #__next > :first-child > :not(:first-child, :last-child) {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
 }

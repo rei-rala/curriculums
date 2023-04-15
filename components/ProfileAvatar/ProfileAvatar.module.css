@@ -1,6 +1,14 @@
-/* Por que es necesario esto???
-  Cualquier porcentaje da el mismo resultado visual
-*/
-.icon {
+.avatarContainer {
+  position: relative;
+}
+
+.avatarContainer img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+}
+
+.altIcon {
   height: 1%;
 }

@@ -4,7 +4,7 @@ import styles from "./Footer.module.css";
 
 const Footer: DefaultFC = () => {
   return (
-    <footer className={`row ${styles.footerContainer}`}>
+    <footer className={`row px-3 ${styles.footerContainer}`}>
         <span>Footer</span>
     </footer>
   );

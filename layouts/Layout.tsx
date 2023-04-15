@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 
 import Navbar from "./Navbar/Navbar";
-import PageHead from "./PageHead/PageHead";
+import BreadCrumbs from "./BreadCrumbs/BreadCrumbs";
 import Content from "./Content/Content";
 import Footer from "./Footer/Footer";
 
@@ -18,7 +18,7 @@ const Layout: DefaultFC = ({ children, className }) => {
       </Head>
       <div className={`container ${className ? className : ""}`}>
         <Navbar />
-        <PageHead routerAsPath={router.asPath} />
+        <BreadCrumbs routerAsPath={router.asPath} />
         <Content>{children}</Content>
         <Footer />
       </div>

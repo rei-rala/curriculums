@@ -4,7 +4,7 @@ import Layout from "@/layouts/Layout";
 import { Roboto } from 'next/font/google'
 
 const roboto = Roboto({
-  weight: '400',
+  weight: ['300', '400'],
   subsets: ['latin'],
   preload: true,
 })

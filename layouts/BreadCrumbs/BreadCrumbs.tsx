@@ -1,19 +1,19 @@
 import React, { useMemo } from "react";
 import Link from "next/link";
 
-import styles from "./PageHead.module.css";
+import styles from "./BreadCrumbs.module.css";
 
 function pathGetterByURL(routerAsPath: string) {
   return ["home", ...routerAsPath.split("/").filter((path) => path !== "")];
 }
 
-const PageHead: ExtendedFC<{ routerAsPath: string }> = ({ routerAsPath }) => {
+const BreadCrumbs: ExtendedFC<{ routerAsPath: string }> = ({ routerAsPath }) => {
 
   const breadcrumbsPaths = useMemo(()=> pathGetterByURL(routerAsPath), [routerAsPath]) 
 
   return (
-    <nav aria-label="breadcrumb" className={`row d-flex align-items-center ${styles.breadcrumbNav}`}>
-      <ol className="breadcrumb px-3">
+    <nav aria-label="breadcrumb" className={`row px-3 d-flex align-items-center ${styles.breadcrumbNav}`}>
+      <ol className="breadcrumb px-2 py-1">
         {
           breadcrumbsPaths.map((path, index) => {
             let partialUrl = breadcrumbsPaths.slice(1, index + 1).join("/"),
@@ -39,4 +39,4 @@ const PageHead: ExtendedFC<{ routerAsPath: string }> = ({ routerAsPath }) => {
   );
 };
 
-export default PageHead;
+export default BreadCrumbs;

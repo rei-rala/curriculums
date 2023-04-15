@@ -9,6 +9,7 @@ const MyCvPage: DefaultFC = () => {
   const [profile, setProfile] = useState<IProfile>();
 
   useEffect(() => {
+    // Forzando un delay de 1 segundo para simular una carga mas alta y mostrar el skeleton/loading state
     setTimeout(() => {
       getProfileByAlias(myHardcodedAlias)
         .then((p) => {
