@@ -1,0 +1,58 @@
+.summaryContainer {
+  /* Background only for development purposes */
+  background-color: aqua;
+}
+
+.summaryUpper {
+  position: relative;
+  
+  border-radius: var(--gral-bd-radius) var(--gral-bd-radius) 0 0;
+  overflow: hidden;
+
+  /* Background only for development purposes */
+  background-color: red;
+}
+
+/*
+ *   Overwriting the row bootstrap class
+ */
+.summaryUpper > * {
+  padding: 0;
+}
+
+.summaryPhoto {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+.summaryPhoto img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.photoDecorator {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+}
+
+.summaryPersonalInfo {
+  padding: 0.25rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.summaryLower {
+  /* Background only for development purposes */
+  background-color: #f5f5f5;
+}

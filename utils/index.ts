@@ -19,3 +19,9 @@ export function getUrlFromClient() {
 
   return window.location.origin;
 }
+
+
+export function getMailFromStr(str: string) {
+  let mail = str.split("@")[1].split(".")[0];
+  return mail;
+}

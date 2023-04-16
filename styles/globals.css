@@ -8,12 +8,13 @@ body {
   min-width: 100%;
   overflow: hidden scroll;
   background-color: #242424;
-  font-family: 'Roboto', 
+  font-family: "Roboto",
     /* DEV: The fallback font is Comic Sans, as it will be easy to notice. */
-    "Comic Sans MS", "Comic Sans", cursive,
-    /* sans-serif is Roboto's fallback */
-    sans-serif;
+      "Comic Sans MS",
+    "Comic Sans", cursive, /* sans-serif is Roboto's fallback */ sans-serif;
   font-weight: 300;
+
+  scroll-behavior: smooth !important;
 }
 
 a {
@@ -23,8 +24,6 @@ a {
 a:hover {
   text-decoration: none;
 }
-
-
 
 @media screen and (min-width: 576px) {
   #__next > div > :not(:first-child, :last-child) {
