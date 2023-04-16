@@ -12,8 +12,6 @@ export type NavLinkType = {
 };
 
 
-
-
 const baseLink: NavLinkType[] = [{ to: "/cv", text: "Perfiles" }];
 
 const Navbar: DefaultFC = () => {
@@ -50,9 +48,11 @@ const Navbar: DefaultFC = () => {
     <nav
       className={`row p-1 d-flex justify-content-space-between ${styles.navbar}`}
     >
-      <Link className="col-6 navbar-brand d-flex align-items-center" href="/">
-        Loguito
-      </Link>
+      <div className="col-6 navbar-brand d-flex align-items-center">
+        <Link href="/">
+          Loguito
+        </Link>
+      </div>
 
       <div className={`col-6 d-flex justify-content-end align-items-center ${styles.dropdownBtn}`}>
         <span

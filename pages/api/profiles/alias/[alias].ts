@@ -7,7 +7,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<{ profile: IProfile | null }>
 ) {
-  const { alias } = req.query;
+  const alias = String(req.query.alias);
   let profile: IProfile | null = null;
   let statusCode: number = 200;
 
@@ -23,7 +23,7 @@ export default async function handler(
     const fileContents = await fs.readFile(jsonDirectory + "/sample.json", "utf8");
     const json = JSON.parse(fileContents);
 
-    profile = json.find((p: IProfile) => p.contact.alias === alias);
+    profile = json.find((p: IProfile) => p.contact.alias.toUpperCase() === alias.toUpperCase());
 
     if (!profile) {
       throw {

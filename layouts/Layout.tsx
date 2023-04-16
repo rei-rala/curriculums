@@ -8,7 +8,7 @@ import Footer from "./Footer/Footer";
 
 import { useRouter } from "next/router";
 
-const Layout: DefaultFC = ({ children, className }) => {
+const Layout: DefaultFC = ({ children }) => {
   const router = useRouter();
 
   return (
@@ -16,7 +16,7 @@ const Layout: DefaultFC = ({ children, className }) => {
       <Head>
         <title>Curriculums</title>
       </Head>
-      <div className={`container ${className ? className : ""}`}>
+      <div className="container">
         <Navbar />
         <BreadCrumbs routerAsPath={router.asPath} />
         <Content>{children}</Content>

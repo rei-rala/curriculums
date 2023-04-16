@@ -7,6 +7,10 @@
   background-color: red;
 }
 
+.navbar a {
+  color: inherit;
+}
+
 .avatarContainer {
   display: grid;
   place-items: center;
