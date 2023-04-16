@@ -18,6 +18,8 @@ const BaseAvatar = (props: any) => {
           height={!fill && (height || 30)}
           src={profile.photo}
           alt={altText ? altText : `Foto de ${profile.alias}`}
+          placeholder="blur"
+          blurDataURL={profile.photo}
         />
         : <FontAwesomeIcon
             className={`ratio ratio-1x1 ${styles.altIcon} ${iconClass || ""}`}
