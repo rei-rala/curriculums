@@ -4,10 +4,10 @@
     "personal": {
       "name": "Testito",
       "surname": "bolainas",
-      "linkedin": "",
+      "linkedin": "https://www.linkedin.com/in/ramon-irala-220362110",
       "phone": "123123123",
       "location": "su casa",
-      "photo": null
+      "photo": "https://media.licdn.com/dms/image/C4D03AQECDCVkG6IfxQ/profile-displayphoto-shrink_400_400/0/1668085573452?e=1686787200&v=beta&t=AZA_H-Eh8wzKKi7qhgQ8qF_lqMqvKe5y7-MvVOBNZLc"
     },
     "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros ante, finibus in egestas sit.",
     "strengths": [
@@ -24,9 +24,9 @@
       }
     ],
     "contact": {
-      "alias": "asd",
-      "email": "asd",
-      "phone": "asd"
+      "alias": "blabla",
+      "email": "ramonirala@yopmail.com",
+      "phone": "123123123"
     },
     "experience": [
       {

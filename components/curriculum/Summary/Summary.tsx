@@ -1,35 +1,46 @@
-import React, { useState } from "react";
-
-import styles from "./Summary.module.css";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+
+import { Badge } from "react-bootstrap";
+import SummaryAccordion from "./SummaryAccordion/SummaryAccordion";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
-import { Badge } from "react-bootstrap";
-import { getMailFromStr } from "@/utils";
-import AccordionMobile from "./AccordionMobile/AccordionMobile";
-import Link from "next/link";
+import { getMailFromStr as getMailPartsFromStr } from "@/utils";
 
-const Summary: ExtendedFC<{
+import styles from "./Summary.module.css";
+import AppTooltip from "@/components/AppTooltip/AppTooltip";
+
+interface ISummaryProps {
   personal: Personal;
   contact: Contact;
   sections: string[];
-}> = ({ personal, contact, sections }) => {
-  // checking active section
-  const [activeSection, setActiveSection] = useState(sections[0]);
+}
 
+const Summary: ExtendedFC<ISummaryProps> = ({ personal, contact, sections }) => {
+  const mobileMailRef = useRef<HTMLSpanElement>(null);
+  const [showMailTooltip, setShowMailTooltip] = useState(false);
+
+  function handleMailHover(event: React.SyntheticEvent) {
+    setShowMailTooltip(event.type === "mouseenter");
+  }
 
   return (
     <div className={styles.summaryContainer}>
-      <div className={`mx-1 row ${styles.summaryUpper}`}>
+      <div
+        draggable
+        className={`row mx-0 ${styles.summaryUpper}`}
+      >
         <div className="col-5 d-flex align-content-center">
-          <div className={styles.summaryPhoto}>
-            {personal.photo && <Image src={personal.photo} alt="wtf" width={500} height={500} />}
-          </div>
+          {personal.photo && <div className={styles.summaryPhoto}>
+            <Image priority={false} src={personal.photo} alt={personal.name} width={500} height={500} draggable={false} />
+          </div>}
         </div>
-        <div className={`col-7 text-center d-flex flex-column justify-content-center gap-1 align-content-center ${styles.summaryPersonalInfo}`}>
+        <div className={`px-1 py-2 text-center d-flex flex-column justify-content-center gap-1 align-content-center ${styles.summaryPersonalInfo} ${personal.photo ? "col-7" : "col-12"} `}>
           <h3>{personal.name} {personal.surname}</h3>
-          <Badge bg="secondary" className="col-8 mx-auto" pill>{contact.alias}</Badge>
+          <Badge bg="secondary" className="mx-auto" pill>{contact.alias}</Badge>
 
           {
             personal.location && <p>
@@ -44,11 +55,17 @@ const Summary: ExtendedFC<{
           }
 
           {
-            contact.email && <p>
+            contact.email &&
+            <p>
               <FontAwesomeIcon icon={faEnvelope} /> {" "}
-              <Link href={`mailto:${contact.email}`}>
-                <span className="d-md-none d-sm-inline">{getMailFromStr(contact.email)}</span>
-                <span className="d-sm-none d-md-inline">{contact.email}</span>
+              <Link href={`mailto:${contact.email}`} draggable={false}>
+                <span className="d-sm-inline d-none">{contact.email}</span>
+                <span className="d-sm-none d-inline"
+                  ref={mobileMailRef}
+                  onMouseEnter={handleMailHover}
+                  onMouseLeave={handleMailHover}
+                >Email: {getMailPartsFromStr(contact.email, "organization")}</span>
+                <AppTooltip show={showMailTooltip} targetRef={mobileMailRef} text={contact.email} placement="bottom" />
               </Link>
             </p>
           }
@@ -64,8 +81,11 @@ const Summary: ExtendedFC<{
         </div>
       </div>
 
-      <div className={`col-6 mx-auto row text-center ${styles.summaryLower}`}>
-        <AccordionMobile sections={sections} activeSection={activeSection} setActiveSection={setActiveSection} />
+      <div
+        className={`col mx-auto row text-center ${styles.summaryLower}`}
+        style={{}}
+      >
+        <SummaryAccordion sections={sections} />
       </div>
     </div>
   );

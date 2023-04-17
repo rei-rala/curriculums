@@ -2,6 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 11;
+  height: var(--navbar-height);
 
   /* TODO: Remove background-placeholder */
   background-color: red;

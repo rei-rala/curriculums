@@ -1,6 +1,10 @@
 :root {
+  --navbar-height: 3rem;
+  --mg-sections: 0.5rem;
   --box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2);
   --gral-bd-radius: 2px;
+  --summary-bd-radius: 10px;
+  --ms-transition: 250ms;
 }
 
 body {
@@ -25,9 +29,17 @@ a:hover {
   text-decoration: none;
 }
 
+#__next > div {
+  transition: max-width var(--ms-transition) ease;
+}
+
+#__next > div > :not(:first-child, :last-child) {
+  transition: margin var(--ms-transition) ease;
+}
+
 @media screen and (min-width: 576px) {
   #__next > div > :not(:first-child, :last-child) {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: var(--mg-sections);
+    margin-bottom: var(--mg-sections);
   }
 }

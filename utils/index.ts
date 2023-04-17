@@ -20,8 +20,23 @@ export function getUrlFromClient() {
   return window.location.origin;
 }
 
+type EmailPart = "name" | "domain" | "organization";
 
-export function getMailFromStr(str: string) {
-  let mail = str.split("@")[1].split(".")[0];
-  return mail;
+export function getMailFromStr(str: string, part: EmailPart = "domain") {
+  try {
+    let [name, domain] = str.split("@");
+
+    if (part === "name") return name;
+    if (part === "domain") return domain;
+    if (part === "organization") return domain.split(".")[0];
+  } catch {
+    return "";
+  }
+}
+
+export function scrollToId(id: string) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
 }

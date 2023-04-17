@@ -1,0 +1,12 @@
+.curriculumLeft, .curriculumRight {
+}
+
+.curriculumLeft {
+}
+
+.curriculumRight {
+  /* fixed height by the moment  */
+  max-height: 565px;
+  overflow-y: scroll;
+}
+

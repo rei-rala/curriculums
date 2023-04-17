@@ -1,0 +1,36 @@
+.accordionContainer {
+  font-size: normal;
+  border-radius: 0 0 var(--summary-bd-radius) var(--summary-bd-radius);
+  overflow: hidden;
+}
+
+.accordionLinks {
+  cursor: pointer;
+  transition: padding var(--ms-transition) ease;
+}
+
+.accordionLinks:not(:first-child, :last-child) {
+  margin: 0.15rem 0;
+}
+
+/* removing bootstrap button styles */
+.accordionLinks button {
+  border: none;
+  background-color: inherit;
+  color: inherit;
+  outline: inherit;
+  text-transform: capitalize;
+}
+
+.accordionItemHeader button {
+  padding: 0.5rem 0.75rem;
+}
+
+@media screen and (min-width: 576px) {
+  .accordionContainer {
+    font-size: normal;
+  }
+  .accordionLinks {
+    padding: 0.5rem 0.75rem;
+  }
+}
