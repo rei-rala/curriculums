@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-import ProfileCard from "@/components/ProfileCard/ProfileCard";
+import ProfileCard from "@components/ProfileCard/ProfileCard";
 import Link from "next/link";
-import ProfileCardSkeleton from "@/components/ProfileCard/ProfileCardSkeleton";
-import { getProfiles } from "@/services/profiles.services";
+import ProfileCardSkeleton from "@components/ProfileCard/ProfileCardSkeleton";
+import { getProfiles } from "@services/profiles.services";
 import { Badge } from "react-bootstrap";
 
 

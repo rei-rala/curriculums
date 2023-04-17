@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,10 +8,10 @@ import SummaryAccordion from "./SummaryAccordion/SummaryAccordion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
-import { getMailFromStr as getMailPartsFromStr } from "@/utils";
+import { getMailPartsFromStr } from "@/utils";
 
 import styles from "./Summary.module.css";
-import AppTooltip from "@/components/AppTooltip/AppTooltip";
+import AppTooltip from "@components/AppTooltip/AppTooltip";
 
 interface ISummaryProps {
   personal: Personal;

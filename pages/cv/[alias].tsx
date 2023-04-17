@@ -3,9 +3,9 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { getProfileByAlias } from "@/services/profiles.services";
-import Loading from "@/components/Loading/Loading";
-import Curriculum from "@/components/curriculum/Curriculum";
+import { getProfileByAlias } from "@services/profiles.services";
+import Loading from "@components/Loading/Loading";
+import Curriculum from "@components/curriculum/Curriculum";
 
 
 const CvPage: DefaultFC = () => {

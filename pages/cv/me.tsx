@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Personal from "@/components/curriculum/Personal/Personal";
-import { getProfileByAlias } from "@/services/profiles.services";
-import Loading from "@/components/Loading/Loading";
+import Personal from "@components/curriculum/Personal/Personal";
+import { getProfileByAlias } from "@services/profiles.services";
+import Loading from "@components/Loading/Loading";
 
 const MyCvPage: DefaultFC = () => {
   let myHardcodedAlias = "asd";

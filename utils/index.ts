@@ -22,7 +22,7 @@ export function getUrlFromClient() {
 
 type EmailPart = "name" | "domain" | "organization";
 
-export function getMailFromStr(str: string, part: EmailPart = "domain") {
+export function getMailPartsFromStr(str: string, part: EmailPart = "domain") {
   try {
     let [name, domain] = str.split("@");
 
