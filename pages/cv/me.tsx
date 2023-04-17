@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Personal from "@components/curriculum/Personal/Personal";
+import Personal from "@/components/curriculum/About/About";
 import { getProfileByAlias } from "@services/profiles.services";
 import Loading from "@components/Loading/Loading";
 
