@@ -1,8 +1,8 @@
 // Summary
 
 import { useMemo, useRef } from "react";
-import About from "./About/About";
-import Summary from "./Summary/Summary";
+
+import { About, Summary } from "@components/curriculum";
 
 import styles from "./Curriculum.module.css";
 
