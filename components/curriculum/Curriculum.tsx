@@ -49,7 +49,7 @@ const Curriculum: CurriculumComponent = ({ profile }) => {
         </div>
 
         <div>
-          <h3 id={'certifications'}>Certifications</h3>
+          <h3 id="certifications">Certifications</h3>
           <ul>
             {certifications.map((c, i) => (
               <li key={c.institution + c.year + i}>
@@ -63,7 +63,7 @@ const Curriculum: CurriculumComponent = ({ profile }) => {
         </div>
 
         <div>
-          <h3>Languages</h3>
+          <h3 id="languages">Languages</h3>
 
           <ul>
             {languages.map((l) => (
@@ -77,7 +77,7 @@ const Curriculum: CurriculumComponent = ({ profile }) => {
         </div>
 
         <div>
-          <h3>Skills</h3>
+          <h3 id="skills">Skills</h3>
           <ul>
             {skills
               .sort((a, b) => (a.kind > b.kind ? 1 : -1))
@@ -91,9 +91,8 @@ const Curriculum: CurriculumComponent = ({ profile }) => {
           </ul>
         </div>
 
-        {/*  asd */}
         <div>
-          <h3 id={'strengths'}>Strengths</h3>
+          <h3 id="strengths">Strengths</h3>
           <ul>
             {strengths.map((s) => (
               <li key={s.title}>
@@ -106,7 +105,7 @@ const Curriculum: CurriculumComponent = ({ profile }) => {
         </div>
 
         <div>
-          <h3 id={'certifications'}>Certifications</h3>
+          <h3 id="certifications">Certifications</h3>
           <ul>
             {certifications.map((c, i) => (
               <li key={c.institution + c.year + i}>
@@ -120,7 +119,7 @@ const Curriculum: CurriculumComponent = ({ profile }) => {
         </div>
 
         <div>
-          <h3>Languages</h3>
+          <h3 id="languages">Languages</h3>
 
           <ul>
             {languages.map((l) => (
@@ -134,7 +133,7 @@ const Curriculum: CurriculumComponent = ({ profile }) => {
         </div>
 
         <div>
-          <h3>Skills</h3>
+          <h3 id="skills">Skills</h3>
           <ul>
             {skills
               .sort((a, b) => (a.kind > b.kind ? 1 : -1))
