@@ -3,7 +3,7 @@ import React from "react";
 const ExperienceLineComponent: ExtendedFC<{ experience: Experience }> = ({ experience }) => {
   const { position, employer, from, to } = experience;
 
-  let [fromStr, toStr] = [from.toLocaleDateString(), to.toLocaleTimeString()];
+  let [fromStr, toStr] = [`${from}`, `${to}`];
 
   return (
     <li>

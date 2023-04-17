@@ -2,7 +2,7 @@
 
 import { useMemo, useRef } from "react";
 
-import { About, Summary } from "@components/curriculum";
+import { About as AboutComp, Certifications as CertificationsComp, Experience as ExperienceComp, Languages as LanguagesComp, Strenghts as StrenghtsComp, Skills as SkillsComp,  Summary as SummaryComp } from "@components/curriculum";
 
 import styles from "./Curriculum.module.css";
 
@@ -35,82 +35,18 @@ const Curriculum: CurriculumComponent = ({ profile }) => {
         ref={leftSideRef}
         className={`col-sm-12 col-md-5 col-xl-4 ${styles.curriculumLeft}`}
       >
-        <Summary personal={personal} contact={contact} sections={sections} />
+        <SummaryComp personal={personal} contact={contact} sections={sections} />
       </div>
+
       <div className={`col-sm-12 col-md-7 col-xl-8 d-flex flex-column ${styles.curriculumRight}`}>
-        {about && <About about={about} />}
-
-        <section>
-          <h3 id="strengths">Strengths</h3>
-          <ul>
-            {strengths.map((s) => (
-              <li key={s.title}>
-                <p>
-                  <b>{s.title}:</b> {s.description}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section>
-          <h3 id="experience">Experience</h3>
-          {experience.map((e) => (
-            <div key={`${e.employer}:${e.from}-${e.to}`}>
-              <b>{e.position}</b>
-              <i>{e.employer}</i>
-              <p>
-                {new Date(e.from).toLocaleDateString()} -{" "}
-                {new Date(e.to).toLocaleDateString()}
-              </p>
-            </div>
-          ))}
-        </section>
-
-        <section>
-          <h3 id="certifications">Certifications</h3>
-          <ul>
-            {certifications.map((c, i) => (
-              <li key={c.institution + c.year + i}>
-                <p>{c.title}</p>
-                <p>
-                  {c.institution} - {c.year}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section>
-          <h3 id="languages">Languages</h3>
-
-          <ul>
-            {languages.map((l) => (
-              <li key={l.name}>
-                <p>
-                  <b>{l.name}</b>: {l.level}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section>
-          <h3 id="skills">Skills</h3>
-          <ul>
-            {skills
-              .sort((a, b) => (a.kind > b.kind ? 1 : -1))
-              .map((s) => (
-                <li key={s.kind + s.title}>
-                  <p>
-                    <b>{s.kind}</b>: {s.title}
-                  </p>
-                </li>
-              ))}
-          </ul>
-        </section>
-
+        {Boolean(about) && <AboutComp about={about} />}
+        {Boolean(strengths.length) && <StrenghtsComp strengths={strengths} />}
+        {Boolean(experience.length) && <ExperienceComp experience={experience}/>}
+        {Boolean(certifications.length) && <CertificationsComp certifications={certifications} />}
+        {Boolean(languages.length) && <LanguagesComp languages={languages} />}
+        {Boolean(skills.length) && <SkillsComp skills={skills} />}
       </div>
+      
     </div>
   );
 };

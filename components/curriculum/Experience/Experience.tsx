@@ -16,7 +16,7 @@ const ExperienceComponent: ExtendedFC<{ experience: Experience[] }> = ({ experie
 
   return (
     <div>
-      <h3>Experience</h3>
+      <h3 id="experience">Experience</h3>
       <ul>
         {
           experienceSortedByDate.map((e, i) => <ExperienceLineComponent key={`exp${i}`} experience={e} />)
