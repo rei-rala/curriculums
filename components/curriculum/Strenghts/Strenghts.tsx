@@ -2,7 +2,7 @@ import React from "react";
 
 const StrenghtsComponent: ExtendedFC<{ strengths: Strength[] }> = ({ strengths }) => {
   return (
-    <section>
+    <article>
       <h3 id="strengths">Strengths</h3>
       <ul>
         {strengths.map((s) => (
@@ -13,7 +13,7 @@ const StrenghtsComponent: ExtendedFC<{ strengths: Strength[] }> = ({ strengths }
           </li>
         ))}
       </ul>
-    </section>
+    </article>
   );
 };
 

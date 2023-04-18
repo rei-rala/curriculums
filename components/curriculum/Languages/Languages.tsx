@@ -2,7 +2,7 @@ import React from "react";
 
 const Languages: ExtendedFC<{ languages: Language[] }> = ({ languages }) => {
   return (
-    <section>
+    <article>
       <h3 id="languages">Languages</h3>
 
       <ul>
@@ -14,7 +14,7 @@ const Languages: ExtendedFC<{ languages: Language[] }> = ({ languages }) => {
           </li>
         ))}
       </ul>
-    </section>
+    </article>
   );
 };
 

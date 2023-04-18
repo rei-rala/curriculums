@@ -15,14 +15,14 @@ const ExperienceComponent: ExtendedFC<{ experience: Experience[] }> = ({ experie
   let experienceSortedByDate = useMemo(() => sortExperienceByDate(experience), [experience])
 
   return (
-    <div>
+    <article>
       <h3 id="experience">Experience</h3>
       <ul>
         {
           experienceSortedByDate.map((e, i) => <ExperienceLineComponent key={`exp${i}`} experience={e} />)
         }
       </ul>
-    </div>
+    </article>
   );
 };
 

@@ -42,13 +42,13 @@ const CvPage: DefaultFC = () => {
 
 
   return (
-    <>
+    <main>
       <Head>
         <title>{`${profile.contact?.alias || profile.personal?.name || alias} | Curriculums`}</title>
       </Head>
 
       <Curriculum profile={profile} />
-    </>
+    </main>
   );
 };
 

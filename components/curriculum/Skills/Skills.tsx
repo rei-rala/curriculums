@@ -2,7 +2,7 @@ import React from "react";
 
 const Skills: ExtendedFC<{ skills: Skill[] }> = ({ skills }) => {
   return (
-    <section>
+    <article>
       <h3 id="skills">Skills</h3>
       <ul>
         {skills
@@ -15,7 +15,7 @@ const Skills: ExtendedFC<{ skills: Skill[] }> = ({ skills }) => {
             </li>
           ))}
       </ul>
-    </section>
+    </article>
   );
 };
 

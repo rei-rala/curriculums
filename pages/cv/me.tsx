@@ -26,13 +26,13 @@ const MyCvPage: DefaultFC = () => {
   if (!profile) return null;
 
   return (
-    <>
+    <main>
       <h1>Bienvenido a tu perfil, {profile.personal.name}! </h1>
       <p>Display de tu perfil</p>
       <hr />
 
       <Curriculum profile={profile} />
-    </>
+    </main>
   );
 };
 

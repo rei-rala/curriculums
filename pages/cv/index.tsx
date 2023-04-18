@@ -22,7 +22,7 @@ const CvHomePage = () => {
   }, [])
 
   return (
-    <div className="row d-flex gap-3 justify-content-around mx-auto">
+    <main className="row d-flex gap-3 justify-content-around mx-auto">
       {
         loading
           ? Array(5).fill(null).map((_, i) => <ProfileCardSkeleton key={`profileSkeleton-${i}`} />)
@@ -40,7 +40,7 @@ const CvHomePage = () => {
               No hay perfiles creados aun, podrias <Link href={'/cv/crear'}>crear uno</Link>
             </>
       }
-    </div>
+    </main>
   );
 }
 

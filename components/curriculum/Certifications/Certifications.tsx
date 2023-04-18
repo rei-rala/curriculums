@@ -4,7 +4,7 @@ const Certifications: ExtendedFC<{ certifications: Certification[] }> = ({
   certifications,
 }) => {
   return (
-    <section>
+    <article>
       <h3 id="certifications">Certifications</h3>
       <ul>
         {certifications.map((c, i) => (
@@ -16,7 +16,7 @@ const Certifications: ExtendedFC<{ certifications: Certification[] }> = ({
           </li>
         ))}
       </ul>
-    </section>
+    </article>
   );
 };
 
