@@ -13,7 +13,7 @@ import {
 
 import styles from "./Curriculum.module.css";
 
-const Curriculum: CurriculumComponent = ({ profile }) => {
+const Curriculum: ExtendedFC<{ profile: IProfile }> = ({ profile }) => {
   const leftSideRef = useRef(null);
 
   const {
@@ -27,14 +27,14 @@ const Curriculum: CurriculumComponent = ({ profile }) => {
     skills,
   } = profile;
 
-    // getting sections and removing id and personal
-    const sections = useMemo(
-      () =>
-        Object.keys(profile).filter(
-          (s) => s !== "id" && s !== "personal" && s !== "contact"
-        ),
-      [profile]
-    );
+  // getting sections and removing id and personal
+  const sections = useMemo(
+    () =>
+      Object.keys(profile).filter(
+        (s) => s !== "id" && s !== "personal" && s !== "contact"
+      ),
+    [profile]
+  );
 
   return (
     <div className={`container px-0 mx-auto row ${styles.curriculumContainer}`}>
@@ -50,14 +50,18 @@ const Curriculum: CurriculumComponent = ({ profile }) => {
       </div>
 
       <section
-        className={`col-sm-12 col-md-7 col-xl-8 d-flex flex-column ${styles.curriculumRight}`}
+        className={`
+          col-sm-12 col-md-7 col-xl-8
+          d-flex flex-column
+          ${styles.curriculumRight}
+        `}
       >
-        {Boolean(about) && <AboutComp about={about} />}
-        {Boolean(experience.length) && <ExperienceComp experience={experience} />}
-        {Boolean(certifications.length) && <CertificationsComp certifications={certifications} />}
-        {Boolean(skills.length) && <SkillsComp skills={skills} />}
-        {Boolean(strengths.length) && <StrenghtsComp strengths={strengths} />}
-        {Boolean(languages.length) && <LanguagesComp languages={languages} />}
+        <AboutComp about={about} />
+        <ExperienceComp experience={experience} />
+        <CertificationsComp certifications={certifications} />
+        <SkillsComp skills={skills} />
+        <StrenghtsComp strengths={strengths} />
+        <LanguagesComp languages={languages} />
       </section>
     </div>
   );

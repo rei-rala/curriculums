@@ -4,8 +4,6 @@
     "personal": {
       "name": "Testito",
       "surname": "bolainas",
-      "linkedin": "https://www.linkedin.com/in/ramon-irala-220362110",
-      "phone": "123123123",
       "location": "su casa",
       "photo": "https://media.licdn.com/dms/image/C4D03AQECDCVkG6IfxQ/profile-displayphoto-shrink_400_400/0/1668085573452?e=1686787200&v=beta&t=AZA_H-Eh8wzKKi7qhgQ8qF_lqMqvKe5y7-MvVOBNZLc"
     },
@@ -26,7 +24,8 @@
     "contact": {
       "alias": "blabla",
       "email": "ramonirala@yopmail.com",
-      "phone": "123123123"
+      "phone": "123123123",
+      "linkedin": "https://www.linkedin.com/in/ramon-irala-220362110"
     },
     "experience": [
       {
@@ -62,8 +61,6 @@
     "personal": {
       "name": "Cosme",
       "surname": "Fulanito",
-      "linkedin": "",
-      "phone": "123123123",
       "location": "su casa",
       "photo": null
     },
@@ -83,8 +80,8 @@
     ],
     "contact": {
       "alias": "Cosme_Fulanito",
-      "email": "asd",
-      "phone": "asd"
+      "email": "cfulanito@yopmail.com",
+      "phone": "11 1234-1234"
     },
     "experience": [
       {

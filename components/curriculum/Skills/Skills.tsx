@@ -1,6 +1,8 @@
 import React from "react";
 
-const Skills: ExtendedFC<{ skills: Skill[] }> = ({ skills }) => {
+const Skills: CurriculumFC = ({ skills }) => {
+  if (!skills || skills.length === 0) return null;
+
   return (
     <article>
       <h3 id="skills">Skills</h3>

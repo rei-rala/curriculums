@@ -1,16 +1,9 @@
 import React from "react";
 
-declare global {
-  type CurriculumComponent = React.FC<{ profile: IProfile }>;
-  type DefaultFC = React.FC<React.Props>;
-  type ExtendedFC<T> = React.FC<T>;
-
+declare global {  
   type Personal = {
     name: string;
     surname: string;
-    about: string;
-    linkedin: string;
-    phone: string;
     location: string;
     photo?: string;
   };
@@ -19,6 +12,7 @@ declare global {
     alias: string;
     email: string;
     phone: string;
+    linkedin: string;
   };
 
   type Strength = {
@@ -65,7 +59,7 @@ declare global {
     experience: Experience[];
     skills: Skill[];
   }
-
+  
   interface IProfilePartial {
     id: string;
     name: string;
@@ -74,6 +68,11 @@ declare global {
     photo?: string;
     alias: string;
   }
+
+  type CurriculumComponentProps = { [K in keyof IProfile]?: IProfile[K] };
+  type DefaultFC = React.FC<React.Props>;
+  type ExtendedFC<T> = React.FC<T>;
+  type CurriculumFC = ExtendedFC<CurriculumComponentProps>;
 
   interface IApiError {
     message: string;

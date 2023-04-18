@@ -1,8 +1,7 @@
 import React from "react";
 
-const Certifications: ExtendedFC<{ certifications: Certification[] }> = ({
-  certifications,
-}) => {
+const Certifications: CurriculumFC = ({ certifications }) => {
+  if (!certifications || certifications.length === 0) return null;
   return (
     <article>
       <h3 id="certifications">Certifications</h3>

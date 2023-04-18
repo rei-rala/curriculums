@@ -1,6 +1,8 @@
 import React from "react";
 
-const StrenghtsComponent: ExtendedFC<{ strengths: Strength[] }> = ({ strengths }) => {
+const StrenghtsComponent: CurriculumFC = ({ strengths }) => {
+  if (!strengths || strengths.length === 0) return null;
+
   return (
     <article>
       <h3 id="strengths">Strengths</h3>
@@ -17,4 +19,4 @@ const StrenghtsComponent: ExtendedFC<{ strengths: Strength[] }> = ({ strengths }
   );
 };
 
-export default StrenghtsComponent
+export default StrenghtsComponent;

@@ -11,8 +11,10 @@ function sortExperienceByDate(experience: Experience[]): Experience[] {
 }
 
 
-const ExperienceComponent: ExtendedFC<{ experience: Experience[] }> = ({ experience }) => {
-  let experienceSortedByDate = useMemo(() => sortExperienceByDate(experience), [experience])
+const ExperienceComponent: CurriculumFC = ({ experience }) => {
+  let experienceSortedByDate = useMemo(() => sortExperienceByDate(experience!), [experience])
+  
+  if (!experienceSortedByDate || experienceSortedByDate.length === 0) return null;
 
   return (
     <article>

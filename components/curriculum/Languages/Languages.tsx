@@ -1,6 +1,8 @@
 import React from "react";
 
-const Languages: ExtendedFC<{ languages: Language[] }> = ({ languages }) => {
+const Languages: CurriculumFC = ({ languages }) => {
+  if (!languages || languages.length === 0) return null;
+  
   return (
     <article>
       <h3 id="languages">Languages</h3>
