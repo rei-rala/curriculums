@@ -34,9 +34,14 @@ export function getMailPartsFromStr(str: string, part: EmailPart = "domain") {
   }
 }
 
-export function scrollToId(id: string) {
+export function truncateString(str: string, len: number) {
+  if (str.length <= len) return str;
+  return str.slice(0, len) + "...";
+}
+
+export function scrollToId(id: string, behavior?: ScrollBehavior) {
   const el = document.getElementById(id);
   if (el) {
-    el.scrollIntoView({ behavior: "smooth" });
+    el.scrollIntoView({ behavior });
   }
 }

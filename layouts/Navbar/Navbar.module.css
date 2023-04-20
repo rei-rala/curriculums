@@ -4,11 +4,16 @@
   z-index: 11;
   height: var(--navbar-height);
 
-  /* TODO: Remove background-placeholder */
-  background-color: red;
+  padding: 20px;
 }
 
 .navbar a {
+  background-color: inherit;
+  color: inherit;
+}
+
+.navbar a:hover {
+  border: inherit;
   color: inherit;
 }
 

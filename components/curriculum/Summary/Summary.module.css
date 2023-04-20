@@ -5,16 +5,15 @@
 
 .summaryUpper {
   position: relative;
-  
+
   border-radius: var(--gral-bd-radius) var(--gral-bd-radius) 0 0;
   overflow: hidden;
-  background-color: #fff;
 }
 
 /*
  *   Overwriting the row bootstrap class
  */
-.summaryUpper > * {
+.summaryUpper>* {
   padding: 0;
 }
 
@@ -24,8 +23,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f5f5f5;
-  
+
   border-radius: var(--summary-bd-radius) 0;
   overflow: hidden;
 }
@@ -35,14 +33,6 @@
   height: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
-}
-
-.photoDecorator {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #f5f5f5;
-  border-radius: 50%;
 }
 
 .summaryPersonalInfo {
@@ -56,6 +46,19 @@
 
 
 .summaryLower {
-  /* Background only for development purposes */
-  background-color: hsl(112, 69%, 41%);
+}
+
+.summarySectionsBtnMobile {
+  position: fixed !important;
+  left: 4vh;
+  bottom: 4vh;
+  z-index: 10;
+  transition: left, bottom 0.5s;
+}
+
+@media screen and (min-width: 576px) {
+  .summarySectionsBtnMobile {
+    left: 8vh;
+    bottom: 8vh;
+  }
 }

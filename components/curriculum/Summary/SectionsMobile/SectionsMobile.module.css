@@ -1,0 +1,35 @@
+.sMobile  {
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.sMobile > * {
+  margin: 0;
+  padding: 0;
+}
+
+.sMobile ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sbMobileBody button {
+  flex-grow: 0.8;
+  text-transform: capitalize;
+}
+
+.sMobileFooter ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sMobileFooter li {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 0.25rem;
+  font-size: 0.8rem;
+}

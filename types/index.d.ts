@@ -13,6 +13,7 @@ declare global {
     email: string;
     phone: string;
     linkedin: string;
+    linkedinName?: string;
   };
 
   type Strength = {

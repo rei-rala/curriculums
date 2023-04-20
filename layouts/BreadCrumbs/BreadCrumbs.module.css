@@ -7,10 +7,6 @@
   cursor: default;
 }
 
-.breadcrumbNav a:hover {
-  text-decoration: underline;
-}
-
 .breadcrumbNav ol {
   margin: 0;
 }

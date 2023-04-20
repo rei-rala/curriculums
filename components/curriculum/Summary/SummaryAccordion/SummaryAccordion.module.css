@@ -4,27 +4,22 @@
   overflow: hidden;
 }
 
+.accordionItemHeader button {
+  padding: 0.5rem 0.75rem;
+}
+
 .accordionLinks {
   cursor: pointer;
   transition: padding var(--ms-transition) ease;
+  background-color: inherit;
+  color: inherit;
+  text-transform: capitalize;
 }
 
 .accordionLinks:not(:first-child, :last-child) {
   margin: 0.15rem 0;
 }
 
-/* removing bootstrap button styles */
-.accordionLinks button {
-  border: none;
-  background-color: inherit;
-  color: inherit;
-  outline: inherit;
-  text-transform: capitalize;
-}
-
-.accordionItemHeader button {
-  padding: 0.5rem 0.75rem;
-}
 
 @media screen and (min-width: 576px) {
   .accordionContainer {

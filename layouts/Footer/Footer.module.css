@@ -3,8 +3,6 @@
 
   z-index: 10;
   padding: 0;
-  /* TODO: Remove background-placeholder */
-  background-color: red !important;
 
   transition: bottom 1s ease;
 }

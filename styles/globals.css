@@ -1,8 +1,8 @@
 :root {
   --navbar-height: 3rem;
-  --mg-sections: 0.5rem;
+  --mg-sections: 10px;
   --box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2);
-  --gral-bd-radius: 2px;
+  --gral-bd-radius: 3px;
   --summary-bd-radius: 10px;
   --ms-transition: 250ms;
 }
@@ -11,34 +11,50 @@ body {
   min-height: 100vh;
   min-width: 100%;
   overflow: hidden scroll;
-  background-color: #242424;
   font-family: "Roboto",
     /* DEV: The fallback font is Comic Sans, as it will be easy to notice. */
-      "Comic Sans MS",
-    "Comic Sans", cursive, /* sans-serif is Roboto's fallback */ sans-serif;
+    "Comic Sans MS",
+    "Comic Sans", cursive,
+    /* sans-serif is Roboto's fallback */
+    sans-serif;
   font-weight: 300;
 
+  background: linear-gradient(to bottom right, #ebebeb, #f2f2f2);
+  color: #333;
   scroll-behavior: smooth !important;
 }
 
-a {
-  font-weight: bold;
-}
-
-a:hover {
+a,
+.btn-link {
   text-decoration: none;
+  font-weight: bold;
+  color: #03a9f4;
+  border-bottom: 2px solid transparent !important;
+  border-radius: 0;
 }
 
-#__next > div {
+:is(a, .btn-link):hover {
+  text-decoration: none;
+  color: #0b5ed7;
+  border-bottom: 2px solid #0b5ed7;
+}
+
+#__next>div {
   transition: max-width var(--ms-transition) ease;
 }
 
-#__next > div > :not(:first-child, :last-child) {
+#__next>div>* {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+#__next>div> :not(:first-child, :last-child) {
   transition: margin var(--ms-transition) ease;
 }
 
 @media screen and (min-width: 576px) {
-  #__next > div > :not(:first-child, :last-child) {
+  #__next>div> :not(:first-child, :last-child) {
     margin-top: var(--mg-sections);
     margin-bottom: var(--mg-sections);
   }
