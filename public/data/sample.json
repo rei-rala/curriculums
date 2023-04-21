@@ -62,13 +62,13 @@
       "name": "Cosme",
       "surname": "Fulanito",
       "location": "su casa",
-      "photo": null
+      "photo": "https://media.licdn.com/dms/image/C4D03AQGVONJo1DMrcQ/profile-displayphoto-shrink_400_400/0/1612211007444?e=1687392000&v=beta&t=uZE7NC1ghbM568btEO_c2jz-i-I1cTzDz3F6iTAdA4Q"
     },
     "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut feugiat augue. Donec sollicitudin tincidunt ornare. ",
     "strengths": [
       {
-        "title": "Ansioso",
-        "description": "Intento adelantar trabajo"
+        "title": "Lorem Ipsum",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At, a dignissimos cupiditate obcaecati facilis in."
       }
     ],
     "certifications": [
@@ -81,7 +81,8 @@
     "contact": {
       "alias": "Cosme_Fulanito",
       "email": "cfulanito@yopmail.com",
-      "phone": "11 1234-1234"
+      "phone": "11 1234-1234",
+      "linkedin": "https://www.linkedin.com/in/fabiodanielsolis"
     },
     "experience": [
       {
@@ -104,11 +105,11 @@
     "skills": [
       {
         "kind": "Hard",
-        "title": "Matematico"
+        "title": "Hard"
       },
       {
         "kind": "Soft",
-        "title": "Mucho mas malo"
+        "title": "Soft"
       }
     ]
   }
