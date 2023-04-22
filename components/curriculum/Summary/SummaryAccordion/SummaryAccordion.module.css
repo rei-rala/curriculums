@@ -4,11 +4,8 @@
   overflow: hidden;
 }
 
-.accordionItemHeader button {
-  padding: 0.5rem 0.75rem;
-}
-
 .accordionLinks {
+  width: 100%;
   cursor: pointer;
   transition: padding var(--ms-transition) ease;
   background-color: inherit;
@@ -26,6 +23,6 @@
     font-size: normal;
   }
   .accordionLinks {
-    padding: 0.5rem 0.75rem;
+    padding: 0.35rem 0.5rem;
   }
 }

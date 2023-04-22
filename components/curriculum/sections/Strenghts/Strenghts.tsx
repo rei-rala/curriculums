@@ -1,6 +1,6 @@
 import React from "react";
 
-const StrenghtsComponent: CurriculumFC = ({ strengths }) => {
+const Strenghts: CurriculumFC = ({ strengths }) => {
   if (!strengths || strengths.length === 0) return null;
 
   return (
@@ -19,4 +19,4 @@ const StrenghtsComponent: CurriculumFC = ({ strengths }) => {
   );
 };
 
-export default StrenghtsComponent;
+export default Strenghts;

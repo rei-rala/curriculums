@@ -1,38 +1,8 @@
-.summaryContainer {
-  border-radius: var(--summary-bd-radius);
-  overflow: hidden;
-}
-
 .summaryUpper {
   position: relative;
 
   border-radius: var(--gral-bd-radius) var(--gral-bd-radius) 0 0;
   overflow: hidden;
-}
-
-/*
- *   Overwriting the row bootstrap class
- */
-.summaryUpper>* {
-  padding: 0;
-}
-
-.summaryPhoto {
-  position: relative;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  border-radius: var(--summary-bd-radius) 0;
-  overflow: hidden;
-}
-
-.summaryPhoto img {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
 }
 
 .summaryPersonalInfo {
@@ -44,16 +14,20 @@
   text-overflow: ellipsis;
 }
 
-
-.summaryLower {
-}
-
 .summarySectionsBtnMobile {
   position: fixed !important;
   left: 4vh;
   bottom: 4vh;
-  z-index: 10;
+  
+  width: fit-content;
   transition: left, bottom 0.5s;
+  
+  z-index: 10;
+}
+
+.summaryLower {
+  padding: 0;
+  margin: 0;
 }
 
 @media screen and (min-width: 576px) {

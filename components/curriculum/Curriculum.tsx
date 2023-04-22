@@ -1,4 +1,3 @@
-// Summary
 import { useMemo, useRef } from "react";
 
 import {
@@ -8,8 +7,9 @@ import {
   Languages as LanguagesComp,
   Strenghts as StrenghtsComp,
   Skills as SkillsComp,
-  Summary as SummaryComp,
-} from "@components/curriculum";
+} from "@components/curriculum/sections";
+
+import SummaryComp from "@components/curriculum/Summary/Summary";
 
 import styles from "./Curriculum.module.css";
 
@@ -27,7 +27,7 @@ const Curriculum: ExtendedFC<{ profile: IProfile }> = ({ profile }) => {
     skills,
   } = profile;
 
-  // getting sections and removing id and personal
+  // getting sections and removing some of them used in summary
   const sections = useMemo(
     () =>
       Object.keys(profile).filter(
@@ -37,10 +37,14 @@ const Curriculum: ExtendedFC<{ profile: IProfile }> = ({ profile }) => {
   );
 
   return (
-    <div className={`container px-0 mx-auto row ${styles.curriculumContainer}`}>
+    <div className={`row ${styles.curriculumContainer}`}>
       <div
         ref={leftSideRef}
-        className={`col-sm-12 col-md-5 col-xl-4 ${styles.curriculumLeft}`}
+        className={`
+            p-0 text-center
+            col-md-4 col-lg-5
+            ${styles.curriculumLeft}
+          `}
       >
         <SummaryComp
           personal={personal}
@@ -51,8 +55,9 @@ const Curriculum: ExtendedFC<{ profile: IProfile }> = ({ profile }) => {
 
       <section
         className={`
-          col-sm-12 col-md-7 col-xl-8
-          d-flex flex-column
+          p-0
+          col-md-8 col-lg-7
+          d-flex flex-row flex-md-column
           ${styles.curriculumRight}
         `}
       >
