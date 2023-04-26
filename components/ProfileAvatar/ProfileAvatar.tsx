@@ -7,7 +7,7 @@ import Image from "next/image";
 import styles from "./ProfileAvatar.module.css";
 
 const BaseAvatar = (props: any) => {
-  const { profile, width, height, altText, iconClass, fill } = props;
+  const { profile, width, height, altText, iconClass, fill, iconScale } = props;
 
   return (
     <div className={styles.avatarContainer}>
@@ -22,11 +22,12 @@ const BaseAvatar = (props: any) => {
           blurDataURL={profile.photo}
         />
         : <FontAwesomeIcon
-            className={`ratio ratio-1x1 ${styles.altIcon} ${iconClass || ""}`}
-            icon={faUser}
-            width={width || 30}
-            height={height || 30}
-          />
+          className={`${styles.altIcon} ${iconClass || ""}`}
+          icon={faUser}
+          width={width || 30}
+          height={height || 30}
+          scale={iconScale ? iconScale : 1}
+        />
       }
     </div>
   );

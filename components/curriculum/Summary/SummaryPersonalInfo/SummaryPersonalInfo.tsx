@@ -29,13 +29,13 @@ const SummaryPersonalInfo: CurriculumFC = ({ personal, contact }) => {
 
       {personal.location && (
         <p>
-          <FontAwesomeIcon icon={faLocationDot} /> {personal.location}
+          <FontAwesomeIcon icon={faLocationDot} fill="" /> {personal.location}
         </p>
       )}
 
       {contact.phone && (
         <p>
-          <FontAwesomeIcon icon={faPhone} />
+          <FontAwesomeIcon icon={faPhone} fixedWidth  />
           <Link href={`tel:${contact.phone}`}>
             {contact.phone}
           </Link>
@@ -44,7 +44,7 @@ const SummaryPersonalInfo: CurriculumFC = ({ personal, contact }) => {
 
       {contact.email && (
         <p>
-          <FontAwesomeIcon icon={faEnvelope} />{" "}
+          <FontAwesomeIcon icon={faEnvelope} fixedWidth />{" "}
           <Link href={`mailto:${contact.email}`} draggable={false}>
             <span className="d-sm-inline d-none">{contact.email}</span>
             <span
@@ -67,7 +67,7 @@ const SummaryPersonalInfo: CurriculumFC = ({ personal, contact }) => {
 
       {contact.linkedin && (
         <p>
-          <FontAwesomeIcon scale={1} icon={faLinkedin} />{" "}
+          <FontAwesomeIcon scale={1} icon={faLinkedin} fixedWidth />{" "}
           <Link
             href={contact.linkedin}
             referrerPolicy="no-referrer"

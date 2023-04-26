@@ -22,7 +22,7 @@ const ProfileCard: React.FC<IProfileCardProps> = ({ avatarProfile, header, subHe
         {
           !!avatarProfile &&
           <div className={`col-3 ${styles.profileCardImg}`}>
-            <ProfileAvatar profile={avatarProfile} width={200} height={200} />
+            <ProfileAvatar profile={avatarProfile} width={200} height={200} iconScale={2} />
           </div>
         }
 
@@ -35,7 +35,7 @@ const ProfileCard: React.FC<IProfileCardProps> = ({ avatarProfile, header, subHe
       </div>
 
       <div className="card-body p-1 d-flex align-items-center">
-        <span className="card-text">{body}</span>
+        <span title={String(body)} className={`${styles.cardBodyText} card-text`}>{body}</span>
       </div>
 
       <div className="card-footer row">

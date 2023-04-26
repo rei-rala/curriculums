@@ -1,20 +1,11 @@
-import React, { useRef, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import React from "react";
 
-import { Badge } from "react-bootstrap";
-import AppTooltip from "@components/AppTooltip/AppTooltip";
-import SummaryAccordion from "./SummaryAccordion/SummaryAccordion";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
-import { getMailPartsFromStr } from "@/utils";
-
-import styles from "./Summary.module.css";
-import SectionsMobile from "./SectionsMobile/SectionsMobile";
 import SummaryPhoto from "./SummaryPhoto/SummaryPhoto";
 import SummaryPersonalInfo from "./SummaryPersonalInfo/SummaryPersonalInfo";
+import SummaryAccordion from "./SummaryAccordion/SummaryAccordion";
+import SectionsMobile from "./SectionsMobile/SectionsMobile";
+
+import styles from "./Summary.module.css";
 
 function sortSections(sections: string[]) {
   const sortOrder: { [key: string]: number } = {
@@ -41,17 +32,17 @@ interface ISummaryProps {
 const Summary: ExtendedFC<ISummaryProps> = ({ personal, contact, sections }) => {
   const sortedSections = sortSections(sections);
 
-
-
   return (
     <>
       <div draggable className={`row ${styles.summaryUpper}`}>
-        <div className={`
-          ${personal.photo ? "col-5 col-md-12 col-xl-5" : "col"}
-          d-flex justify-content-center align-content-center`
-        }>
-          <SummaryPhoto personal={personal} />
-        </div>
+        {
+          !!personal.photo && <div className={`
+              col-5 col-md-12 col-xl-5
+              d-flex justify-content-center align-content-center
+            `}>
+            <SummaryPhoto personal={personal} />
+          </div>
+        }
         <div className={`
                 ${personal.photo ? "col-7 col-md-12 col-xl-7" : "col"}
                 d-flex flex-column justify-content-center align-content-center gap-1 

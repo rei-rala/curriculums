@@ -1,12 +1,11 @@
-import { scrollToId, truncateString } from '@/utils';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faPhone, faPuzzlePiece } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Link from 'next/link';
 import React, { useState } from 'react';
-import { Badge } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import Offcanvas from 'react-bootstrap/Offcanvas';
+import Link from 'next/link';
+
+import { Badge, Button, Offcanvas } from 'react-bootstrap';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faBookOpen, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { scrollToId, truncateString } from '@/utils';
 
 import styles from './SectionsMobile.module.css';
 
@@ -28,7 +27,7 @@ const SectionsMobile: ExtendedFC<{ title: string, badge: string, list: string[],
   return (
     <>
       <Button className={`rounded-circle fs-3`} variant="primary" onClick={toggleShow}>
-        <FontAwesomeIcon icon={faPuzzlePiece} scale={"2x"}/>
+        <FontAwesomeIcon icon={faBookOpen} scale={"2x"}/>
       </Button>
 
       <Offcanvas show={show} onHide={toggleShow} className={styles.sMobile}>

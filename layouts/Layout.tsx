@@ -8,6 +8,7 @@ import Footer from "./Footer/Footer";
 
 import { useRouter } from "next/router";
 
+
 const Layout: DefaultFC = ({ children }) => {
   const router = useRouter();
 

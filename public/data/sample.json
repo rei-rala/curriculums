@@ -112,5 +112,90 @@
         "title": "Soft"
       }
     ]
+  },
+  {
+    "id": "xyz789",
+    "personal": {
+      "name": "Ana",
+      "surname": "Garcia",
+      "location": "Buenos Aires, Argentina"
+    },
+    "about": "I am a proactive and results-oriented person with a passion for technology and innovation. I enjoy collaborating with others and leveraging my creativity to solve complex problems. In my free time, I enjoy reading, practicing yoga, and traveling.",
+    "strengths": [
+      {
+        "title": "Problem-solving",
+        "description": "I excel at analyzing complex problems and developing effective solutions."
+      }
+    ],
+    "certifications": [
+      {
+        "institution": "Universidad de Buenos Aires",
+        "title": "Licenciatura en Sistemas",
+        "year": 2022
+      },
+      {
+        "institution": "Massachusetts Institute of Technology",
+        "title": "Introduction to Computer Science and Programming Using Python",
+        "year": 2021
+      },
+      {
+        "institution": "Google Cloud",
+        "title": "Google Cloud Certified - Associate Cloud Engineer",
+        "year": 2021
+      }
+    ],
+    "contact": {
+      "alias": "Ana_Garcia",
+      "email": "ana.garcia@yopmail.com",
+      "phone": "+54 9 11 1234-5678"
+    },
+    "experience": [
+      {
+        "from": "2022/04/01",
+        "to": "Present",
+        "employer": "Accenture",
+        "position": "Software Developer"
+      },
+      {
+        "from": "2021/02/01",
+        "to": "2022/03/31",
+        "employer": "Globant",
+        "position": "Software Engineer Intern"
+      },
+      {
+        "from": "2020/03/01",
+        "to": "2021/01/31",
+        "employer": "Universidad de Buenos Aires",
+        "position": "Teaching Assistant"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Spanish",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "C1"
+      },
+      {
+        "name": "French",
+        "level": "B2"
+      }
+    ],
+    "skills": [
+      {
+        "kind": "Hard",
+        "title": "Java"
+      },
+      {
+        "kind": "Hard",
+        "title": "Python"
+      },
+      {
+        "kind": "Soft",
+        "title": "Teamwork"
+      }
+    ]
   }
 ]
