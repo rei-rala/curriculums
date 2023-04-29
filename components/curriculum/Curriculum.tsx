@@ -37,7 +37,7 @@ const Curriculum: ExtendedFC<{ profile: IProfile }> = ({ profile }) => {
   );
 
   return (
-    <div className={`row ${styles.curriculumContainer}`}>
+    <div className={`row`}>
       <div
         ref={leftSideRef}
         className={`
@@ -57,7 +57,7 @@ const Curriculum: ExtendedFC<{ profile: IProfile }> = ({ profile }) => {
         className={`
           p-0
           col-md-8 col-lg-7
-          d-flex flex-row flex-md-column
+          d-flex flex-row flex-md-column flex-grow
           ${styles.curriculumRight}
         `}
       >

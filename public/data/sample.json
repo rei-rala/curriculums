@@ -49,10 +49,6 @@
       {
         "kind": "Hard",
         "title": "???"
-      },
-      {
-        "kind": "Soft",
-        "title": "Malo"
       }
     ]
   },
@@ -190,11 +186,390 @@
       },
       {
         "kind": "Hard",
-        "title": "Python"
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
       },
       {
         "kind": "Soft",
-        "title": "Teamwork"
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Java"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },{
+        "name": "Spanish",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "C1"
+      },
+      {
+        "name": "French",
+        "level": "B2"
+      },
+      {
+        "kind": "Hard",
+        "title": "Java"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Java"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },{
+        "name": "Spanish",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "C1"
+      },
+      {
+        "name": "French",
+        "level": "B2"
+      },
+      {
+        "kind": "Hard",
+        "title": "Java"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Java"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },{
+        "name": "Spanish",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "C1"
+      },
+      {
+        "name": "French",
+        "level": "B2"
+      },
+      {
+        "kind": "Hard",
+        "title": "Java"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Java"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },{
+        "name": "Spanish",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "C1"
+      },
+      {
+        "name": "French",
+        "level": "B2"
+      },
+      {
+        "kind": "Hard",
+        "title": "Java"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Java"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },{
+        "name": "Spanish",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "C1"
+      },
+      {
+        "name": "French",
+        "level": "B2"
+      },
+      {
+        "kind": "Hard",
+        "title": "Java"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Java"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
+      },
+      {
+        "kind": "Hard",
+        "title": "Ipsum"
+      },
+      {
+        "kind": "Hard",
+        "title": "Lorem Ipsum lorem ipsum"
+      },
+      {
+        "kind": "Soft",
+        "title": "Lorem"
       }
     ]
   }
