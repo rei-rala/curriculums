@@ -1,5 +1,5 @@
 import About from './About/About'
-import AcademicBackground from "./AcademicBackground/Certifications";
+import AcademicBackground from "./AcademicBackground/AcademicBackground";
 import WorkExperience from "./WorkExperience/WorkExperience";
 import Languages from "./Languages/Languages";
 import Skills from "./Skills/Skills";

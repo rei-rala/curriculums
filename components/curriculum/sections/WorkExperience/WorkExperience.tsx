@@ -22,14 +22,14 @@ const WorkExperienceComp: CurriculumFC = ({ workExperience }) => {
 
   return (
     <article className={styles.container}>
-      <h3 id="experience"> Experience</h3>
+      <h3 id="workExperience">Work Experience</h3>
       <VerticalTimeline lineColor="var(--color)" layout="1-column-right">
         <div className={styles.fadeTop}></div>
         {
-          experienceSortedByDate.map((experience, index) => (
+          experienceSortedByDate.map((workExperience, index) => (
             <WorkExperienceLineComp
               key={index}
-              workExperience={experience} />
+              workExperience={workExperience} />
           ))
         }
         <div className={styles.fadeBottom}></div>

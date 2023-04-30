@@ -10,8 +10,8 @@ import styles from "./Summary.module.css";
 function sortSections(sections: string[]) {
   const sortOrder: { [key: string]: number } = {
     about: 1,
-    experience: 2,
-    certifications: 3,
+    workExperience: 2,
+    academicBackground: 3,
     skills: 4,
     strengths: 5,
     languages: 6,

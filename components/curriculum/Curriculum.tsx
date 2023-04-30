@@ -4,7 +4,7 @@ const SummaryComp = lazy(() => import("@components/curriculum/Summary/Summary"))
 const AboutComp = lazy(() => import("@components/curriculum/sections/About/About"));
 const StrengthsComp = lazy(() => import("@components/curriculum/sections/Strenghts/Strenghts"));
 const LanguagesComp = lazy(() => import("@components/curriculum/sections/Languages/Languages"));
-const AcademicBackgroundComp = lazy(() => import("@/components/curriculum/sections/AcademicBackground/Certifications"));
+const AcademicBackgroundComp = lazy(() => import("@/components/curriculum/sections/AcademicBackground/AcademicBackground"));
 const WorkExperienceComp = lazy(() => import("@components/curriculum/sections/WorkExperience/WorkExperience"));
 const SkillsComp = lazy(() => import("@components/curriculum/sections/Skills/Skills"));
 
