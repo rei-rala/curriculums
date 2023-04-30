@@ -2,7 +2,6 @@ import React, { lazy, useMemo } from "react";
 
 import { VerticalTimeline } from 'react-vertical-timeline-component';
 
-import 'react-vertical-timeline-component/style.min.css';
 import styles from './AcademicBackground.module.css'
 import { sortBackgroundByDate } from "@/utils";
 

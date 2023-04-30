@@ -10,8 +10,7 @@ const LanguagesComp = lazy(() => import("@components/curriculum/sections/Languag
 const SkillsComp = lazy(() => import("@components/curriculum/sections/Skills/Skills"));
 
 // Lazy for sure
-const AcademicBackgroundComp = lazy(() => import("@/components/curriculum/sections/AcademicBackground/AcademicBackground"));
-const WorkExperienceComp = lazy(() => import("@components/curriculum/sections/WorkExperience/WorkExperience"));
+const BackgroundWrapperComp = lazy(() => import("@/components/curriculum/sections/backgroundWrapper/BackgroundWrapper"));
 
 import styles from "./Curriculum.module.css";
 import { Button, Col, Row } from "react-bootstrap";
@@ -104,8 +103,10 @@ const Curriculum: ExtendedFC<{ profile: IProfile }> = ({ profile }) => {
           className={`${styles.curriculumRight} d-flex flex-row flex-md-column flex-grow`}
         >
           <AboutComp about={about} />
-          <WorkExperienceComp workExperience={workExperience} />
-          <AcademicBackgroundComp academicBackground={academicBackground} />
+          <BackgroundWrapperComp
+            academicBackground={academicBackground}
+            workExperience={workExperience}
+          />
           <SkillsComp skills={skills} />
           <StrengthsComp strengths={strengths} />
           <LanguagesComp languages={languages} />
