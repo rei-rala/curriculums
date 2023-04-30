@@ -33,6 +33,7 @@ const CvPage: DefaultFC = () => {
       <>
         <Head>
           <title>CV no encontrado | Curriculums</title>
+          <meta name="description" content="CV Not found - Find more candidates here!" />
         </Head>
         <h2>No se encontro perfil, perejil</h2>
         <Link href="/cv">Volver</Link>
@@ -44,6 +45,7 @@ const CvPage: DefaultFC = () => {
     <main>
       <Head>
         <title>{`${profile.contact?.alias || profile.personal?.name || alias} | Curriculums`}</title>
+        <meta name="description" content={profile.about} />
       </Head>
 
       <Curriculum profile={profile} />

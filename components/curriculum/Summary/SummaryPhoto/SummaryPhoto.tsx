@@ -13,7 +13,7 @@ const SummaryPhoto: CurriculumFC = ({ personal }) => {
         <div className={styles.summaryPhoto}>
           <Image
             className="border border-2"
-            priority={false}
+            priority={true}
             src={personal.photo}
             alt={personal.name}
             width={500}

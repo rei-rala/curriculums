@@ -26,8 +26,12 @@ const SectionsMobile: ExtendedFC<{ title: string, badge: string, list: string[],
 
   return (
     <>
-      <Button className={`rounded-circle fs-3`} variant="primary" onClick={toggleShow}>
-        <FontAwesomeIcon icon={faBookOpen} scale={"2x"}/>
+      <Button
+        aria-label={`Open sections of ${title}'s profile`}
+        className={`rounded-circle fs-3`}
+        variant="primary"
+        onClick={toggleShow}>
+        <FontAwesomeIcon icon={faBookOpen} scale={"2x"} />
       </Button>
 
       <Offcanvas show={show} onHide={toggleShow} className={styles.sMobile}>

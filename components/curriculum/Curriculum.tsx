@@ -93,6 +93,7 @@ const Curriculum: ExtendedFC<{ profile: IProfile }> = ({ profile }) => {
 
       <Col p={0} md={8} lg={7} className="position-relative" >
         <Button
+          aria-label="Previous section"
           onClick={scrollToPreviousChild}
           className={`${styles.button} ${styles.buttonPrevious}`}
         >
@@ -111,6 +112,7 @@ const Curriculum: ExtendedFC<{ profile: IProfile }> = ({ profile }) => {
         </section>
 
         <Button
+          aria-label="Next section"
           onClick={scrollToNextChild}
           className={`${styles.button} ${styles.buttonNext}`}
         >

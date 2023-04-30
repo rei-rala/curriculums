@@ -62,6 +62,7 @@ const Navbar: DefaultFC = () => {
           onMouseLeave={handleAvatarHover}
           className="d-flex align-items-center fa-2x"
           role="button"
+          aria-label="Abrir menú"
         >
           <ProfileAvatar profile={loggedUser} />
         </span>

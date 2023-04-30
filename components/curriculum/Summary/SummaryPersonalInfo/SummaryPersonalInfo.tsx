@@ -8,6 +8,8 @@ import AppTooltip from "@/components/AppTooltip/AppTooltip";
 
 import { getMailPartsFromStr } from "@/utils";
 
+import styles from './SummaryPersonalInfo.module.css';
+
 const SummaryPersonalInfo: CurriculumFC = ({ personal, contact }) => {
   const mobileMailRef = useRef<HTMLSpanElement>(null);
   const [showMailTooltip, setShowMailTooltip] = useState(false);
@@ -19,7 +21,7 @@ const SummaryPersonalInfo: CurriculumFC = ({ personal, contact }) => {
   if (!personal || !contact) return null;
 
   return (
-    <>
+    <div className={styles.personalInfo}>
       <h3>
         {personal.name} {personal.surname}
       </h3>
@@ -29,7 +31,7 @@ const SummaryPersonalInfo: CurriculumFC = ({ personal, contact }) => {
 
       {personal.location && (
         <p>
-          <FontAwesomeIcon icon={faLocationDot} fill="" /> {personal.location}
+          <FontAwesomeIcon icon={faLocationDot} fixedWidth/> {personal.location}
         </p>
       )}
 
@@ -77,7 +79,7 @@ const SummaryPersonalInfo: CurriculumFC = ({ personal, contact }) => {
           </Link>
         </p>
       )}
-    </>
+    </div>
   )
 }
 
