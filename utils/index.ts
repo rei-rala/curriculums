@@ -49,3 +49,12 @@ export function scrollToId(id: string, behavior?: ScrollBehavior) {
     el.scrollIntoView({ behavior });
   }
 }
+
+
+export function sortBackgroundByDate(background?: (WorkExperience | AcademicBackground)[] ) {
+  return background?.sort((a, b) => {
+    if (a.from > b.from) return -1;
+    if (a.from == b.from && a.to > b.to) return -1;
+    return 0;
+  }) || [];
+}

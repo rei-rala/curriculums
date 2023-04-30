@@ -6,7 +6,11 @@ const About: CurriculumFC = ({ about }) => {
   return (
     <article>
       <h3 id="about">About</h3>
-      <div>{about}</div>
+      <div>
+        <p>
+          {about}
+        </p>
+      </div>
     </article>
   );
 };

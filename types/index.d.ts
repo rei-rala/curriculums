@@ -29,7 +29,8 @@ declare global {
   interface AcademicBackground {
     title: string;
     institution: string;
-    year: number;
+    from: Date;
+    to: Date;
   }
 
   interface Skill {

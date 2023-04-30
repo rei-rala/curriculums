@@ -6,15 +6,17 @@ const Strenghts: CurriculumFC = ({ strengths }) => {
   return (
     <article>
       <h3 id="strengths">Strengths</h3>
-      <ul>
-        {strengths.map((s) => (
-          <li key={s.title}>
-            <p>
-              <b>{s.title}:</b> {s.description}
-            </p>
-          </li>
-        ))}
-      </ul>
+      <div>
+        <ul>
+          {strengths.map((s) => (
+            <li key={s.title}>
+              <p>
+                <b>{s.title}:</b> {s.description}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </article>
   );
 };

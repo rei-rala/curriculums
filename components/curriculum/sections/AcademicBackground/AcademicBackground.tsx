@@ -1,22 +1,38 @@
-import React from "react";
+import React, { lazy, useMemo } from "react";
 
-const AcademicBackground: CurriculumFC = ({ academicBackground }) => {
-  if (!academicBackground || academicBackground.length === 0) return null;
+import { VerticalTimeline } from 'react-vertical-timeline-component';
+
+import 'react-vertical-timeline-component/style.min.css';
+import styles from './AcademicBackground.module.css'
+import { sortBackgroundByDate } from "@/utils";
+
+
+const AcademicBackgroundLineComp = lazy(() => import('./AcademicBackgroundLine/AcademicBackgroundLine'))
+
+const AcademicBackgroundComp: CurriculumFC = ({ academicBackground }) => {
+  let academicBackgroundSortedByDate = useMemo(() => sortBackgroundByDate(academicBackground) as AcademicBackground[], [academicBackground])
+
+  if (!academicBackgroundSortedByDate || academicBackgroundSortedByDate.length === 0) return null;
+
   return (
-    <article>
+    <article className={styles.container}>
       <h3 id="academicBackground">Academic Background</h3>
-      <ul>
-        {academicBackground.map((c, i) => (
-          <li key={c.institution + c.year + i}>
-            <p>{c.title}</p>
-            <p>
-              {c.institution} - {c.year}
-            </p>
-          </li>
-        ))}
-      </ul>
+
+      <div>
+        <VerticalTimeline lineColor="var(--color)" layout="1-column-left">
+          <div className={styles.fadeTop}></div>
+          {
+            academicBackgroundSortedByDate.map((academicBackgroundLine, index) => (
+              <AcademicBackgroundLineComp
+                key={index}
+                academicBackgroundLine={academicBackgroundLine} />
+            ))
+          }
+          <div className={styles.fadeBottom}></div>
+        </VerticalTimeline>
+      </div>
     </article>
   );
 };
 
-export default AcademicBackground;
+export default AcademicBackgroundComp;

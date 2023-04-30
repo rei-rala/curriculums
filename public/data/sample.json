@@ -18,7 +18,8 @@
       {
         "institution": "UADE",
         "title": "Ingenieria en Sistemas",
-        "year": 2025
+        "from": 2025,
+        "to": 2025
       }
     ],
     "contact": {
@@ -71,7 +72,8 @@
       {
         "institution": "UADE",
         "title": "Ingenieria en Sistemas",
-        "year": 2025
+        "from": 2025,
+        "to": 2025
       }
     ],
     "contact": {
@@ -127,17 +129,20 @@
       {
         "institution": "Universidad de Buenos Aires",
         "title": "Licenciatura en Sistemas",
-        "year": 2022
+        "from": 2022,
+        "to": 2022
       },
       {
         "institution": "Massachusetts Institute of Technology",
         "title": "Introduction to Computer Science and Programming Using Python",
-        "year": 2021
+        "from": 2021,
+        "to": 2021
       },
       {
         "institution": "Google Cloud",
         "title": "Google Cloud Certified - Associate Cloud Engineer",
-        "year": 2021
+        "from": 2021,
+        "to": 2021
       }
     ],
     "contact": {

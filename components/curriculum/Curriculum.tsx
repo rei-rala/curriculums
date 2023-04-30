@@ -1,13 +1,17 @@
 import { lazy, useMemo, useRef } from "react";
 
-const SummaryComp = lazy(() => import("@components/curriculum/Summary/Summary"));
-const AboutComp = lazy(() => import("@components/curriculum/sections/About/About"));
+// Not lazy for sure
+import SummaryComp from "@components/curriculum/Summary/Summary";
+import AboutComp from "@components/curriculum/sections/About/About";
+
+// Doubts
 const StrengthsComp = lazy(() => import("@components/curriculum/sections/Strenghts/Strenghts"));
 const LanguagesComp = lazy(() => import("@components/curriculum/sections/Languages/Languages"));
-const AcademicBackgroundComp = lazy(() => import("@/components/curriculum/sections/AcademicBackground/AcademicBackground"));
-const WorkExperienceComp = lazy(() => import("@components/curriculum/sections/WorkExperience/WorkExperience"));
 const SkillsComp = lazy(() => import("@components/curriculum/sections/Skills/Skills"));
 
+// Lazy for sure
+const AcademicBackgroundComp = lazy(() => import("@/components/curriculum/sections/AcademicBackground/AcademicBackground"));
+const WorkExperienceComp = lazy(() => import("@components/curriculum/sections/WorkExperience/WorkExperience"));
 
 import styles from "./Curriculum.module.css";
 import { Button, Col, Row } from "react-bootstrap";
