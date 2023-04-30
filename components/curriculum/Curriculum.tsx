@@ -5,11 +5,11 @@ import SummaryComp from "@components/curriculum/Summary/Summary";
 import AboutComp from "@components/curriculum/sections/About/About";
 
 // Doubts
-const StrengthsComp = lazy(() => import("@components/curriculum/sections/Strenghts/Strenghts"));
 const LanguagesComp = lazy(() => import("@components/curriculum/sections/Languages/Languages"));
 const SkillsComp = lazy(() => import("@components/curriculum/sections/Skills/Skills"));
 
 // Lazy for sure
+const StrengthsComp = lazy(() => import("@/components/curriculum/sections/Strengths/Strengths"));
 const BackgroundWrapperComp = lazy(() => import("@/components/curriculum/sections/backgroundWrapper/BackgroundWrapper"));
 
 import styles from "./Curriculum.module.css";

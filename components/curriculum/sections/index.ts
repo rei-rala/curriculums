@@ -3,7 +3,7 @@ import AcademicBackground from "./backgroundWrapper/AcademicBackground/AcademicB
 import WorkExperience from "./backgroundWrapper/WorkExperience/WorkExperience";
 import Languages from "./Languages/Languages";
 import Skills from "./Skills/Skills";
-import Strenghts from "./Strenghts/Strenghts";
+import Strengths from "./Strengths/Strengths";
 
 export {
   About,
@@ -11,5 +11,5 @@ export {
   WorkExperience,
   Languages,
   Skills,
-  Strenghts,
+  Strengths,
 };

@@ -1,0 +1,17 @@
+.container {
+  overflow: auto;
+}
+
+.strengthsList {
+  list-style-type: none;
+  padding: 0;
+
+  text-align: center;
+  overflow: hidden;
+}
+
+.separator hr {
+  width: 75%;
+  margin: 1rem auto;
+  border: 1px groove rgba(0, 0, 0, 0.5);
+}

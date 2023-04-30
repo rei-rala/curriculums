@@ -1,0 +1,27 @@
+.strengthItem {
+  transition: all 0.5s ease-in-out;
+  will-change: transform, opacity;
+}
+
+.strengthItem h4 {
+  font-size: 1.2rem;
+  color: #00bfa5;
+}
+
+.strengthItem p {
+  font-size: 0.9rem;
+}
+
+.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.hide {
+  transform: translateX(15%);
+  opacity: 0;
+}
+
+.hide:nth-of-type(2n) {
+  transform: translateX(-15%);
+}
