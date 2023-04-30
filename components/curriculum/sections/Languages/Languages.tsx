@@ -4,8 +4,8 @@ const Languages: CurriculumFC = ({ languages }) => {
   if (!languages || languages.length === 0) return null;
 
   return (
-    <article>
-      <h3 id="languages">Languages</h3>
+    <article id="languages">
+      <h3>Languages</h3>
 
       <div>
         <ul>

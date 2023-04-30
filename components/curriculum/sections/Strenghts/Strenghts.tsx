@@ -4,8 +4,8 @@ const Strenghts: CurriculumFC = ({ strengths }) => {
   if (!strengths || strengths.length === 0) return null;
 
   return (
-    <article>
-      <h3 id="strengths">Strengths</h3>
+    <article id="strengths">
+      <h3>Strengths</h3>
       <div>
         <ul>
           {strengths.map((s) => (

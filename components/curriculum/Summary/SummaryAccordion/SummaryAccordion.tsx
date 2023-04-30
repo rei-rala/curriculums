@@ -6,6 +6,7 @@ import { camelCaseToWords, scrollToId } from "@/utils";
 
 
 const SummaryAccordion: React.FC<{ sections: string[] }> = (props) => {
+
   return (
     <>
       {

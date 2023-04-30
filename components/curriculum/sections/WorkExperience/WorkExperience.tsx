@@ -16,8 +16,8 @@ const WorkExperienceComp: CurriculumFC = ({ workExperience }) => {
   if (!experienceSortedByDate || experienceSortedByDate.length === 0) return null;
 
   return (
-    <article className={styles.container}>
-      <h3 id="workExperience">Work Experience</h3>
+    <article id="workExperience" className={styles.container}>
+      <h3>Work Experience</h3>
 
       <div>
         <VerticalTimeline lineColor="var(--color)" layout="1-column-right">

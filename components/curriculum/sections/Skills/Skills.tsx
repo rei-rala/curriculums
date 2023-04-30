@@ -4,23 +4,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear, faLightbulb } from "@fortawesome/free-solid-svg-icons";
 
 import styles from './Skills.module.css'
-import { Badge } from "react-bootstrap";
+import SkillBadges from "./SkillBadges/SkillBadges";
 
 const Skills: CurriculumFC = ({ skills }) => {
   const [shakeSoft, setShakeSoft] = useState(false);
   const [shakeHard, setShakeHard] = useState(false);
 
-  const [hard, soft] = useMemo(() => {
-    const hard = skills?.filter((s) => s.kind === "Hard") || [];
-    const soft = skills?.filter((s) => s.kind === "Soft") || [];
-    return [hard, soft];
-  }, [skills]);
+  const [hardSkills, softSkills] = useMemo(() => ([
+    skills?.filter((s) => s.kind === "Hard") || [],
+    skills?.filter((s) => s.kind === "Soft") || []
+  ]), [skills]);
 
   if
     (!skills || skills.length === 0) return null;
 
-  let hasSoft = soft.length > 0;
-  let hasHard = hard.length > 0;
+  let hasSoftSkills = softSkills.length > 0;
+  let hasHardSkills = hardSkills.length > 0;
 
   function makeShake(kind: string) {
     if (kind === "soft") {
@@ -39,11 +38,11 @@ const Skills: CurriculumFC = ({ skills }) => {
   }
 
   return (
-    <article className={styles.container} >
-      <h3 className={styles.title} id="skills">Skills</h3>
+    <article id="skills" className={styles.container}>
+      <h3 className={styles.title} >Skills</h3>
 
       <div className={styles.skills}>
-        {hasSoft && (
+        {hasSoftSkills && (
           <div
             className={styles.part}
             onMouseEnter={() => makeShake("soft")}
@@ -52,21 +51,17 @@ const Skills: CurriculumFC = ({ skills }) => {
             <h4>
               <FontAwesomeIcon shake={shakeSoft} icon={faLightbulb} /> Soft
             </h4>
-            <ul>
-              {soft.map((s) => (
-                <li key={s.kind + s.title}>
-                  <Badge>{s.title} </Badge>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <SkillBadges skills={softSkills} />
+            </div>
           </div>
         )}
 
-        {hasSoft && hasHard && (
+        {hasSoftSkills && hasHardSkills && (
           <div className={styles.verticalSeparator}></div>
         )}
 
-        {hasHard && (
+        {hasHardSkills && (
           <div
             className={styles.part}
             onMouseEnter={() => makeShake("hard")}
@@ -75,13 +70,9 @@ const Skills: CurriculumFC = ({ skills }) => {
             <h4>
               <FontAwesomeIcon shake={shakeHard} icon={faGear} /> Hard
             </h4>
-            <ul>
-              {hard.map((s) => (
-                <li key={s.kind + s.title}>
-                  <Badge>{s.title} </Badge>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <SkillBadges skills={hardSkills} />
+            </div>
           </div>
         )}
       </div>

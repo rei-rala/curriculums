@@ -15,8 +15,11 @@ const AcademicBackgroundComp: CurriculumFC = ({ academicBackground }) => {
   if (!academicBackgroundSortedByDate || academicBackgroundSortedByDate.length === 0) return null;
 
   return (
-    <article className={styles.container}>
-      <h3 id="academicBackground">Academic Background</h3>
+    <article
+      id="academicBackground"
+      className={styles.container}
+    >
+      <h3>Academic Background</h3>
 
       <div>
         <VerticalTimeline lineColor="var(--color)" layout="1-column-left">

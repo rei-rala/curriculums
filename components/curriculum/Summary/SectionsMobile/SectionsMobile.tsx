@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 import { Badge, Button, Offcanvas } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faBookOpen, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { camelCaseToWords, scrollToId, truncateString } from '@/utils';
 
 import styles from './SectionsMobile.module.css';
-
 
 
 // Using React-Bootstrap Offcanvas
@@ -22,7 +21,6 @@ const SectionsMobile: ExtendedFC<{ title: string, badge: string, list: string[],
     scrollToId(id);
     toggleShow();
   }
-
 
   return (
     <>

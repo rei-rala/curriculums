@@ -4,7 +4,16 @@ import Link from "next/link";
 import styles from "./BreadCrumbs.module.css";
 
 function pathGetterByURL(routerAsPath: string) {
-  return ["home", ...routerAsPath.split("/").filter((path) => path !== "")];
+  // also getting #id if exists
+  let path = routerAsPath.split("#")[0];
+  let id = routerAsPath.split("#")[1];
+
+
+  if (id) {
+    return ["home", ...path.split("/").filter((path) => path !== ""), `#${id}`];
+  }
+
+  return ["home", ...path.split("/").filter((path) => path !== "")];
 }
 
 const BreadCrumbs: ExtendedFC<{ routerAsPath: string }> = ({ routerAsPath }) => {

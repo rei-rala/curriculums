@@ -1,0 +1,16 @@
+.badgeList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 0.25rem;
+  margin: 0;
+  overflow: hidden auto;
+}
+
+
+.badgeList span {
+  white-space: initial;
+  max-width: 6rem;
+}
