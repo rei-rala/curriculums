@@ -5,6 +5,9 @@
   --gral-bd-radius: 3px;
   --summary-bd-radius: 10px;
   --ms-transition: 250ms;
+  --bkg-color: #fff;
+  --color: #313638;
+  --a-color: #03a9f4;
 }
 
 body {
@@ -20,7 +23,7 @@ body {
   font-weight: 300;
 
   background: linear-gradient(to bottom right, #ebebeb, #f2f2f2);
-  color: #333;
+  color: var(--color);
   scroll-behavior: smooth !important;
 }
 
@@ -28,7 +31,7 @@ a,
 .btn-link {
   text-decoration: none;
   font-weight: bold;
-  color: #03a9f4;
+  color: var(--a-color);
   border-bottom: 2px solid transparent !important;
   border-radius: 0;
 }

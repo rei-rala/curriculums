@@ -1,21 +1,25 @@
-import { useMemo, useRef } from "react";
+import { lazy, useEffect, useMemo, useRef, useState } from "react";
 
-import {
-  About as AboutComp,
-  Certifications as CertificationsComp,
-  Experience as ExperienceComp,
-  Languages as LanguagesComp,
-  Strenghts as StrenghtsComp,
-  Skills as SkillsComp,
-} from "@components/curriculum/sections";
+// lazy
+const SummaryComp = lazy(() => import("@components/curriculum/Summary/Summary"));
+const AboutComp = lazy(() => import("@components/curriculum/sections/About/About"));
+const StrengthsComp = lazy(() => import("@components/curriculum/sections/Strenghts/Strenghts"));
+const LanguagesComp = lazy(() => import("@components/curriculum/sections/Languages/Languages"));
+const CertificationsComp = lazy(() => import("@components/curriculum/sections/Certifications/Certifications"));
+const ExperienceComp = lazy(() => import("@components/curriculum/sections/Experience/Experience"));
+const SkillsComp = lazy(() => import("@components/curriculum/sections/Skills/Skills"));
 
-import SummaryComp from "@components/curriculum/Summary/Summary";
+
 
 import styles from "./Curriculum.module.css";
+import { Button, Col, Row } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 const Curriculum: ExtendedFC<{ profile: IProfile }> = ({ profile }) => {
-  const leftSideRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
+  // getting sections from profile
   const {
     about,
     personal,
@@ -36,39 +40,83 @@ const Curriculum: ExtendedFC<{ profile: IProfile }> = ({ profile }) => {
     [profile]
   );
 
+  // TODO: functions to scroll smoothly to next and previous child of container
+  // TODO: Window context
+  const scrollToNextChild = () => {
+    if (containerRef.current) {
+
+      // using X axis to scroll on width <= 768px
+      window.innerWidth <= 768
+        ? containerRef.current.scrollBy({
+          left: window.innerWidth,
+          behavior: "smooth",
+        })
+        : containerRef.current.scrollBy({
+          top: window.innerHeight,
+          behavior: "smooth",
+        });
+    }
+  };
+
+  const scrollToPreviousChild = () => {
+    if (containerRef.current) {
+
+      // using X axis to scroll on width <= 768px
+      window.innerWidth <= 768
+        ? containerRef.current.scrollBy({
+          left: -window.innerWidth,
+          behavior: "smooth",
+        })
+        : containerRef.current.scrollBy({
+          top: -window.innerHeight,
+          behavior: "smooth",
+        });
+    }
+  };
+
   return (
-    <div className={`row`}>
-      <div
-        ref={leftSideRef}
-        className={`
-            p-0 text-center
-            col-md-4 col-lg-5
-            ${styles.curriculumLeft}
-          `}
+    <Row>
+      <Col
+        p={0}
+        md={4} lg={5}
+        className={`text-center ${styles.curriculumLeft}`}
       >
         <SummaryComp
           personal={personal}
           contact={contact}
           sections={sections}
         />
-      </div>
+      </Col>
 
-      <section
-        className={`
-          p-0
-          col-md-8 col-lg-7
-          d-flex flex-row flex-md-column flex-grow
-          ${styles.curriculumRight}
-        `}
-      >
-        <AboutComp about={about} />
-        <ExperienceComp experience={experience} />
-        <CertificationsComp certifications={certifications} />
-        <SkillsComp skills={skills} />
-        <StrenghtsComp strengths={strengths} />
-        <LanguagesComp languages={languages} />
-      </section>
-    </div>
+
+      <Col p={0} md={8} lg={7} className={`${styles.scroller} position-relative`} >
+        <Button
+          onClick={scrollToPreviousChild}
+          className={`${styles.button} ${styles.buttonPrevious}`}
+        >
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </Button>
+        <section
+          ref={containerRef}
+          className={`${styles.curriculumRight} d-flex flex-row flex-md-column flex-grow`}
+        >
+          <AboutComp about={about} />
+          <ExperienceComp experience={experience} />
+          <CertificationsComp certifications={certifications} />
+          <SkillsComp skills={skills} />
+          <StrengthsComp strengths={strengths} />
+          <LanguagesComp languages={languages} />
+        </section>
+
+        <Button
+          onClick={scrollToNextChild}
+          className={`${styles.button} ${styles.buttonNext}`}
+        >
+          <FontAwesomeIcon icon={faChevronRight} />
+        </Button>
+      </Col>
+
+    </Row>
   );
 };
 

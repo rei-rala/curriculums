@@ -1,7 +1,6 @@
 .curriculumRight {
+  overflow: hidden;
   scroll-snap-type: x mandatory;
-  overflow: scroll hidden;
-
   /* fixed height by the moment  */
   height: 52.5vh;
 }
@@ -14,9 +13,57 @@
   min-height: 100%;
 }
 
+.scroller {
+  overflow: hidden;
+}
+
+.button {
+  position: absolute;
+  opacity: 0.2;
+  transition: opacity 0.2s ease-in-out;
+  aspect-ratio: 1/1;
+  max-width: 3rem;
+  border: 1px solid red;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+.buttonPrevious {
+  left: 0;
+}
+
+.buttonNext {
+  right: 0;
+}
+
+.buttonNext, .buttonPrevious {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 @media screen and (min-width: 768px) {
   .curriculumRight {
     scroll-snap-type: y mandatory;
-    overflow: hidden scroll;
+    height: 75vh;
+  }
+
+  .buttonPrevious, .buttonNext {
+    top: auto;
+  }
+
+  .buttonPrevious {
+    transform: rotate(90deg) translate(0, 50%);
+    left: 50%;
+    top: 0;
+  }
+
+  .buttonNext {
+    transform: rotate(90deg) translate(0, -50%);
+    right: 50%;
+    bottom: 0;
   }
 }
