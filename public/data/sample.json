@@ -14,7 +14,7 @@
         "description": "Intento adelantar trabajo"
       }
     ],
-    "certifications": [
+    "academicBackground": [
       {
         "institution": "UADE",
         "title": "Ingenieria en Sistemas",
@@ -67,7 +67,7 @@
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At, a dignissimos cupiditate obcaecati facilis in."
       }
     ],
-    "certifications": [
+    "academicBackground": [
       {
         "institution": "UADE",
         "title": "Ingenieria en Sistemas",
@@ -80,7 +80,7 @@
       "phone": "11 1234-1234",
       "linkedin": "https://www.linkedin.com/in/fabiodanielsolis"
     },
-    "experience": [
+    "workExperience": [
       {
         "from": "2020/03/22",
         "to": "2023/03/22",
@@ -123,7 +123,7 @@
         "description": "I excel at analyzing complex problems and developing effective solutions."
       }
     ],
-    "certifications": [
+    "academicBackground": [
       {
         "institution": "Universidad de Buenos Aires",
         "title": "Licenciatura en Sistemas",
@@ -145,7 +145,7 @@
       "email": "ana.garcia@yopmail.com",
       "phone": "+54 9 11 1234-5678"
     },
-    "experience": [
+    "workExperience": [
       {
         "from": "2022/04/01",
         "to": "Present",

@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from "react-bootstrap";
 
 import styles from "./SummaryAccordion.module.css";
-import { scrollToId } from "@/utils";
+import { camelCaseToWords, scrollToId } from "@/utils";
 
 
 const SummaryAccordion: React.FC<{ sections: string[] }> = (props) => {
@@ -16,7 +16,7 @@ const SummaryAccordion: React.FC<{ sections: string[] }> = (props) => {
             onClick={() => scrollToId(section, 'smooth')}
           >
             <Card.Body className={`p-0`}>
-              {section}
+              {camelCaseToWords(section)}
             </Card.Body>
           </Card>
         ))

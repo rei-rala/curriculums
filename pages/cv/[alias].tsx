@@ -40,7 +40,6 @@ const CvPage: DefaultFC = () => {
     );
 
 
-
   return (
     <main>
       <Head>

@@ -3,8 +3,8 @@ import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
 
-const ExperienceLineComponent: ExtendedFC<{ experience: Experience }> = ({ experience }) => {
-  const { position, employer, from, to } = experience;
+const WorkExperienceLine: ExtendedFC<{ workExperience: WorkExperience }> = ({ workExperience }) => {
+  const { position, employer, from, to } = workExperience;
 
   let date = `${from} - ${to}`;
 
@@ -23,4 +23,4 @@ const ExperienceLineComponent: ExtendedFC<{ experience: Experience }> = ({ exper
   );
 };
 
-export default ExperienceLineComponent;
+export default WorkExperienceLine;

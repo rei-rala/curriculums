@@ -39,6 +39,10 @@ export function truncateString(str: string, len: number) {
   return str.slice(0, len) + "...";
 }
 
+export function camelCaseToWords(text: string) {
+  return text.replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase();
+}
+
 export function scrollToId(id: string, behavior?: ScrollBehavior) {
   const el = document.getElementById(id);
   if (el) {

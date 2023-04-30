@@ -1,53 +1,53 @@
 import React from "react";
 
-declare global {  
-  type Personal = {
+declare global {
+  interface Personal {
     name: string;
     surname: string;
     location: string;
     photo?: string;
-  };
+  }
 
-  type Contact = {
+  interface Contact {
     alias: string;
     email: string;
     phone: string;
     linkedin: string;
     linkedinName?: string;
-  };
+  }
 
-  type Strength = {
+  interface Strength {
     title: string;
     description: string;
-  };
+  }
 
-  type Language = {
+  interface Language {
     name: string;
     level: string;
-  };
+  }
 
-  type Certification = {
+  interface AcademicBackground {
     title: string;
     institution: string;
     year: number;
-  };
+  }
 
-  type Skill = {
+  interface Skill {
     kind: "Soft" | "Hard";
     title: string;
-  };
+  }
 
-  type Experience = {
+  interface WorkExperience {
     from: Date;
     to: Date;
     employer: string;
     position: string;
-  };
+  }
 
-  type Link = {
+  interface Link {
     to: string;
     text: string;
-  };
+  }
 
   interface IProfile {
     id: string;
@@ -56,11 +56,11 @@ declare global {
     about: string;
     strengths: Strength[];
     languages: Language[];
-    certifications: Certification[];
-    experience: Experience[];
+    academicBackground: AcademicBackground[];
+    workExperience: WorkExperience[];
     skills: Skill[];
   }
-  
+
   interface IProfilePartial {
     id: string;
     name: string;

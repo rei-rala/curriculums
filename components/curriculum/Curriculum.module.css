@@ -11,10 +11,7 @@
   max-height: 100%;
   min-width: 100%;
   min-height: 100%;
-}
-
-.scroller {
-  overflow: hidden;
+  padding: 0.5rem 35px;
 }
 
 .button {
@@ -22,7 +19,8 @@
   opacity: 0.2;
   transition: opacity 0.2s ease-in-out;
   aspect-ratio: 1/1;
-  max-width: 3rem;
+  width: 48px;
+  height: 48px;
   border: 1px solid red;
   border-radius: 50%;
   z-index: 3;
@@ -40,7 +38,8 @@
   right: 0;
 }
 
-.buttonNext, .buttonPrevious {
+.buttonNext,
+.buttonPrevious {
   top: 50%;
   transform: translateY(-50%);
 }
@@ -48,10 +47,15 @@
 @media screen and (min-width: 768px) {
   .curriculumRight {
     scroll-snap-type: y mandatory;
-    height: 75vh;
+    height: 72.5vh;
   }
 
-  .buttonPrevious, .buttonNext {
+  .curriculumRight article {
+    padding: 35px 0.5rem;
+  }
+
+  .buttonPrevious,
+  .buttonNext {
     top: auto;
   }
 

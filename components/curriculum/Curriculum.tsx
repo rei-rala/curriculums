@@ -1,14 +1,12 @@
-import { lazy, useEffect, useMemo, useRef, useState } from "react";
+import { lazy, useMemo, useRef } from "react";
 
-// lazy
 const SummaryComp = lazy(() => import("@components/curriculum/Summary/Summary"));
 const AboutComp = lazy(() => import("@components/curriculum/sections/About/About"));
 const StrengthsComp = lazy(() => import("@components/curriculum/sections/Strenghts/Strenghts"));
 const LanguagesComp = lazy(() => import("@components/curriculum/sections/Languages/Languages"));
-const CertificationsComp = lazy(() => import("@components/curriculum/sections/Certifications/Certifications"));
-const ExperienceComp = lazy(() => import("@components/curriculum/sections/Experience/Experience"));
+const AcademicBackgroundComp = lazy(() => import("@/components/curriculum/sections/AcademicBackground/Certifications"));
+const WorkExperienceComp = lazy(() => import("@components/curriculum/sections/WorkExperience/WorkExperience"));
 const SkillsComp = lazy(() => import("@components/curriculum/sections/Skills/Skills"));
-
 
 
 import styles from "./Curriculum.module.css";
@@ -26,12 +24,12 @@ const Curriculum: ExtendedFC<{ profile: IProfile }> = ({ profile }) => {
     strengths,
     contact,
     languages,
-    certifications,
-    experience,
+    academicBackground,
+    workExperience,
     skills,
   } = profile;
 
-  // getting sections and removing some of them used in summary
+  // removing some of them already used in summary
   const sections = useMemo(
     () =>
       Object.keys(profile).filter(
@@ -89,7 +87,7 @@ const Curriculum: ExtendedFC<{ profile: IProfile }> = ({ profile }) => {
       </Col>
 
 
-      <Col p={0} md={8} lg={7} className={`${styles.scroller} position-relative`} >
+      <Col p={0} md={8} lg={7} className="position-relative" >
         <Button
           onClick={scrollToPreviousChild}
           className={`${styles.button} ${styles.buttonPrevious}`}
@@ -101,8 +99,8 @@ const Curriculum: ExtendedFC<{ profile: IProfile }> = ({ profile }) => {
           className={`${styles.curriculumRight} d-flex flex-row flex-md-column flex-grow`}
         >
           <AboutComp about={about} />
-          <ExperienceComp experience={experience} />
-          <CertificationsComp certifications={certifications} />
+          <WorkExperienceComp workExperience={workExperience} />
+          <AcademicBackgroundComp academicBackground={academicBackground} />
           <SkillsComp skills={skills} />
           <StrengthsComp strengths={strengths} />
           <LanguagesComp languages={languages} />
