@@ -121,8 +121,36 @@
     "about": "I am a proactive and results-oriented person with a passion for technology and innovation. I enjoy collaborating with others and leveraging my creativity to solve complex problems. In my free time, I enjoy reading, practicing yoga, and traveling.",
     "strengths": [
       {
+        "title": "Leadership",
+        "description": "I am able to inspire and motivate others towards achieving a common goal, while also effectively delegating tasks and providing guidance and support."
+      },
+      {
+        "title": "Adaptability",
+        "description": "I am able to quickly and efficiently adjust to changes in a work environment or situation, and am comfortable working in fast-paced, dynamic environments."
+      },
+      {
+        "title": "Creativity",
+        "description": "I am able to think outside the box and come up with innovative solutions to problems, and am comfortable experimenting with new ideas and approaches."
+      },
+      {
+        "title": "Attention to detail",
+        "description": "I have a meticulous eye for detail and am able to catch errors or inconsistencies that others may overlook, ensuring that work is completed to a high standard of quality."
+      },
+      {
+        "title": "Collaboration",
+        "description": "I am able to work effectively with others, listen to their ideas and feedback, and contribute to a positive team environment."
+      },
+      {
         "title": "Problem-solving",
-        "description": "I excel at analyzing complex problems and developing effective solutions."
+        "description": "I am able to analyze complex problems, identify root causes, and develop effective solutions that meet business needs and objectives."
+      },
+      {
+        "title": "Communication",
+        "description": "I am able to communicate clearly and effectively, both verbally and in writing, with diverse audiences and stakeholders."
+      },
+      {
+        "title": "Organization",
+        "description": "I am able to manage multiple tasks and projects simultaneously, prioritize work effectively, and meet deadlines with high-quality results."
       }
     ],
     "academicBackground": [

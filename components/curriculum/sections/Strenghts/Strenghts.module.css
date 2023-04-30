@@ -1,0 +1,49 @@
+.container {
+  overflow: auto;
+}
+
+.strenghtsList {
+  list-style-type: none;
+  padding: 0;
+
+  text-align: center;
+  overflow: hidden;
+}
+
+.strenghtsList h4 {
+  font-size: 1.2rem;
+  color: #00bfa5;
+}
+
+.strenghtsList p {
+  font-size: 0.9rem;
+}
+
+.strenghtsList li {
+  transition: all 500ms;
+}
+
+.enter
+.enterActive,
+.enterDone,
+.exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.strenghtsList li:nth-child(2n) .enter {
+  transform: translateX(0);
+}
+
+
+
+.exitActive,
+.exitDone {
+  transform: translateX(15%);
+  opacity: 0;
+}
+
+.strenghtsList li:nth-child(2n):is(.exitActive, .exitDone) {
+  transform: translateX(-15%);
+  opacity: 0;
+}

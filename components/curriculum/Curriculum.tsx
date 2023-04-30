@@ -80,7 +80,7 @@ const Curriculum: ExtendedFC<{ profile: IProfile }> = ({ profile }) => {
       <Col
         p={0}
         md={4} lg={5}
-        className={`text-center ${styles.curriculumLeft}`}
+        className="text-center"
       >
         <SummaryComp
           personal={personal}
