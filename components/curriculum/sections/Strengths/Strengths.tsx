@@ -10,16 +10,13 @@ const Strengths: CurriculumFC = ({ strengths }) => {
     <article id="strengths" className={styles.container}>
       <h3>Strengths</h3>
       <div>
-        <ul className={styles.strengthsList}>
-          {/* Adds a hr in between strengthitems */}
+        <ul className={styles.strengthList}>
           {strengths.map((strength, index) => (
-            index === strengths.length - 1
-              ? <StrengthItem key={strength.title} strength={strength} />
-              : <StrengthItem key={strength.title} strength={strength}>
-                <div className={styles.separator}>
-                  <hr />
-                </div>
-              </StrengthItem>
+            <StrengthItem key={strength.title} strength={strength}>
+              {index !== strengths.length - 1 && (
+                  <div className={styles.separator}><hr /></div>
+              )}
+            </StrengthItem>
           ))}
         </ul>
       </div>

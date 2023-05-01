@@ -18,7 +18,7 @@ const WorkExperienceComp: CurriculumFC = ({ workExperience }) => {
       <h3>Work Experience</h3>
 
       <div>
-        <VerticalTimeline lineColor="var(--color)" layout="1-column-right">
+        <VerticalTimeline lineColor="var(--color)" layout="1-column-left">
           <div className={styles.fadeTop}></div>
           {
             experienceSortedByDate.map((workExperience, index) => (

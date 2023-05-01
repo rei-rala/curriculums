@@ -21,7 +21,7 @@ const AcademicBackgroundComp: CurriculumFC = ({ academicBackground }) => {
       <h3>Academic Background</h3>
 
       <div>
-        <VerticalTimeline lineColor="var(--color)" layout="1-column-left">
+        <VerticalTimeline lineColor="var(--color)" layout="1-column-right">
           <div className={styles.fadeTop}></div>
           {
             academicBackgroundSortedByDate.map((academicBackgroundLine, index) => (

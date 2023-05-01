@@ -5,14 +5,15 @@ import { faGear, faLightbulb } from "@fortawesome/free-solid-svg-icons";
 
 import styles from './Skills.module.css'
 import SkillBadges from "./SkillBadges/SkillBadges";
+import { SkillKind } from "@/enums";
 
 const Skills: CurriculumFC = ({ skills }) => {
   const [shakeSoft, setShakeSoft] = useState(false);
   const [shakeHard, setShakeHard] = useState(false);
 
   const [hardSkills, softSkills] = useMemo(() => ([
-    skills?.filter((s) => s.kind === "Hard") || [],
-    skills?.filter((s) => s.kind === "Soft") || []
+    skills?.filter((s) => s.kind === SkillKind.Hard) || [],
+    skills?.filter((s) => s.kind === SkillKind.Soft) || []
   ]), [skills]);
 
   if
@@ -22,7 +23,7 @@ const Skills: CurriculumFC = ({ skills }) => {
   let hasHardSkills = hardSkills.length > 0;
 
   function makeShake(kind: string) {
-    if (kind === "soft") {
+    if (kind === SkillKind.Soft) {
       setShakeSoft(true);
     } else {
       setShakeHard(true);
@@ -30,7 +31,7 @@ const Skills: CurriculumFC = ({ skills }) => {
   }
 
   function stopShake(kind: string) {
-    if (kind === "soft") {
+    if (kind === SkillKind.Soft) {
       setShakeSoft(false);
     } else {
       setShakeHard(false);
@@ -45,8 +46,8 @@ const Skills: CurriculumFC = ({ skills }) => {
         {hasSoftSkills && (
           <div
             className={styles.part}
-            onMouseEnter={() => makeShake("soft")}
-            onMouseLeave={() => stopShake("soft")}
+            onMouseEnter={() => makeShake(SkillKind.Soft)}
+            onMouseLeave={() => stopShake(SkillKind.Soft)}
           >
             <h4>
               <FontAwesomeIcon shake={shakeSoft} icon={faLightbulb} /> Soft
@@ -64,8 +65,8 @@ const Skills: CurriculumFC = ({ skills }) => {
         {hasHardSkills && (
           <div
             className={styles.part}
-            onMouseEnter={() => makeShake("hard")}
-            onMouseLeave={() => stopShake("hard")}
+            onMouseEnter={() => makeShake(SkillKind.Hard)}
+            onMouseLeave={() => stopShake(SkillKind.Hard)}
           >
             <h4>
               <FontAwesomeIcon shake={shakeHard} icon={faGear} /> Hard

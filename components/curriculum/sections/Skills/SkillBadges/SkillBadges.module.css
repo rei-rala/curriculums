@@ -6,11 +6,26 @@
   list-style: none;
   padding: 0.25rem;
   margin: 0;
-  overflow: hidden auto;
 }
 
+.badgeList li {
+  max-width: 90%;
+}
 
 .badgeList span {
   white-space: initial;
-  max-width: 6rem;
+}
+
+.badge {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hide {
+  opacity: 0;
+  transform: translateY(300%);
 }

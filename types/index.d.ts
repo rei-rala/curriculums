@@ -34,7 +34,7 @@ declare global {
   }
 
   interface Skill {
-    kind: "Soft" | "Hard";
+    kind: SkillKind;
     title: string;
   }
 
