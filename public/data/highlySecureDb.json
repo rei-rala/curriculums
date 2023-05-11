@@ -1,0 +1,23 @@
+[
+    {
+        "userType": "recruiter",
+        "fullName": "El Reclu",
+        "email": "reclu@tad.or",
+        "password": "",
+        "validatedEmail": true
+    },
+    {
+        "userType": "candidate",
+        "fullName": "candidato",
+        "email": "candidato@yopmail.com",
+        "password": "",
+        "validatedEmail": false
+    },
+    {
+        "userType": "recruiter",
+        "fullName": "El Reclu",
+        "email": "abc@abc.abc",
+        "password": "$2b$10$dE.mRs.MsALnIg/panqV1eON/XSv.kBAPFNukSc5OzfSt1QB70mhe",
+        "validatedEmail": true
+    }
+]

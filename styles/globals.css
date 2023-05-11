@@ -14,12 +14,7 @@ body {
   min-height: 100vh;
   min-width: 100%;
   overflow: hidden scroll;
-  font-family: "Roboto",
-    /* DEV: The fallback font is Comic Sans, as it will be easy to notice. */
-    "Comic Sans MS",
-    "Comic Sans", cursive,
-    /* sans-serif is Roboto's fallback */
-    sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
 
   background: linear-gradient(to bottom right, #ebebeb, #f2f2f2);

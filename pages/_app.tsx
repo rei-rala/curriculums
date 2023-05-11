@@ -8,12 +8,15 @@ import "@styles/reset.css";
 import "@styles/globals.css";
 
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import { UserContext } from "@/contexts/UserContext";
 config.autoAddCss = false
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Layout>
-      <Component {...pageProps} />
+      <UserContext>
+        <Component {...pageProps} />
+      </UserContext>
     </Layout>
   );
 }

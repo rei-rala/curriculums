@@ -4,16 +4,21 @@ import Link from "next/link";
 import styles from "./BreadCrumbs.module.css";
 
 function pathGetterByURL(routerAsPath: string) {
+  // 
+  const ommitedPaths = ['auth']
+
   // also getting #id if exists
   let path = routerAsPath.split("#")[0];
   let id = routerAsPath.split("#")[1];
-
+  
+  let defaultUrls = ["home", ...path.split("/").filter((path) => path !== "" && !ommitedPaths.some(op => op === path))]
 
   if (id) {
-    return ["home", ...path.split("/").filter((path) => path !== ""), `#${id}`];
+    // Won't show IDs by the moment
+    // return defaultUrls.concat(`#${id}`);
   }
 
-  return ["home", ...path.split("/").filter((path) => path !== "")];
+  return defaultUrls;
 }
 
 const BreadCrumbs: ExtendedFC<{ routerAsPath: string }> = ({ routerAsPath }) => {

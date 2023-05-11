@@ -1,6 +1,24 @@
 import React from "react";
 
 declare global {
+  type UserType = "recruiter" | "candidate"
+  
+  interface IUser {
+    userType?: UserType;
+    fullName?: string;
+    email?: string;
+    password?: string;
+    validatedEmail?: boolean;
+  }
+  
+
+  interface Credentials {
+    userType: UserType
+    email: string;
+    password: string;
+  }
+
+  
   interface Personal {
     name: string;
     surname: string;
@@ -78,6 +96,7 @@ declare global {
 
   interface IApiError {
     message: string;
+    data?: any;
     statusCode: number;
   }
 }
