@@ -10,7 +10,7 @@ const BaseAvatar = (props: any) => {
   const { profile, width, height, altText, iconClass, fill, iconScale } = props;
 
   return (
-    <div className={styles.avatarContainer}>
+    <div className={`${styles.avatarContainer} accent`}>
       {profile?.photo
         ? <Image
           fill={fill || false}

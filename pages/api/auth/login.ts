@@ -35,7 +35,7 @@ export default async function handler(
 
     if (!email || !password || !userType) {
       throw {
-        message: "Email or password not provided",
+        message: "Faltaron uno o mas datos",
         status: 400,
       };
     }
@@ -62,7 +62,7 @@ export default async function handler(
 
     if (!user) {
       throw {
-        message: "Invalid credentials",
+        message: "Usuario, contraseña o rol incorrecto. Verifica los datos ingresados.",
         status: 401,
       };
     }

@@ -1,23 +1,51 @@
 import Link from "next/link";
-import React from "react";
+import React, { useContext, useMemo } from "react";
 
 import styles from "./NavbarMenu.module.css";
-import { NavLinkType } from "../Navbar";
+import { useRouter } from "next/router";
+import { UserCtx } from "@/contexts/UserContext";
+
+export type NavLinkType = {
+  to: string;
+  text: string;
+};
+
+const baseLink: NavLinkType[] = [{ to: "/cv", text: "Perfiles" }];
 
 interface NavbarMenuProps {
   open: boolean;
   setOpen: any;
-  links: NavLinkType[];
 }
 
-const NavbarMenu: ExtendedFC<NavbarMenuProps> = ({ links, open, setOpen }) => {
+const NavbarMenu: ExtendedFC<NavbarMenuProps> = ({ open, setOpen }) => {
+  const { loggedUser } = useContext(UserCtx);
+  const router = useRouter();
+  const navLinks = useMemo(() => {
+    let nvLinks = baseLink;
+
+    if (loggedUser && !nvLinks.find((link) => link.to === "/logout")) {
+      nvLinks = nvLinks.filter((link) => link.to !== "/login");
+
+      // logout with callback url
+      nvLinks.push({
+        to: `/logout?callBackUrl=${router.pathname}`,
+        text: "Cerrar sesión",
+      });
+
+      if (loggedUser.userType === "candidate")
+        nvLinks.unshift({ to: "/cv/me", text: "Mi curriculum" });
+      return nvLinks;
+    }
+    return [{ to: "/login", text: "Iniciar sesión" }, ...nvLinks];
+  }, [loggedUser, router]);
+
   if (!open) return null;
 
   return (
     <ul className={"dropdown-menu " + styles.openMenu}>
-      {links.map((nl) => (
+      {navLinks.map((nl) => (
         <li onClick={() => setOpen(false)} key={nl.text}>
-          <Link className="dropdown-item" href={nl.to}>
+          <Link className={`dropdown-item ${styles.dropdownItem}`} href={nl.to}>
             {nl.text}
           </Link>
         </li>

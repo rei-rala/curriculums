@@ -4,3 +4,13 @@
   top: 2rem;
   right: 0;
 }
+
+
+.dropdownItem {
+  transition: color, background 50ms;
+}
+
+.dropdownItem:active {
+  background-color: var(--accent) !important;
+  color: #fff !important;
+}

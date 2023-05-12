@@ -40,7 +40,7 @@ export function truncateString(str: string, len: number) {
 }
 
 export function camelCaseToWords(text: string) {
-  return text.replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase();
+  return text.replace(/([a-z])([A-Z])/g, "$1 $2").toLowerCase();
 }
 
 export function scrollToId(id: string, behavior?: ScrollBehavior) {
@@ -50,27 +50,37 @@ export function scrollToId(id: string, behavior?: ScrollBehavior) {
   }
 }
 
-
-export function getLocalStorageItem<T>(key: string): T | null {
-  if (IS_SERVER) return null;
-
-  let lsItem = localStorage.getItem(key);
-  if (!lsItem) return null; 
-  
+export function getLocalStorageItem<T>(key: string, defaultValue: T | null = null): T | null {
   try {
+    if (IS_SERVER) throw {};
+
+    let lsItem = localStorage.getItem(key);
+    if (!lsItem) throw {};
+
     return JSON.parse(lsItem);
   } catch {
-    return null;
+    return defaultValue;
   }
 }
 
-export function pathGetterByURL(routerAsPath: string, ommitedPaths = ['auth']) {
+export function saveToLocalStorage(key: string, value: any) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {}
+}
+
+export function pathGetterByURL(routerAsPath: string, ommitedPaths = ["auth"]) {
   // also getting #id if exists
   let path = routerAsPath.split("#")[0];
   let pathsWithoutQueries = path.split("?")[0];
   let id = routerAsPath.split("#")[1];
 
-  let defaultUrls = ["home", ...pathsWithoutQueries.split("/").filter((path) => path !== "" && !ommitedPaths.some(op => op === path))]
+  let defaultUrls = [
+    "home",
+    ...pathsWithoutQueries
+      .split("/")
+      .filter((path) => path !== "" && !ommitedPaths.some((op) => op === path)),
+  ];
 
   if (id) {
     // Won't show IDs by the moment
@@ -80,10 +90,14 @@ export function pathGetterByURL(routerAsPath: string, ommitedPaths = ['auth']) {
   return defaultUrls;
 }
 
-export function sortBackgroundByDate(background?: (WorkExperience | AcademicBackground)[] ) {
-  return background?.sort((a, b) => {
-    if (a.from > b.from) return -1;
-    if (a.from == b.from && a.to > b.to) return -1;
-    return 0;
-  }) || [];
+export function sortBackgroundByDate(
+  background?: (WorkExperience | AcademicBackground)[]
+) {
+  return (
+    background?.sort((a, b) => {
+      if (a.from > b.from) return -1;
+      if (a.from == b.from && a.to > b.to) return -1;
+      return 0;
+    }) || []
+  );
 }

@@ -11,10 +11,10 @@ const WorkExperienceLine: ExtendedFC<{ workExperience: WorkExperience }> = ({ wo
   return (
     <VerticalTimelineElement
       className="vertical-timeline-element--work"
-      contentStyle={{ background: 'var(--a-color)', color: '#fff' }}
+      contentStyle={{ background: 'var(--accent)', color: '#fff' }}
       contentArrowStyle={{ borderRight: '7px solid var(--color)' }}
       date={date}
-      iconStyle={{ background: 'var(--a-color)', color: '#fff' }}
+      iconStyle={{ background: 'var(--accent)', color: '#fff' }}
       icon={<FontAwesomeIcon icon={faBriefcase} />}
     >
       <h4 className="vertical-timeline-element-title">{position}</h4>

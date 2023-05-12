@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useContext, useMemo, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 
 import NavbarMenu from "./NavbarMenu/NavbarMenu";
 
@@ -8,42 +8,14 @@ import AppTooltip from "@components/AppTooltip/AppTooltip";
 
 import styles from "./Navbar.module.css";
 import { UserCtx } from "@/contexts/UserContext";
-import { useRouter } from "next/router";
 
-export type NavLinkType = {
-  to: string;
-  text: string;
-};
-
-const baseLink: NavLinkType[] = [{ to: "/cv", text: "Perfiles" }];
 
 const Navbar: DefaultFC = () => {
-  const router = useRouter();
   const { loggedUser } = useContext(UserCtx);
   const [isNavbarMenuOpen, setNavbarMenuOpen] = useState(false);
 
   const avatarRef = useRef<HTMLElement | null>(null);
   const [showAvatarTooltip, setShowAvatarTooltip] = useState(false);
-
-  const navLinks = useMemo(() => {
-    let nvLinks = baseLink;
-
-    if (loggedUser && !nvLinks.find((link) => link.to === "/logout")) {
-      nvLinks = nvLinks.filter(link => link.to !== "/login")
-
-      // logout with callback url
-      nvLinks.push({
-        to: `/logout?callBackUrl=${router.pathname}`,
-        text: "Cerrar sesión",
-      });
-
-
-      if (loggedUser.userType === 'candidate')
-        nvLinks.unshift({ to: "/cv/me", text: "Mi curriculum" });
-      return nvLinks;
-    }
-    return [{ to: "/login", text: "Iniciar sesión" }, ...nvLinks];
-  }, [loggedUser, router]);
 
   function toggleNavbarMenu() {
     setNavbarMenuOpen(!isNavbarMenuOpen);
@@ -79,7 +51,6 @@ const Navbar: DefaultFC = () => {
           <ProfileAvatar profile={loggedUser} />
         </span>
         <NavbarMenu
-          links={navLinks}
           open={isNavbarMenuOpen}
           setOpen={setNavbarMenuOpen}
         />

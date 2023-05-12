@@ -41,9 +41,9 @@
 
   padding: 0;
   background-color: #fff;
-  border: 1px inset rgba(0, 0, 0, 0.1);
+  border: 1px outset var(--accent);
+  box-shadow: var(--box-shadow);
   border-radius: 50%;
-
   overflow: hidden;
 }
 
@@ -58,12 +58,17 @@
 }
 
 .cardBodyText {
-  overflow-y: scroll;
-  max-height: 10vh;
+  overflow: hidden auto;
+  max-height: 20vh;
+  font-size: 0.9rem;
+}
+
+.footerLink {
+  background-color: var(--accent) !important;
 }
 
 @media screen and (min-width: 768px) {
   .cardBodyText {
-    max-height: 15vh;
+    max-height: 20vh;
   }
 }

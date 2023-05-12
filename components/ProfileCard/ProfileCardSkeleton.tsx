@@ -34,7 +34,7 @@ const ProfileCardSkeleton = () => {
       <div className="card-footer row placeholder-glow text-center">
         <a
           href="#"
-          className="disabled placeholder btn btn-primary col-sm-6 col-md-8 col-lg-6 m-auto"
+          className={`disabled placeholder btn btn-primary col-sm-6 col-md-8 col-lg-6 m-auto ${styles.footerLink}`}
         ></a>
       </div>
     </div>
