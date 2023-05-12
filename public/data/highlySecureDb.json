@@ -9,14 +9,14 @@
     {
         "userType": "candidate",
         "fullName": "candidato",
-        "email": "candidato@yopmail.com",
+        "email": "candidate000@yopmail.com",
         "password": "$2b$10$ZRT0jx96LxlNJqMgUHS.YOCvdc1kw4YbtBsB8l1oZe5bOU9zsA/7i",
         "validatedEmail": false
     },
     {
         "userType": "recruiter",
         "fullName": "El Reclu",
-        "email": "abc@abc.abc",
+        "email": "recruiter000@yopmail.com",
         "password": "$2a$10$b7ur3qWKYjHwDMuWDfmTU.PIGi2mxbRgh/ATsCdwBkU//zgMAFcyS",
         "validatedEmail": true
     }

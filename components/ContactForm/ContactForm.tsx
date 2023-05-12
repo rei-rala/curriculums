@@ -48,7 +48,7 @@ const ContactForm: ExtendedFC<ContactFormProps> = ({ fullName, alias }) => {
   }
 
   if (!alias) return null;
-  if (loggedUser.userType !== "recruiter" && loggedUser.alias == alias) {
+  if (loggedUser.userType !== "recruiter" && loggedUser.alias === alias && !loggedUser.validatedEmail) {
     return null;
   }
 
