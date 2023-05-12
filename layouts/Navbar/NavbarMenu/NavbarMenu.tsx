@@ -23,12 +23,12 @@ const NavbarMenu: ExtendedFC<NavbarMenuProps> = ({ open, setOpen }) => {
   const navLinks = useMemo(() => {
     let nvLinks = baseLink;
 
-    if (loggedUser && !nvLinks.find((link) => link.to === "/logout")) {
-      nvLinks = nvLinks.filter((link) => link.to !== "/login");
+    if (loggedUser && !nvLinks.find((link) => link.text === "Cerrar sesión")) {
+      nvLinks = nvLinks.filter((link) => link.to !== "Iniciar sesión");
 
       // logout with callback url
       nvLinks.push({
-        to: `/logout?callBackUrl=${router.pathname}`,
+        to: `/logout?callBackUrl=${router.asPath}`,
         text: "Cerrar sesión",
       });
 
@@ -36,7 +36,10 @@ const NavbarMenu: ExtendedFC<NavbarMenuProps> = ({ open, setOpen }) => {
         nvLinks.unshift({ to: "/cv/me", text: "Mi curriculum" });
       return nvLinks;
     }
-    return [{ to: "/login", text: "Iniciar sesión" }, ...nvLinks];
+    return [
+      { to: `/login?callBackUrl=${router.asPath}`, text: "Iniciar sesión" },
+      ...nvLinks,
+    ];
   }, [loggedUser, router]);
 
   if (!open) return null;

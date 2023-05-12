@@ -9,6 +9,7 @@ declare global {
     email?: string;
     password?: string;
     validatedEmail?: boolean;
+    alias?: string
   }
   
 
