@@ -88,7 +88,7 @@ const LoginPage = () => {
             </Alert>
           )}
 
-          <h1>Log in</h1>
+          <h1 className="text-center">Iniciar sesión</h1>
           <span
             role="button"
             ref={userTypeTogglerRef}
@@ -106,7 +106,7 @@ const LoginPage = () => {
             />
           </span>
 
-          <p className="lead my-1">
+          <p className="lead my-2">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
             quod.
           </p>
@@ -125,13 +125,6 @@ const LoginPage = () => {
                 value={typedEmail}
                 onChange={handleCredentialChange}
               />
-
-              {/* TODO: Move only to register page */}
-              {userType === "recruiter" && (
-                <Form.Text className="text-muted">
-                  Solo se compartirá tu email con los candidatos que contactes.
-                </Form.Text>
-              )}
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">

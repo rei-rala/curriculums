@@ -6,7 +6,6 @@ import { UserCtx } from "@/contexts/UserContext";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-
 // TODO: Use formik with Yup for the Forms
 const RegisterPage = () => {
   const router = useRouter();
@@ -85,9 +84,9 @@ const RegisterPage = () => {
             </Alert>
           )}
 
-          <h1>Log in</h1>
+          <h1 className="text-center">Registrarse</h1>
 
-          <p className="lead'1">
+          <p className="lead my-2">
             Registro como{" "}
             <span style={{ color: "var(--accent)" }}>
               <b>{userType}</b>
@@ -100,7 +99,7 @@ const RegisterPage = () => {
                 : " visualizar perfiles y dejarles un mensaje a los candidatos que desees."}
             </span>{" "}
             <b role="button" ref={userTypeTogglerRef} onClick={toggleUserType}>
-              Cambiar
+              Cambiar a {userType === "candidate" ? "recruiter" : "candidate"}
             </b>
           </p>
 
@@ -119,7 +118,6 @@ const RegisterPage = () => {
                 onChange={handleCredentialChange}
               />
 
-              {/* TODO: Move only to register page */}
               {userType === "recruiter" && (
                 <Form.Text className="text-muted">
                   Solo se compartirá tu email con los candidatos que contactes.
@@ -160,7 +158,8 @@ const RegisterPage = () => {
               </Button>
 
               <span className="col-sm-12 my-1 col-12 col-md-6 text-center">
-                Si <b>tienes</b> cuenta, <Link href={"/login"}>inicia sesión</Link>
+                Si <b>tienes</b> cuenta,{" "}
+                <Link href={"/login"}>inicia sesión</Link>
               </span>
             </Container>
           </Form>
