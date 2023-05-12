@@ -51,6 +51,35 @@ export function scrollToId(id: string, behavior?: ScrollBehavior) {
 }
 
 
+export function getLocalStorageItem<T>(key: string): T | null {
+  if (IS_SERVER) return null;
+
+  let lsItem = localStorage.getItem(key);
+  if (!lsItem) return null; 
+  
+  try {
+    return JSON.parse(lsItem);
+  } catch {
+    return null;
+  }
+}
+
+export function pathGetterByURL(routerAsPath: string, ommitedPaths = ['auth']) {
+  // also getting #id if exists
+  let path = routerAsPath.split("#")[0];
+  let pathsWithoutQueries = path.split("?")[0];
+  let id = routerAsPath.split("#")[1];
+
+  let defaultUrls = ["home", ...pathsWithoutQueries.split("/").filter((path) => path !== "" && !ommitedPaths.some(op => op === path))]
+
+  if (id) {
+    // Won't show IDs by the moment
+    // return defaultUrls.concat(`#${id}`);
+  }
+
+  return defaultUrls;
+}
+
 export function sortBackgroundByDate(background?: (WorkExperience | AcademicBackground)[] ) {
   return background?.sort((a, b) => {
     if (a.from > b.from) return -1;

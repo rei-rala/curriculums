@@ -2,27 +2,11 @@ import React, { useMemo } from "react";
 import Link from "next/link";
 
 import styles from "./BreadCrumbs.module.css";
+import { pathGetterByURL } from "@/utils";
 
-function pathGetterByURL(routerAsPath: string) {
-  // 
-  const ommitedPaths = ['auth']
-
-  // also getting #id if exists
-  let path = routerAsPath.split("#")[0];
-  let id = routerAsPath.split("#")[1];
-  
-  let defaultUrls = ["home", ...path.split("/").filter((path) => path !== "" && !ommitedPaths.some(op => op === path))]
-
-  if (id) {
-    // Won't show IDs by the moment
-    // return defaultUrls.concat(`#${id}`);
-  }
-
-  return defaultUrls;
-}
 
 const BreadCrumbs: ExtendedFC<{ routerAsPath: string }> = ({ routerAsPath }) => {
-  const breadcrumbsPaths = useMemo(()=> pathGetterByURL(routerAsPath), [routerAsPath]) 
+  const breadcrumbsPaths = useMemo(() => pathGetterByURL(routerAsPath), [routerAsPath])
 
   return (
     <nav aria-label="breadcrumb" className={`row px-3 py-1 d-flex align-items-center ${styles.breadcrumbNav}`}>
@@ -30,8 +14,8 @@ const BreadCrumbs: ExtendedFC<{ routerAsPath: string }> = ({ routerAsPath }) => 
         {
           breadcrumbsPaths.map((path, index) => {
             let partialUrl = breadcrumbsPaths.slice(1, index + 1).join("/"),
-                itemKey = `bcNav-${path}`,
-                isLastItem = index === breadcrumbsPaths.length - 1;
+              itemKey = `bcNav-${path}`,
+              isLastItem = index === breadcrumbsPaths.length - 1;
 
             return (
               <li
@@ -42,11 +26,11 @@ const BreadCrumbs: ExtendedFC<{ routerAsPath: string }> = ({ routerAsPath }) => 
                 {
                   isLastItem
                     ? path
-                    :  <Link href={`/${partialUrl}`}> { path } </Link>
+                    : <Link href={`/${partialUrl}`}> {path} </Link>
                 }
               </li>
             );
-        })}
+          })}
       </ol>
     </nav>
   );

@@ -12,14 +12,14 @@ type UserContextType = {
   loggedUser: IUser | null;
   setLoggedUser: Dispatch<SetStateAction<IUser | null>>;
   logIn: (credentials: Credentials) => Promise<{ user: IUser } | null>;
-  logOut: () => void;
+  logOut: () => Promise<void>;
 };
 
 export const UserCtx = createContext<UserContextType>({
   loggedUser: defaultUserCtx,
   setLoggedUser: () => {},
   logIn: async () => null,
-  logOut: () => {},
+  logOut: async () => {},
 });
 
 export const UserContext: DefaultFC = (props) => {
@@ -30,7 +30,7 @@ export const UserContext: DefaultFC = (props) => {
   }
 
   async function logOut() {
-    setLoggedUser(null);
+    return setLoggedUser(null);
   }
 
   return (

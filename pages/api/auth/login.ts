@@ -31,7 +31,7 @@ export default async function handler(
     }
 
     let { email, password, userType } = req.body;
-    email = email?.replace(/\s/g, "");
+    email = email?.replace(/\s/g, "").toLowerCase();
 
     if (!email || !password || !userType) {
       throw {
@@ -47,7 +47,18 @@ export default async function handler(
     );
     const json: IUser[] = JSON.parse(fileContents);
 
-    user = json.find(u =>  u.email === email && u.userType === userType && bcrypt.compare(password, u.password || ""));
+    let hashedPw = bcrypt.hashSync(password, saltRounds);
+
+    user = json.find((u) => {
+      let upw = u.password;
+
+      console.log({
+        upw,
+        hashedPw,
+      });
+
+      return u.email === email && u.userType === userType && bcrypt.compare(hashedPw, u.password ?? "")
+    });
 
     if (!user) {
       throw {
@@ -57,7 +68,6 @@ export default async function handler(
     }
 
     delete user.password;
-
   } catch (e: any) {
     status = e.status ?? 500;
     message = e.message ?? "Unexpected error";

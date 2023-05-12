@@ -13,10 +13,10 @@ config.autoAddCss = false
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
-      <UserContext>
+    <UserContext>
+      <Layout>
         <Component {...pageProps} />
-      </UserContext>
-    </Layout>
+      </Layout>
+    </UserContext>
   );
 }
